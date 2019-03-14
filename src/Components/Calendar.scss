@@ -1,0 +1,35 @@
+.calendar-container{
+    width: 100%;
+
+    .calendar-table{
+        margin: auto;
+        border-collapse: collapse;
+        thead{
+            padding: 10px;
+            tr{
+                th{
+                    color: grey;
+                    padding: 10px;
+                }
+            }
+        }
+
+        tbody{
+            tr{
+                td{
+                    background-color: #f1f1f1;
+                    width: 160px;
+                    height: 100px;
+                    vertical-align: top;
+                    text-align: end;
+                    padding: 4px;
+                    border-top: 3px solid #ddd;
+                    border-right: 3px solid #ddd;
+                }
+                td:hover{
+                    background-color: #ffffff;
+                }
+            }
+        }
+    }
+}

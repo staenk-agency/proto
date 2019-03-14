@@ -1,0 +1,52 @@
+.horizontalNavBar-container{
+    margin: 0;
+
+    .input{
+        border-radius: 25px;
+        border: 1px solid grey;
+        padding: 2px 2px;
+        height: 25px;
+        background-color:#F8F8F9;
+    }
+    .horizontalNavBar-elements{
+        display:flex;
+        justify-content: space-around;
+
+        .option{
+            margin: auto 0;
+        }
+        .horizontalNavBar-elements-tweet{
+            display: flex;
+            justify-content: center;
+            margin: auto 0;
+            .horizontalNavBar-elements-list{
+                list-style: none;
+                padding: 0;
+                display:flex;
+                li{
+                    background-color:#F8F8F9;
+                    padding: 8px;
+                    border-radius: 5px;
+                }
+
+            }
+            .input-tweet{
+                align-self: center;
+                width: 350px;
+            }
+        }
+        .horizontalNavBar-elements-profile{
+                margin: auto 0;
+
+                button{
+                    background-image: linear-gradient(to left, #51555b, #585d6a, #626479, #6f6b86, #807192);
+                    border-radius: 25px;
+                    border: none;
+                    padding: 6px;
+                    width: 105px;
+                    color: #f1f1f1;
+                }
+        }
+
+    }
+}
