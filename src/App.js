@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="horizontalNavBar-app-container">
-          <HorizontalNavbar />        
+          <HorizontalNavbar />
         </div>
         <div className="verticalMenu-app-container">
           <VerticalMenu />        

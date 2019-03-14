@@ -1,9 +1,12 @@
 .calendar-container{
     width: 100%;
+    margin: 0;
+    padding: 0;
 
     .calendar-table{
         margin: auto;
         border-collapse: collapse;
+
         thead{
             padding: 10px;
             tr{
@@ -17,7 +20,7 @@
         tbody{
             tr{
                 td{
-                    background-color: #f1f1f1;
+                    background-color:  #ffffff;
                     width: 160px;
                     height: 100px;
                     vertical-align: top;
@@ -27,7 +30,7 @@
                     border-right: 3px solid #ddd;
                 }
                 td:hover{
-                    background-color: #ffffff;
+                    background-color:#f1f1f1;
                 }
             }
         }
