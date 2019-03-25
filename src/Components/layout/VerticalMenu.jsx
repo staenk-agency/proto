@@ -4,16 +4,16 @@ import './VerticalMenu.scss';
 
 const VerticalMenu = () => {
 
-function handleShowHideMenu(){
-  let links = document.getElementsByClassName('verticalMenu-list-second-links')
-    for(links of links){
-      if(links.style.display === "block"){
-        links.style.display = "none"
-      } else {
-        links.style.display = "block";
-      }
-  }
-}
+// function handleShowHideMenu(){
+//   let links = document.getElementsByClassName('verticalMenu-list-second-links')
+//     for(links of links){
+//       if(links.style.display === "block"){
+//         links.style.display = "none"
+//       } else {
+//         links.style.display = "block";
+//       }
+//   }
+// }
 
   return (
     <div className="verticalMenu-container">

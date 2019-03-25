@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Calendar from '../pages/calendar/Calendar';
+// import Calendar from '../pages/calendar/Calendar';
 import NavbarDashboard from './NavbarDashboard';
+import CalendarTry from '../pages/calendar/CalendarTry';
 import './Dashboard.scss';
 
 export class Dashboard extends Component {
@@ -8,7 +9,8 @@ export class Dashboard extends Component {
         return (
             <div className="dashboard-container">
                 <NavbarDashboard />
-                <Calendar />
+                {/* <Calendar /> */}
+                <CalendarTry />
             </div>
         )
     }
