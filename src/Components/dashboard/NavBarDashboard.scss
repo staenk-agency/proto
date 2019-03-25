@@ -1,0 +1,46 @@
+.NavBarDashboard-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to bottom, #e5e4ea, #e2e1e7, #e0dfe5, #dddce2, #dbdae0);
+    padding: 10px;
+
+    h2{
+        margin: 0;
+        color : #95DDDA;
+    }
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+
+        li{
+            background-color: #f1f1f1;
+            padding: 8px;
+            width: 70px;
+            text-align: center;
+            margin: 1px;
+        }
+        .NavBarDashboard-first-list{
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+        .NavBarDashboard-last-list{
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+        li:hover{
+            cursor: pointer;
+            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+        }
+    }
+    button{
+        border: none;
+        border-radius: 25px;
+        background-color:rgb(10, 193, 71);
+        box-shadow: 3px 3px 15px #020202;
+        padding: 8px;
+        color: #f1f1f1;
+        font-weight: bold;
+    }
+}

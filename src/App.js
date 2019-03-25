@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Dashboard from './Components/Dashboard';
+import Dashboard from './Components/dashboard/Dashboard';
 import HorizontalNavbar from './Components/layout/HorizontalNavBar';
 import VerticalMenu from './Components/layout/VerticalMenu';
 class App extends Component {

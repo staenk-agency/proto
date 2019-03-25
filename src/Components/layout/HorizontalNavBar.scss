@@ -11,6 +11,7 @@
     .horizontalNavBar-elements{
         display:flex;
         justify-content: space-around;
+        flex-wrap: nowrap;
 
         .option{
             margin: auto 0;
@@ -28,7 +29,6 @@
                     padding: 8px;
                     border-radius: 5px;
                 }
-
             }
             .input-tweet{
                 align-self: center;
@@ -37,14 +37,15 @@
         }
         .horizontalNavBar-elements-profile{
                 margin: auto 0;
-
                 button{
-                    background-image: linear-gradient(to left, #51555b, #585d6a, #626479, #6f6b86, #807192);
+                    background-image: linear-gradient(to right, #8a7f97, #80778e, #766f85, #6c687d, #636074);
                     border-radius: 25px;
                     border: none;
+                    box-shadow: 3px 3px 15px #020202;
                     padding: 6px;
-                    width: 105px;
+                    width: 115px;
                     color: #f1f1f1;
+                    font-weight: bold;
                 }
         }
 

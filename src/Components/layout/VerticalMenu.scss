@@ -7,9 +7,11 @@
 
     .verticalMenu-title{
         display:flex;
-        align-items: center;
-        justify-content: space-around;
-        .profile{
+
+        h2{
+            margin: 5% auto;
+        }
+        .fa-user{
             margin: auto;
             font-size: 1.5em;
         }
@@ -19,58 +21,93 @@
 
         .verticalMenu-main-links{
             color: #f1f1f1;
+            padding-bottom: 2px;
             border-bottom: 0.8px solid #f1f1f1;
-            border-top: 0.8px solid #f1f1f1;
-            padding: 12px;
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .button-dropDown{
+                background-color: #3A3A5E;
+                color:#f1f1f1;
+                font-size: 1em;
+                border:none;
+                width: 100%;
+                height: 100%;
+                padding: 15px 0;
+            }
+            .button-dropDown:focus{
+                outline: 0;
+            }
         }
         .verticalMenu-list-second-links{
             list-style: none;
+            position: relative;
             display: none;
+            max-height: 100px;
+            overflow: auto;
         }
 
-        .verticalMenu-main-links:hover + .verticalMenu-list-second-links{
-            display: block;
-        }
-        .verticalMenu-main-links:hover{
+        // .verticalMenu-main-links:hover + .verticalMenu-list-second-links{
+        //     display: block;
+        // }
+
+        .verticalMenu-main-links:hover , .button-dropDown:hover{
             background-color: #63637F;
+            cursor: pointer;
         }
     }
-    button{
-        margin : auto;
+    .add-btn{
+        width: 70%;
+        margin: 3% 15% 0 15%;
         border-radius: 25px;
         background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
         border: none;
+        box-shadow: 3px 3px 15px #020202;
         padding: 8px;
         color: #f1f1f1;
+        font-weight: bold;
+
+        i{
+            margin: 0 15% 0 0;
+        }
+    }
+    button:hover{
+        cursor: pointer;
     }
     .verticalMenu-list-actions{
         color: rgb(137, 137, 151);
-
+        
         ul{
+            margin: auto;
             list-style: none;
             padding: 0;
 
             li{
                 border-bottom: 1px solid rgb(137, 137, 151);
                 width: 80%;
+                margin: 3% auto;
                 // margin: auto 0 auto auto;
                 .fa-bell{
-                    color: green;
+                    color: rgb(10, 193, 71);
                 }
                 .fa-ban{
                     color:red;
                 }
                 .fa-clock{
-                    color:blue;
+                    color:rgb(0, 152, 255);
                 }
                 .fa-redo-alt{
-                    color:green;
+                    color:rgb(10, 193, 71);
                 }
                 i{
                     padding: 10px;
                     margin-right: 10%;
                 }
+            }
+            li:hover{
+                background-color: #63637F;
+                cursor: pointer;
             }
         }
     }

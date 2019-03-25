@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Calendar from './Calendar';
+import Calendar from '../pages/calendar/Calendar';
+import NavbarDashboard from './NavbarDashboard';
 import './Dashboard.scss';
-// import HorizontalNavBar from './layout/HorizontalNavBar';
-// import VerticalMenu from './layout/VerticalMenu';
 
 export class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard-container">
+                <NavbarDashboard />
                 <Calendar />
             </div>
         )
