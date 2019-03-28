@@ -7,82 +7,58 @@ export class CalendarMonth extends Component {
     constructor(props){
         super(props)
         this.state = {
-            today : moment(),
+            dateSelected: null
         }
+        this.daysName = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE"]
+        this.position = null
     }
+    displayDays(){
+        let days = []
+        this.position = this.props.firstDayOfMonth
+        //change the position by the position in the grid
+        if(this.props.firstDayOfMonth> 0 && this.props.firstDayOfMonth < 7){
+            this.props.firstDayOfMonth -= 1
+        } else if (this.props.firstDayOfMonth === 6) {
+            this.props.firstDayOfMonth = 6
+        }
+        for(let i= 0; i < this.props.daysInMonth; i++){
+            days.push()
+        }
+
+    }
+    // let count = Math.ceil(daysInMonth / 7);
     render() {
-        console.log(this.state)
+        console.log(this.props)
+        const {firstDayOfMonth, lastDayOfMonth, daysInMonth, month, date} = this.props
+        
+
     return (
         <div className="calendar-month-container">
-            <h1>{moment().format("MMMM")}</h1>
-            <h2>{moment().format("YYYY")}</h2>
-            <p>{moment().endOf("month").format("dddd")} </p>
+        <div className="weekDays">
+            {
+                this.daysName.map((day, id) => {
+                    return (
+                        <div className={'weekDayName ' + 'position' + id}>
+                            {day}
+                        </div>
+                    )
+                })
+            }
 
-
-            <table className="calendar-table" id="calendar">
-                    <thead>
-                        <tr>
-                            <th>LUNDI</th>
-                            <th>MARDI</th>
-                            <th>MERCREDI</th>
-                            <th>JEUDI</th>
-                            <th>VENDREDI</th>
-                            <th>SAMEDI</th>
-                            <th>DIMANCHE</th>
-                        </tr>
-                    </thead>
+        </div>
         
-                    <tbody id="calendar-body">
-                        <tr className="calendar-rows">
-                            <td className="row lun"></td>
-                            <td className="row mar"></td>
-                            <td className="row mer"></td>
-                            <td className="row jeu"></td>
-                            <td className="row ven"></td>
-                            <td className="row sam"></td>
-                            <td className="row dim"></td>
-                        </tr>
-                        <tr className="calendar-rows">
-                            <td className="row lun"></td>
-                            <td className="row mar"></td>
-                            <td className="row mer"></td>
-                            <td className="row jeu"></td>
-                            <td className="row ven"></td>
-                            <td className="row sam"></td>
-                            <td className="row dim"></td>
-                        </tr>
-                        <tr className="calendar-rows">
-                            <td className="row lun"></td>
-                            <td className="row mar"></td>
-                            <td className="row mer"></td>
-                            <td className="row jeu"></td>
-                            <td className="row ven"></td>
-                            <td className="row sam"></td>
-                            <td className="row dim"></td>
-                        </tr>
-                        <tr className="calendar-rows">
-                            <td className="row lun"></td>
-                            <td className="row mar"></td>
-                            <td className="row mer"></td>
-                            <td className="row jeu"></td>
-                            <td className="row ven"></td>
-                            <td className="row sam"></td>
-                            <td className="row dim"></td>
-                        </tr>
-                        <tr className="calendar-rows">
-                            <td className="row lun"></td>
-                            <td className="row mar"></td>
-                            <td className="row mer"></td>
-                            <td className="row jeu"></td>
-                            <td className="row ven"></td>
-                            <td className="row sam"></td>
-                            <td className="row dim"></td>
-                        </tr>
-                    </tbody>
-                </table>
+
+
         </div>
     )
     }
 }
 
-export default CalendarMonth
+CalendarMonth.defaultProps = {
+    actually: moment(),
+    firstDayOfMonth: moment().startOf("month").format("d"), 
+    lastDayOfMonth: moment().endOf("month").format(),
+    daysInMonth: moment().daysInMonth(),
+};
+
+export default CalendarMonth;

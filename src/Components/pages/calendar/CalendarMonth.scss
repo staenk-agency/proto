@@ -1,16 +1,48 @@
 .calendar-month-container{
 
-    .calendar-table{
-        background-color: bisque;
+    .weekDays{
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            
+        .position{
+            width: 10vw;
+            height: 10vh;
+            background: #f1f1f1;
+        }
+        .position0{
+            grid-column: 1 / 2;
+            background: red;
+        }
+        .position1{
+            grid-column: 2 / 3;
+            background: pink;
+            
+        }
+        .position2{
+            grid-column: 3 / 4;
+            background: blue;
+            
+        }
+        .position3{
+            grid-column: 4 / 5;
+            background: green;
 
-        tbody{
+        }
+        .position4{
+            grid-column: 5 / 6;
+            background: yellow;
 
-            tr{
+        }
+        .position5{
+            grid-column: 6 / 7;
+            background: aliceblue;
 
-                td{
-                    
-                }
-            }
+        }
+        .position6{
+            grid-column: 7 / 8;
+            background: grey;
+
         }
     }
 }
