@@ -1,9 +1,13 @@
-import React from 'react';
+import React from 'react'
+import moment from 'moment'
 
-const Day = (props) => {
-return (
-        <td className="cell"></td>
-)
+const Day = ({day, handleClick}) => {
+	let dayOfWeek = day.isoWeekday() -1;		//use to have the correct position in the grid
 
+    return (
+        <div className={'weekDay ' + 'position' + dayOfWeek} onClick={() => handleClick(day)}>
+			{day.format("DD")}
+        </div>
+    )
 }
 export default Day;
