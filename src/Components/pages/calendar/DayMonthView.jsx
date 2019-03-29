@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 
 const Day = ({day, handleClick}) => {
 	let dayOfWeek = day.isoWeekday() -1;		//use to have the correct position in the grid

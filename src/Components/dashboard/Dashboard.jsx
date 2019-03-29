@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import NavbarDashboard from './NavbarDashboard';
-import './Dashboard.scss';
-import CalendarMonth from '../pages/calendar/CalendarMonth';
+import React, { Component } from 'react'
+import './Dashboard.scss'
+
+import NavbarDashboard from './NavbarDashboard'
+import CalendarMonth from '../pages/calendar/CalendarMonth'
+import CalendarWeek from '../pages/calendar/CalendarWeek'
 
 export class Dashboard extends Component {
 
@@ -10,6 +12,7 @@ export class Dashboard extends Component {
             <div className="dashboard-container">
                 <NavbarDashboard />
                 <CalendarMonth />
+                <CalendarWeek />
             </div>
         )
     }

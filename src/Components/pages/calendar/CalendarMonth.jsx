@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import moment from "moment"
 import './CalendarMonth.scss'
 
-import Day from './Day'
+import Day from './DayMonthView'
 
 export class CalendarMonth extends Component {
     constructor(props){
         super(props)
         
-        let currentFirstDayOfMonth = moment().startOf('month');
+        let currentFirstDayOfMonth = moment().utc().startOf('month');
         let days = this.initMonthDays(currentFirstDayOfMonth);
         
         
@@ -34,7 +34,7 @@ export class CalendarMonth extends Component {
     }
     handleClick = (mDate) => {
         this.setState({
-            dateSelected: moment(mDate)
+            dateSelected: moment(mDate).utc()
         })
     }
     previousMonth = () => {
@@ -67,14 +67,15 @@ export class CalendarMonth extends Component {
     }
     
     render() {
-        console.log("lol", this.state.dateSelected)
+        if(this.state.dateSelected)
+        console.log("lol", this.state.dateSelected, this.state.dateSelected.format("YYYY MM DD"))
         return (
             <div className="calendar-month-container">
                 <div className="calendar-nav">
                     <button onClick={this.previousMonth} >avant</button>
                     <button onClick={this.previousYear} >""</button>
                     <button onClick={this.nextMonth}>après</button>
-                    <button onClick={this.previousYear} >""</button>
+                    <button onClick={this.nextYear} >""</button>
                     <h3>{this.displayMonthFrench(this.state.currentFirstDayOfMonth.month())} {this.state.currentFirstDayOfMonth.format("YYYY")}</h3>
                 </div>
                     <div className="weekDays">
