@@ -8,9 +8,14 @@ const displayDaysFrench = (mDate) => {
 
 const DayWeekView = ({day, handleClick}) => {
     return (
-        <div className={"day" + 'position'} onClick={() => handleClick(day)}>
-
-            {displayDaysFrench(day)} {day.format('DD MMMM')}
+        <div className={"day position" + day.format('d') } onClick={() => handleClick(day)}>
+            <p>{displayDaysFrench(day.format('d'))} {day.format('DD')}</p>
+            <div className="day-post morning">
+                <div>Ajouter un post</div>
+            </div>
+            <div className="day-post afternoon">
+                <div>Ajouter un post</div>
+            </div>
         </div>
     )
 

@@ -1,12 +1,55 @@
 .calendar-week-container{
-    
+
+    .calendar-nav{
+
+        .week-view-p{
+            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+            width: 300px;
+            border-radius:25px;
+        }
+    }
     .weekDays{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        
-    .position{
-        background: #f1f1f1;
+        grid-template-rows: 1fr;
+        justify-items: auto;
+
+    .day {
+        grid-row: 1/2;
     }
+    .position0{
+        grid-column: 7 / 8;
+    }
+    .position1{
+        grid-column: 1 / 2;
+    }
+    .position2{
+        grid-column: 2 / 3;
+    }
+    .position3{
+        grid-column: 3 / 4;
+    }
+    .position4{
+        grid-column: 4 / 5;
+    }
+    .position5{
+        grid-column: 5 / 6;
+    }
+    .position6{
+        grid-column: 6 / 7;
+    }
+
+    .day:hover{
+        cursor: pointer;
+        background: white;
+    }
+
+    .day-post{
+        height: 30vh;
+        border: 2px dashed rgba(192, 190, 190, 0.582);
+        margin: 2%
+    }
+
     }
 
 }

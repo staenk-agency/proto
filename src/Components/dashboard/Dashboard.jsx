@@ -11,7 +11,7 @@ export class Dashboard extends Component {
         return (
             <div className="dashboard-container">
                 <NavbarDashboard />
-                <CalendarMonth />
+                {/* <CalendarMonth /> */}
                 <CalendarWeek />
             </div>
         )

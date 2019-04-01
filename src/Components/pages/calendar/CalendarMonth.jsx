@@ -72,17 +72,17 @@ export class CalendarMonth extends Component {
         return (
             <div className="calendar-month-container">
                 <div className="calendar-nav">
-                    <button onClick={this.previousMonth} >avant</button>
-                    <button onClick={this.previousYear} >""</button>
-                    <button onClick={this.nextMonth}>après</button>
-                    <button onClick={this.nextYear} >""</button>
+                    <button onClick={this.previousMonth} > <i className="fas fa-caret-left"/></button>
+                    <button onClick={this.previousYear} ><i className="fas fa-backward"/></button>
+                    <button onClick={this.nextMonth}><i className="fas fa-caret-right"/></button>
+                    <button onClick={this.nextYear}><i className="fas fa-forward"/></button>
                     <h3>{this.displayMonthFrench(this.state.currentFirstDayOfMonth.month())} {this.state.currentFirstDayOfMonth.format("YYYY")}</h3>
                 </div>
                     <div className="weekDays">
                         {
                             this.daysName.map((day, id) => {
                                 return (
-                                    <div className={'weekDayName ' + 'position' + id} key={id}>
+                                    <div className={'weekDayName position' + id} key={id}>
                                         {day}
                                     </div>
                                 )
