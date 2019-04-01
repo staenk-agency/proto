@@ -11,7 +11,6 @@ export class CalendarMonth extends Component {
         let currentFirstDayOfMonth = moment().utc().startOf('month');
         let days = this.initMonthDays(currentFirstDayOfMonth);
         
-        
         this.state = {
             dateSelected: null,
             days: days,

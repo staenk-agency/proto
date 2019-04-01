@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter, Switch, Route, NavLink} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 
 import Home from './Home.jsx'
 import CalendarMonth from './pages/calendar/CalendarMonth'
