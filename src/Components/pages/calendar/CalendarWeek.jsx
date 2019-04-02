@@ -50,13 +50,10 @@ export class CalendarWeek extends Component {
         })
     }
     render() {
-        console.log("state days", this.state.days)
-        console.log("date selected", this.state.dateSelected)
-        console.log('startof', this.state.currentFirstDayOfWeek.format('DD MM YY'))
+        console.log("console des state dans calendarWeek ", this.state)
         return (
             <div className="calendar-week-container">
                 <div className="calendar-nav">
-                    {/* <p>{this.displayMonthFrench(this.state.currentFirstDayOfWeek.month())}</p> */}
                     <p className="week-view-p"> 
                         <button onClick={this.previousWeek}><i className="fas fa-caret-left"/></button>  |  Du {this.state.currentFirstDayOfWeek.clone().format('DD/MM/YY')} au {this.state.currentFirstDayOfWeek.clone().endOf('isoWeek').format('DD/MM/YY')}  |  <button onClick={this.nextWeek}><i className="fas fa-caret-right"/></button>
                     </p>

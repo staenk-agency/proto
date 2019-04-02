@@ -67,7 +67,7 @@ export class CalendarMonth extends Component {
     
     render() {
         if(this.state.dateSelected)
-        console.log("lol", this.state.dateSelected, this.state.dateSelected.format("YYYY MM DD"))
+        console.log("console des state dans calendarMonth ", this.state)
         return (
             <div className="calendar-month-container">
                 <div className="calendar-nav">

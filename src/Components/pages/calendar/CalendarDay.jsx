@@ -26,21 +26,22 @@ export class CalendarDay extends Component {
         }
         return hours
     }
+
     handleClick = (mDate) => {
-        this.setState = ({ 
-            hourSelected : moment(mDate),
+        this.setState({
+            hourSelected: moment(mDate).utc()
         })
     }
 
     render() {
-        console.log(this.state)
+        console.log("console des state dans calendarDay ", this.state)
         return (
         <div className="calendar-day-container">
             <p> {this.state.currentDate.format('DD MMMM YYYY')} </p>
             {
                 this.state.hours.map((hour, id) => {
                     return(
-                        <DayHour hour={hour} key={id} handleClick={this.handleClick}/>
+                        <DayHour hour={hour} key={id}  handleClick={this.handleClick}/>
                     )
                 })
             }
