@@ -2,20 +2,20 @@ import React, {useState} from 'react'
 import moment from 'moment'
 
 export const useCalendarState = (mDate, step, end) => {
-    const [currentStep, setCurrentStep] = useState(mDate.utc().startOf(step));
+    const [currentStart, setCurrentStep] = useState(mDate.utc().startOf(step));
 
     let nextStep = function(count, stepFunction, recomputeDays, stepArray){
-        let newCurrent = currentStep.clone().add(count, stepFunction);
+        let newCurrent = currentStart.clone().add(count, stepFunction);
         setCurrentStep(newCurrent);
         recomputeDays(newCurrent, stepArray, end)
     }
 
     let previousStep = function(count, stepFunction, recomputeDays, stepArray){
-        let newCurrent = currentStep.clone().subtract(count, stepFunction);
+        let newCurrent = currentStart.clone().subtract(count, stepFunction);
         setCurrentStep(newCurrent);
         recomputeDays(newCurrent, stepArray, end)
     }
-    return [currentStep, nextStep, previousStep]
+    return [currentStart, nextStep, previousStep]
 }
 
 export const useInitCalendarState = (mDate, step, end) => {

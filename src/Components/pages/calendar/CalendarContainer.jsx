@@ -24,7 +24,7 @@ export class CalendarContainer extends Component {
             <>
                 <CalendarMonth currentFirstDayOfMonth={this.state.currentMoment} displayMonthFrench={this.displayMonthFrench} daysName={daysName} monthsName={monthsName}/>
                 <CalendarWeek currentMoment={this.state.currentMoment} displayDaysFrench={this.displayMonthFrench} daysNameWeek={daysNameWeek}/>
-                {/* <CalendarDay /> */}
+                {/* <CalendarDay currentFirstHour={this.state.currentMoment} /> */}
             </>
         )
     }

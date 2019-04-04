@@ -1,54 +1,29 @@
-import React, { Component } from 'react'
-import moment from 'moment'
-
+import React from 'react'
 import './CalendarDay.scss'
 import DayHourView from '../calendar/DayHourView'
 
-export class CalendarDay extends Component {
-    constructor(props){
-        super(props)
+import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
 
-        let currentDate = moment().utc().startOf('d')
-        let hours = this.initHours(currentDate)
+const CalendarDay = ({currentFirstHour}) => {
+    let [currentStart, nextStep, previousStep] = useCalendarState(currentFirstHour, 'd', 24)
+    let [hours, recomputeDays] = useInitCalendarState(currentStart,'h', 24)
+    let [dateSelected, select] = useHandleClick(null)
 
-        this.state = {
-            hourSelected: null,
-            currentDate : currentDate,
-            hours : hours,
+    console.log('hour selected', dateSelected )
+
+    return (
+    <div className="calendar-day-container">
+        <p> {currentStart.format('DD MMMM YYYY')} </p>
+        {
+            hours.map((hour, id) => {
+                return(
+                    <DayHourView hour={hour} key={id}  handleClick={select}/>
+                )
+            })
         }
-    }
-
-    initHours = (mDate) => {
-        let hours = []
-        for(let i = 0; i < 24;  ++i){
-            let hour = mDate.clone().add(i, 'h')
-            hours.push(hour)
-        }
-        return hours
-    }
-
-    handleClick = (mDate) => {
-        this.setState({
-            hourSelected: moment(mDate).utc()
-        })
-    }
-
-    render() {
-        console.log("console des state dans calendarDay ", this.state)
-        return (
-        <div className="calendar-day-container">
-            <p> {this.state.currentDate.format('DD MMMM YYYY')} </p>
-            {
-                this.state.hours.map((hour, id) => {
-                    return(
-                        <DayHourView hour={hour} key={id}  handleClick={this.handleClick}/>
-                    )
-                })
-            }
-            
-        </div>
-        )
-    }
+        
+    </div>
+    )
 }
 
 export default CalendarDay
