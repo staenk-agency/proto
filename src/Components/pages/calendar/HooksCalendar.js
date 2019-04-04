@@ -1,35 +1,39 @@
 import React, {useState} from 'react'
 import moment from 'moment'
 
-export const useCalendarState = (mDate, step) => {
+export const useCalendarState = (mDate, step, end) => {
     const [currentStep, setCurrentStep] = useState(mDate.utc().startOf(step));
 
     let nextStep = function(count, stepFunction, recomputeDays, stepArray){
         let newCurrent = currentStep.clone().add(count, stepFunction);
         setCurrentStep(newCurrent);
-        recomputeDays(newCurrent, stepArray)
+        recomputeDays(newCurrent, stepArray, end)
     }
 
     let previousStep = function(count, stepFunction, recomputeDays, stepArray){
         let newCurrent = currentStep.clone().subtract(count, stepFunction);
         setCurrentStep(newCurrent);
-        recomputeDays(newCurrent, stepArray)
+        recomputeDays(newCurrent, stepArray, end)
     }
     return [currentStep, nextStep, previousStep]
 }
 
-export const useInitCalendarState = (mDate, step) => {
-    const [days, setDays] = useState(initDaysArray(mDate, step))
+export const useInitCalendarState = (mDate, step, end) => {
+    const [days, setDays] = useState(initDaysArray(mDate, step, end))
 
-    let recomputeDays = function(mDate, step) {
-        setDays(initDaysArray(mDate, step));
+    let recomputeDays = function(mDate, step, end) {
+        setDays(initDaysArray(mDate, step, end));
     }
     return [days, recomputeDays];
 }
 
-function initDaysArray(mDate, step) { 
+function initDaysArray(mDate, step, end) {
+    let endFunction = end
+    if(end === 'month'){
+        endFunction = mDate.clone().endOf(end).format('D')
+    }
     let days = [];
-    for(let i = 0; i < mDate.clone().endOf('month').format('D'); ++i){
+    for(let i = 0; i < endFunction; ++i){
         let moment = mDate.clone().add(i, step)
         days.push(moment)
     }

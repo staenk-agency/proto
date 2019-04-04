@@ -1,75 +1,67 @@
-import React, { Component } from 'react'
-import moment from 'moment'
+import React from 'react'
 import './CalendarWeek.scss'
-
 import DayWeekView from './DayWeekView'
 
-export class CalendarWeek extends Component {
-    constructor(props){
-        super(props)
+import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
 
-        let currentFirstDayOfWeek = moment().utc().startOf('isoWeek');
-        let days = this.initWeekDays(currentFirstDayOfWeek);
-        
-        this.state = {
-            dateSelected: null,
-            days: days,
-            currentFirstDayOfWeek: currentFirstDayOfWeek,
-        }
-        this.monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
-    }
-    
-    displayMonthFrench = (mDate) => {
-        return this.monthsName[mDate];
-    }
-    initWeekDays = (mDate) => {
-        let days = [];
-        for(let i = 0; i < 7 ; ++i){
-            let day = mDate.clone().add(i, 'day');
-            days.push(day);
-        }
-        return days;
-    }
-    handleClick = (mDate) => {
-        this.setState({
-            dateSelected: moment(mDate).utc()
-        })
-    }
-    previousWeek = () => {
-        let newCurrentFirstDayOfMonth = this.state.currentFirstDayOfWeek.clone().subtract('7', 'd');
-        this.setState({
-            currentFirstDayOfWeek: newCurrentFirstDayOfMonth,
-            days: this.initWeekDays(newCurrentFirstDayOfMonth),
-        })
-    }
-    nextWeek = () => {
-        let newCurrentFirstDayOfMonth = this.state.currentFirstDayOfWeek.clone().add('7', 'd');
-        this.setState({
-            currentFirstDayOfWeek: newCurrentFirstDayOfMonth,
-            days: this.initWeekDays(newCurrentFirstDayOfMonth), 
-        })
-    }
-    render() {
-        console.log("console des state dans calendarWeek ", this.state)
-        return (
-            <div className="calendar-week-container">
-                <div className="calendar-nav">
-                    <p className="week-view-p"> 
-                        <button onClick={this.previousWeek}><i className="fas fa-caret-left"/></button>  |  Du {this.state.currentFirstDayOfWeek.clone().format('DD/MM/YY')} au {this.state.currentFirstDayOfWeek.clone().endOf('isoWeek').format('DD/MM/YY')}  |  <button onClick={this.nextWeek}><i className="fas fa-caret-right"/></button>
-                    </p>
-                </div>
-                    <div className="weekDays">
-                        {
-                            this.state.days.map((day, id) => {
-                                return(
-                                    <DayWeekView day={day} key={'day' + id} handleClick={this.handleClick} />
-                                )
-                            })
-                        }
-                    </div>
+const CalendarWeek = ({currentMoment, displayDaysFrench, daysNameWeek}) => {
+    let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment, 'isoWeek', 7) //isoWeek => startOf the first day of the week according iso fomrat
+    let [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 7)
+    let [dateSelected, select] = useHandleClick(null)
+
+    console.log("current: ", currentStart.format('DD MM YY'))
+    console.log("dateSelected", dateSelected)
+
+    // initWeekDays = (mDate) => {
+    //     let days = [];
+    //     for(let i = 0; i < 7 ; ++i){
+    //         let day = mDate.clone().add(i, 'day');
+    //         days.push(day);
+    //     }
+    //     return days;
+    // }
+    // handleClick = (mDate) => {
+    //     this.setState({
+    //         dateSelected: moment(mDate).utc()
+    //     })
+    // }
+    // previousWeek = () => {
+    //     let newCurrentFirstDayOfMonth = this.state.currentFirstDayOfWeek.clone().subtract('7', 'd');
+    //     this.setState({
+    //         currentFirstDayOfWeek: newCurrentFirstDayOfMonth,
+    //         days: this.initWeekDays(newCurrentFirstDayOfMonth),
+    //     })
+    // }
+    // nextWeek = () => {
+    //     let newCurrentFirstDayOfMonth = this.state.currentFirstDayOfWeek.clone().add('7', 'd');
+    //     this.setState({
+    //         currentFirstDayOfWeek: newCurrentFirstDayOfMonth,
+    //         days: this.initWeekDays(newCurrentFirstDayOfMonth), 
+    //     })
+    // }
+    console.log('currentStart', currentStart)
+    return (
+        <div className="calendar-week-container">
+            <div className="calendar-nav">
+                <p className="week-view-p"> 
+                    <button onClick={() => previousStep(7, 'd', recomputeDays, 'd')}>
+                        <i className="fas fa-caret-left"/>
+                    </button>Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('isoWeek').format('DD/MM/YY')}
+                    <button onClick={() => nextStep(7, 'd', recomputeDays, 'd')}>
+                        <i className="fas fa-caret-right"/>
+                    </button>
+                </p>
             </div>
-        )
-    }
+                <div className="weekDays">
+                    {
+                        days.map((day, id) => {
+                            return(
+                                <DayWeekView day={day} key={'day' + id} handleClick={select} displayDaysFrench={displayDaysFrench} daysNameWeek={daysNameWeek}/>
+                            )
+                        })
+                    }
+                </div>
+        </div>
+    )
 }
-
 export default CalendarWeek

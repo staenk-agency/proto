@@ -10,21 +10,21 @@ export class CalendarContainer extends Component {
         super(props)
         this.state = {
             currentMoment: moment().utc(),
-            currentFirstDayOfMonth: moment().utc().startOf('month')
         }
     }
-    displayMonthFrench = (mDate) => {
-        const monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
+    displayMonthFrench = (mDate, monthsName) => {
         return monthsName[mDate];
     }
-    
     render() {
+        const monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
         const daysName = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE"]
+        const daysNameWeek = [ "DIMANCHE" ,"LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI"]
+
         return (
             <>
-                <CalendarMonth currentFirstDayOfMonth={this.state.currentFirstDayOfMonth} displayMonthFrench={this.displayMonthFrench} daysName={daysName}/>
-                {/* <CalendarWeek />
-                <CalendarDay /> */}
+                <CalendarMonth currentFirstDayOfMonth={this.state.currentMoment} displayMonthFrench={this.displayMonthFrench} daysName={daysName} monthsName={monthsName}/>
+                <CalendarWeek currentMoment={this.state.currentMoment} displayDaysFrench={this.displayMonthFrench} daysNameWeek={daysNameWeek}/>
+                {/* <CalendarDay /> */}
             </>
         )
     }
