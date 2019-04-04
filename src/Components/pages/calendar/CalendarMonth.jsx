@@ -4,6 +4,33 @@ import './CalendarMonth.scss'
 
 import Day from './DayMonthView'
 
+
+// CalendarMonth 
+//  [currentFirstDayOfMonth, nextMonth, previousMonth] = useStepableCalendarState(moment(), 'month');
+//  [selectedStep, selectStep] = hook2
+
+
+
+// CalendarWeek
+//  [currentFirstDayOfWeek, nextWeek, previousWeek] = useStepableCalendarState(moment(), 'week');
+//  [selectedStep, selectStep] = hook2
+
+
+
+// useStepableCalendarState = (mDate, step) => {
+//     const [currentStep, setCurrentStep] = useState(mDate.utc().startOf(step));
+
+//     let nextStep = function(count){
+//         setCurrentStep(currentStep.add(count, step)); 
+//     }
+
+//     let previousStep = function(count){
+//         setCurrentStep(currentStep.substract(count, step)); 
+//     }
+
+//     return [currentStep, nextStep, previousStep]
+// }
+
 export class CalendarMonth extends Component {
     constructor(props){
         super(props)
