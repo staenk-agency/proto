@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import moment from 'moment'
 
 import './CalendarDay.scss'
-import DayHour from '../calendar/DayHour'
+import DayHourView from '../calendar/DayHourView'
 
 export class CalendarDay extends Component {
     constructor(props){
@@ -41,7 +41,7 @@ export class CalendarDay extends Component {
             {
                 this.state.hours.map((hour, id) => {
                     return(
-                        <DayHour hour={hour} key={id}  handleClick={this.handleClick}/>
+                        <DayHourView hour={hour} key={id}  handleClick={this.handleClick}/>
                     )
                 })
             }
