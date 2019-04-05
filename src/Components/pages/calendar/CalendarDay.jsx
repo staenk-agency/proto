@@ -5,18 +5,21 @@ import DayHourView from '../calendar/DayHourView'
 import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
 
 const CalendarDay = ({currentMoment}) => {
-    let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment, 'd', 24)
+    let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'd', 24)
     let [hours, recomputeDays] = useInitCalendarState(currentStart,'h', 24)
     let [dateSelected, select] = useHandleClick(null)
 
-    console.log('current day')
+    console.log('current moment day ', currentMoment.format('DD MM YY'))
+    console.log('current start day', currentStart)
     if(dateSelected)
         console.log('hour selected day', dateSelected.utc().format('DD MM YYYY kk mm') )
     return (
     <div className="calendar-day-container">
-        <button onClick={() => previousStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-backward"/></button>
-        <p> {currentStart.format('DD MMMM YYYY')} </p>
-        <button onClick={() => nextStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-right"/></button>
+        <div className="calendar-day-button-and-date">
+            <button onClick={() => previousStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-left"/></button>
+            <p> {currentMoment.format('DD MMMM YYYY')} </p>
+            <button onClick={() => nextStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-right"/></button>
+        </div>
             {
                 hours.map((hour, id) => {
                     return(

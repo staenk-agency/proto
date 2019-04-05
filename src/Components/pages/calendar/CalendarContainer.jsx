@@ -12,7 +12,7 @@ export class CalendarContainer extends Component {
         super(props)
         this.state = {
             currentMoment: moment().utc(),
-            month: true,
+            month: false,
             week: false,
             day: false
         }
@@ -20,7 +20,6 @@ export class CalendarContainer extends Component {
     displayMonthFrench = (mDate, monthsName) => {
         return monthsName[mDate];
     }
-
     handleClick = () => {
         this.setState({
             month:!this.state.month,
@@ -28,7 +27,6 @@ export class CalendarContainer extends Component {
             day: false,
         })
     }
-
     handleClick2= () => {
         this.setState({
             week: !this.state.week,
@@ -43,12 +41,12 @@ export class CalendarContainer extends Component {
             week: false,
         })
     }
-
     render() {
         const monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
         const daysName = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE"]
         const daysNameWeek = [ "DIMANCHE" ,"LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI"]
 
+        console.log('current moment container:', this.state.currentMoment.format('DD MM YY'))
         return (
             <>
                 <div className="NavBarDashboard-container">
@@ -63,7 +61,7 @@ export class CalendarContainer extends Component {
                 </div>
                 {
                     this.state.month && (
-                        <CalendarMonth currentFirstDayOfMonth={this.state.currentMoment} displayMonthFrench={this.displayMonthFrench} daysName={daysName} monthsName={monthsName}/>
+                        <CalendarMonth currentMoment={this.state.currentMoment} displayMonthFrench={this.displayMonthFrench} daysName={daysName} monthsName={monthsName}/>
                     )
                 }
                 {
@@ -80,6 +78,5 @@ export class CalendarContainer extends Component {
         )
     }
 }
-
 export default CalendarContainer
 

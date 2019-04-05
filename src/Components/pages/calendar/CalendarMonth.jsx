@@ -3,12 +3,13 @@ import './CalendarMonth.scss'
 import Day from './DayMonthView'
 import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
 
-const CalendarMonth = ({currentFirstDayOfMonth, displayMonthFrench, daysName, monthsName}) => {
-    let [currentStart, nextStep, previousStep] = useCalendarState(currentFirstDayOfMonth, 'month', 'month')
+const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}) => {
+    let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'month', 'month')
     let [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 'month')
     let [dateSelected, select] = useHandleClick(null)
 
-    console.log("current:  month", currentStart.format('DD MM YY'))
+    console.log('current moment month :', currentMoment.format('DD MM YY'))
+    console.log("current start:  month", currentStart.format('DD MM YY'))
     console.log("dateSelected month", dateSelected)
     return (
         <div className="calendar-month-container">
