@@ -8,8 +8,8 @@ const CalendarMonth = ({currentFirstDayOfMonth, displayMonthFrench, daysName, mo
     let [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 'month')
     let [dateSelected, select] = useHandleClick(null)
 
-    console.log("current: ", currentStart.format('DD MM YY'))
-    console.log("dateSelected", dateSelected)
+    console.log("current:  month", currentStart.format('DD MM YY'))
+    console.log("dateSelected month", dateSelected)
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">

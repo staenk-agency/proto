@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-import {NavLink} from 'react-router-dom'
 
 import NavbarDashboard from '../../dashboard/NavbarDashboard'
 
@@ -13,7 +12,7 @@ export class CalendarContainer extends Component {
         super(props)
         this.state = {
             currentMoment: moment().utc(),
-            month: false,
+            month: true,
             week: false,
             day: false
         }
@@ -21,16 +20,31 @@ export class CalendarContainer extends Component {
     displayMonthFrench = (mDate, monthsName) => {
         return monthsName[mDate];
     }
+
     handleClick = () => {
         this.setState({
             month:!this.state.month,
-            week: !this.state.day,
+            week: false,
+            day: false,
+        })
+    }
+
+    handleClick2= () => {
+        this.setState({
+            week: !this.state.week,
+            month:false,
+            day: false,
+        })
+    }
+    handleClick3= () => {
+        this.setState({
             day: !this.state.day,
+            month:false,
+            week: false,
         })
     }
 
     render() {
-        console.log(this.state)
         const monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
         const daysName = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE"]
         const daysNameWeek = [ "DIMANCHE" ,"LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI"]
@@ -41,10 +55,9 @@ export class CalendarContainer extends Component {
                     <h2>Votre Dashboard</h2>
                     <ul>
                         <li className="NavBarDashboard-first-list">Liste</li>
-                        <li className="NavBarDashboard" onClick={() => this.handleClick()}>Jour</li>
-                        <li className="NavBarDashboard" onClick={() => this.handleClick()}>Semaine</li>
+                        <li className="NavBarDashboard" onClick={() => this.handleClick3()}>Jour</li>
+                        <li className="NavBarDashboard" onClick={() => this.handleClick2()}>Semaine</li>
                         <li className="NavBarDashboard-last-list" onClick={() => this.handleClick()}>Mois</li>
-                        {/* <li className="NavBarDashboard-last-list"><NavLink to='/calendarMonthView'>Mois</NavLink></li> */}
                     </ul>
                     <button>ENVOYER AU CLIENT</button>        
                 </div>
@@ -60,7 +73,7 @@ export class CalendarContainer extends Component {
                 }
                 {
                     this.state.day &&(
-                        <CalendarDay currentFirstHour={this.state.currentMoment} />
+                        <CalendarDay currentMoment={this.state.currentMoment} />
                     )
                 }
             </>

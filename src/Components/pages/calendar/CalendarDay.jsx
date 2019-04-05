@@ -4,24 +4,27 @@ import DayHourView from '../calendar/DayHourView'
 
 import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
 
-const CalendarDay = ({currentFirstHour}) => {
-    let [currentStart, nextStep, previousStep] = useCalendarState(currentFirstHour, 'd', 24)
+const CalendarDay = ({currentMoment}) => {
+    let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment, 'd', 24)
     let [hours, recomputeDays] = useInitCalendarState(currentStart,'h', 24)
     let [dateSelected, select] = useHandleClick(null)
 
-    console.log('hour selected', dateSelected )
-
+    console.log('current day')
+    if(dateSelected)
+        console.log('hour selected day', dateSelected.utc().format('DD MM YYYY kk mm') )
     return (
     <div className="calendar-day-container">
+        <button onClick={() => previousStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-backward"/></button>
         <p> {currentStart.format('DD MMMM YYYY')} </p>
-        {
-            hours.map((hour, id) => {
-                return(
-                    <DayHourView hour={hour} key={id}  handleClick={select}/>
-                )
-            })
-        }
-        
+        <button onClick={() => nextStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-right"/></button>
+            {
+                hours.map((hour, id) => {
+                    return(
+                        <DayHourView hour={hour} key={id}  handleClick={select}/>
+                    )
+                })
+            }
+            
     </div>
     )
 }
