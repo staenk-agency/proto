@@ -14,8 +14,8 @@ const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">
-                <button onClick={() => previousStep('1', 'month', recomputeDays, 'd')}> <i className="fas fa-caret-left"/></button>
                 <button onClick={() => previousStep('1', 'year', recomputeDays, 'd')}><i className="fas fa-backward"/></button>
+                <button onClick={() => previousStep('1', 'month', recomputeDays, 'd')}> <i className="fas fa-caret-left"/></button>
                 <button onClick={() => nextStep('1', 'month', recomputeDays, 'd')}><i className="fas fa-caret-right"/></button>
                 <button onClick={() => nextStep('1', 'year', recomputeDays, 'd')}><i className="fas fa-forward"/></button>
                 <h3>{displayMonthFrench(currentStart.month(), monthsName)} {currentStart.format("YYYY")}</h3>

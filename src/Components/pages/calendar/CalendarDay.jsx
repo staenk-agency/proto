@@ -17,7 +17,7 @@ const CalendarDay = ({currentMoment}) => {
     <div className="calendar-day-container">
         <div className="calendar-day-button-and-date">
             <button onClick={() => previousStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-left"/></button>
-            <p> {currentMoment.format('DD MMMM YYYY')} </p>
+            <p> {currentStart.format('DD MMMM YYYY')} </p>
             <button onClick={() => nextStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-right"/></button>
         </div>
             {

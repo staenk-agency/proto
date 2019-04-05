@@ -1,0 +1,36 @@
+[
+    {
+        "date":{
+            "start": "05/04/19",
+            "startHour": "14:30",
+            "end": "05 04 19",
+            "endHour": null
+        },
+        "title": "Find the flowers !",
+        "shortDescription": "desk deco bro !",
+        "message": "Go, find, and buy all the best flowers to have this !"
+    },
+    {
+        "date":{
+            "start": "07 04 19",
+            "startHour": "09 30",
+            "end": "07 04 19",
+            "endHour": null
+        },
+        "title": "Week End !",
+        "shortDescription": "Rest man",
+        "message": "Just lay in your bed, listen to music and SLEEP"
+    },
+    {
+        "date":{
+            "start": "12 04 19",
+            "startHour": "09 00",
+            "end": "14 04 19",
+            "endHour": "18 00"
+        },
+        "title": "Find the flowers !",
+        "shortDescription": "desk deco bro !",
+        "message": "Go, find, and buy all the best flowers to have this !"
+    }
+
+]
