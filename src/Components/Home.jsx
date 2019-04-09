@@ -15,7 +15,7 @@ const Home = () => {
                 <VerticalMenu />        
             </div>
             <div className="dahsboard-app-container">
-                <Dashboard />        
+                <Dashboard />      
             </div>
         </div>
     )

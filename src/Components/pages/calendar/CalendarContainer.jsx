@@ -43,9 +43,9 @@ export class CalendarContainer extends Component {
                     <h2>Votre Dashboard</h2>
                     <ul>
                         <li className="NavBarDashboard-first-list">Liste</li>
-                        <li className="NavBarDashboard" onClick={() => this.onChangeCalendarType('day')}>Jour</li>
-                        <li className="NavBarDashboard" onClick={() => this.onChangeCalendarType('week')}>Semaine</li>
-                        <li className="NavBarDashboard-last-list" onClick={() => this.onChangeCalendarType('month')}>Mois</li>
+                        <li className="NavBarDashboard dayLink" onClick={() => this.onChangeCalendarType('day')}>Jour</li>
+                        <li className="NavBarDashboard weekLink" onClick={() => this.onChangeCalendarType('week')}>Semaine</li>
+                        <li className="NavBarDashboard-last-list monthLink" onClick={() => this.onChangeCalendarType('month')}>Mois</li>
                     </ul>
                     <button>ENVOYER AU CLIENT</button>        
                 </div>
