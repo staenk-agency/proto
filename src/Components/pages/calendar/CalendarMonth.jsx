@@ -1,6 +1,6 @@
 import React from 'react'
 import './CalendarMonth.scss'
-import Day from './DayMonthView'
+import DayMonthView from './DayMonthView'
 import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
 
 const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}) => {
@@ -33,7 +33,7 @@ const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}
                     {
                         days.map((day, id) => {
                             return(
-                                <Day day={day} key={'weekDay' + id} handleClick={select}/>
+                                <DayMonthView day={day} key={'weekDay' + id} handleClick={select}/>
                             )
                         })
                     }
