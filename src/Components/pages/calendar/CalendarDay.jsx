@@ -16,9 +16,9 @@ const CalendarDay = ({currentMoment}) => {
     return (
     <div className="calendar-day-container">
         <div className="calendar-day-button-and-date">
-            <button onClick={() => previousStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-left"/></button>
+            <button className="btn-previous-day" onClick={() => previousStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-left"/></button>
             <p> {currentStart.format('DD MMMM YYYY')} </p>
-            <button onClick={() => nextStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-right"/></button>
+            <button className="btn-next-day" onClick={() => nextStep('1', 'd', recomputeDays, 'h')}><i className="fas fa-caret-right"/></button>
         </div>
             {
                 hours.map((hour, id) => {

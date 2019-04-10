@@ -8,9 +8,9 @@ const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}
     let [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 'month')
     let [dateSelected, select] = useHandleClick(null)
 
-    console.log('current moment month :', currentMoment.format('DD MM YY'))
-    console.log("current start:  month", currentStart.format('DD MM YY'))
-    console.log("dateSelected month", dateSelected)
+    // console.log('current moment month :', currentMoment.format('DD MM YY'))
+    // console.log("current start:  month", currentStart.format('DD MM YY'))
+    // console.log("dateSelected month", dateSelected)
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">
