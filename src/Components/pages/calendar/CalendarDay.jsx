@@ -9,10 +9,10 @@ const CalendarDay = ({currentMoment}) => {
     let [hours, recomputeDays] = useInitCalendarState(currentStart,'h', 24)
     let [dateSelected, select] = useHandleClick(null)
 
-    console.log('current moment day ', currentMoment.format('DD MM YY'))
-    console.log('current start day', currentStart)
-    if(dateSelected)
-        console.log('hour selected day', dateSelected.utc().format('DD MM YYYY kk mm') )
+    // console.log('current moment day ', currentMoment.format('DD MM YY'))
+    // console.log('current start day', currentStart)
+    // if(dateSelected)
+    //     console.log('hour selected day', dateSelected.utc().format('DD MM YYYY kk mm') )
     return (
     <div className="calendar-day-container">
         <div className="calendar-day-button-and-date">

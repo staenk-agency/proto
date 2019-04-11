@@ -9,9 +9,9 @@ const CalendarWeek = ({currentMoment, displayDaysFrench, daysNameWeek}) => {
     let [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 7)
     let [dateSelected, select] = useHandleClick(null)
 
-    console.log('current moment week :', currentMoment.format('DD MM YY'))
-    console.log("dateSelected week", dateSelected)
-    console.log('currentStart week', currentStart)
+    // console.log('current moment week :', currentMoment.format('DD MM YY'))
+    // console.log("dateSelected week", dateSelected)
+    // console.log('currentStart week', currentStart)
     return (
         <div className="calendar-week-container">
             <div className="calendar-nav">

@@ -34,7 +34,7 @@ export class CalendarContainer extends Component {
         const daysName = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE"]
         const daysNameWeek = [ "DIMANCHE" ,"LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI"]
 
-        console.log('current moment container:', this.state.currentMoment.format('DD MM YY'))
+        // console.log('current moment container:', this.state.currentMoment.format('DD MM YY'))
         return (
             <div className="grid-container">
             {/* <HorizontalNavBar/>
