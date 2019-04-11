@@ -1,7 +1,7 @@
 import React from 'react'
 import DayMonthView from './DayMonthView.jsx'
 
-import {shallow, configure, mount} from 'enzyme'
+import {shallow, configure} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import moment from 'moment'
 
