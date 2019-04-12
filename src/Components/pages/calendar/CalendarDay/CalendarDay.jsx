@@ -1,8 +1,8 @@
 import React from 'react'
 import './CalendarDay.scss'
-import DayHourView from '../calendar/DayHourView'
+import DayHourView from '../CalendarDay/DayHourView'
 
-import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
+import {useCalendarState, useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
 
 const CalendarDay = ({currentMoment}) => {
     let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'd', 24)

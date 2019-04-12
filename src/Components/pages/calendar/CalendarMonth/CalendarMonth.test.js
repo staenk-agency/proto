@@ -1,6 +1,6 @@
 import React from 'react'
-import CalendarMonth from './CalendarMonth.jsx'
-import DayMonthView from './DayMonthView.jsx'
+import CalendarMonth from './CalendarMonth'
+import DayMonthView from './DayMonthView'
 
 import {shallow, configure, mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
@@ -10,8 +10,8 @@ configure({ adapter: new Adapter() });
 
 describe('CalendarMonth', () => {
     let wrapper
-    let currentMomentStart = moment().utc().startOf('month')
-    let currentMomentEnd = moment().utc().endOf('month')
+    const currentMomentStart = moment().utc().startOf('month')
+    const currentMomentEnd = moment().utc().endOf('month')
     beforeEach(() => {
         wrapper = shallow(
         <CalendarMonth 
@@ -51,36 +51,35 @@ describe('CalendarMonth', () => {
         expect(wrapper.find(DayMonthView).at(4).props().day.format('DD MM YYYY')).toBe(currentMomentStart.clone().add(1, 'y').add(4, 'day').format('DD MM YYYY'))
     })
     it('returns the correct number of days according to the month', () => {
-        let numberOfDays = currentMomentEnd.format('D')
+        const numberOfDays = currentMomentEnd.format('D')
         expect(wrapper.find(DayMonthView).last().props().day.format('D')).toBe(numberOfDays)
         
         //pour les tests : pourquoi ils marchent lorsque add est fait à la main, et lorsque j'automatise avec une boucle for ou while, MEME sans utiliser la variable qui s'incrémente i, il ne renvoie pas les bonnes valeurs ? 
-                let test = moment().utc().endOf('month').add(10, 'month').format('D')
+                const test = moment().utc().endOf('month').add(10, 'month').format('D')
                 expect(wrapper.find(DayMonthView).last().props().day.add(10, 'month').format('D')).toBe(test)
     })
     it('returns the month according to the currentMonth', () => {
         const displayMonthFrench=(mDate, monthsName) => {
             return monthsName[mDate]}
         const monthsName=["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
-            let currentMonth = moment().utc()
+            const currentMonth = moment().utc()
             expect(wrapper.find('h3').props().children[0]).toBe(displayMonthFrench(currentMonth.month(), monthsName))
     })
     it('returns the correct number of daysMonthView according to the number of the month', () => {
-        let daysInMonth = currentMomentEnd.format('D')
-        let num = wrapper.find(".weekDays").props().children
-        let days = num[1]
-        let length = days.length
+        const daysInMonth = currentMomentEnd.format('D')
+        const num = wrapper.find(".weekDays").props().children
+        const days = num[1]
+        const length = days.length
         expect(length).toBe(parseInt(daysInMonth))
-        let daysInMonth2 = moment().utc().add(1, 'month').endOf('month').format('D')
+        const daysInMonth2 = moment().utc().add(1, 'month').endOf('month').format('D')
         wrapper.find('.btn-next-month').simulate('click')
-        let num2 = wrapper.find(".weekDays").props().children
-        let days2 = num2[1]
-        let length2 = days2.length
+        const num2 = wrapper.find(".weekDays").props().children
+        const days2 = num2[1]
+        const length2 = days2.length
         expect(length2).toBe(parseInt(daysInMonth2))
     })
-    it('select the good day when a day is clicked', ()=>{
-        let daySelected = wrapper.find(DayMonthView).at(5).props().day.format('DD MM YYYY')
-        expect(wrapper.find(DayMonthView).at(0).props().day.format('DD MM YYYY')).toBe(currentMomentStart.format('DD MM YYYY'))
-    })
-    
+    // it('select the good day when a day is clicked', ()=>{
+    //     const daySelected = wrapper.find(DayMonthView).at(5).props().day.format('DD MM YYYY')
+    //     expect(wrapper.find(DayMonthView).at(0).props().day.format('DD MM YYYY')).toBe(daySelected)
+    // })
 })

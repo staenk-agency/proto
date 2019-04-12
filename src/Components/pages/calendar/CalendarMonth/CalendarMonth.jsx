@@ -1,7 +1,7 @@
 import React from 'react'
 import './CalendarMonth.scss'
 import DayMonthView from './DayMonthView'
-import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
+import {useCalendarState, useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
 
 const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}) => {
     let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'month', 'month')

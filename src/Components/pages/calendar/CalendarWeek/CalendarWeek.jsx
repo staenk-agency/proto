@@ -2,7 +2,7 @@ import React from 'react'
 import './CalendarWeek.scss'
 import DayWeekView from './DayWeekView'
 
-import {useCalendarState, useInitCalendarState, useHandleClick} from './HooksCalendar.js'
+import {useCalendarState, useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
 
 const CalendarWeek = ({currentMoment, displayDaysFrench, daysNameWeek}) => {
     let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'isoWeek', 7) //isoWeek => startOf the first day of the week according iso format

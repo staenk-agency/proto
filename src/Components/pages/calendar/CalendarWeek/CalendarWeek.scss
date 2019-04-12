@@ -1,7 +1,5 @@
 .calendar-week-container{
-
     .calendar-nav{
-
         .week-view-p{
             background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
             width: 300px;
@@ -41,7 +39,7 @@
 
     .day:hover{
         cursor: pointer;
-        background: white;
+        background:rgba(192, 190, 190, 0.582);
     }
 
     .day-post{

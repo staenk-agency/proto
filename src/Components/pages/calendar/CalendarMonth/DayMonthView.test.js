@@ -1,5 +1,5 @@
 import React from 'react'
-import DayMonthView from './DayMonthView.jsx'
+import DayMonthView from './DayMonthView'
 
 import {shallow, configure} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
@@ -30,9 +30,9 @@ describe('DayMonthView', () => {
                 return num = (num % 7) - 1
         } //check the right position in the grid according to the num of the day 0=monday 6=sunday
 
-        let position = wrapper.find('.weekDay').props().className
-        let numOfPosition = position.split("")
-        let day = parseInt(wrapper.props().children)
+        const position = wrapper.find('.weekDay').props().className
+        const numOfPosition = position.split("")
+        const day = parseInt(wrapper.props().children)
         expect(numOfPosition[numOfPosition.length -1]).toBe(checkPosition(day).toString())
     })
 })

@@ -1,8 +1,8 @@
 import React from 'react'
 import CalendarContainer from './CalendarContainer.jsx'
-import CalendarMonth from './CalendarMonth.jsx'
-import CalendarWeek from './CalendarWeek.jsx'
-import CalendarDay from './CalendarDay.jsx'
+import CalendarMonth from '../CalendarMonth/CalendarMonth'
+import CalendarWeek from '../CalendarWeek/CalendarWeek'
+import CalendarDay from '../CalendarDay/CalendarDay.jsx'
 
 import {shallow, configure} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'

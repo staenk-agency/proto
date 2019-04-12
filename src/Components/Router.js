@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 
 import Home from './Home.jsx'
 import Events from './events/Events.jsx'
-import Calendar from './pages/calendar/CalendarContainer.jsx'
+import Calendar from './pages/calendar/CalendarContainer/CalendarContainer'
 // import CalendarContainer from './pages/calendar/CalendarContainer.jsx'
 // import CalendarMonth from './pages/calendar/CalendarMonth'
 // import CalendarWeek from './pages/calendar/CalendarWeek'

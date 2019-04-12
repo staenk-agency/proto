@@ -3,7 +3,6 @@ import './Dashboard.scss'
 import {Link} from 'react-router-dom'
 
 import NavbarDashboard from './NavbarDashboard'
-import CalendarContainer from '../pages/calendar/CalendarContainer'
 // import Router from '../Router.js'
 
 export class Dashboard extends Component {
@@ -14,7 +13,6 @@ export class Dashboard extends Component {
             <NavbarDashboard />
                 <Link to='/events'>Go to events !</Link>
                 <Link to='/calendar'>Go to calendar ! </Link>
-                {/* <CalendarContainer /> */}
             </div>
         )
     }
