@@ -11,6 +11,7 @@ configure({ adapter: new Adapter() });
 
 describe('CalendarContainer', () => {
     let wrapper    
+    let props
     beforeEach(() => {
         wrapper = shallow(<CalendarContainer />)
     })
@@ -21,19 +22,16 @@ describe('CalendarContainer', () => {
         expect(wrapper.find('.calendar-container').type()).toBe('div')
     })
     it('returns a CalendarMonth component with a moment object when steptype is "month"', () => {
-        let props
         wrapper.setState({stepType: 'month'})
         props = wrapper.find(CalendarMonth).props().currentMoment.format('YYYY MM DD')
         expect(props).toEqual(moment().utc().format('YYYY MM DD'))
     })
     it('returns a CalendarWeek component with a moment object when steptype is "week"', () => {
-        let props
         wrapper.setState({stepType: 'week'})
         props = wrapper.find(CalendarWeek).props().currentMoment.format('YYYY MM DD')
         expect(props).toEqual(moment().utc().format('YYYY MM DD'))
     })
     it('returns a CalendarDay component with a moment object when steptype is "day"', () => {
-        let props
         wrapper.setState({stepType: 'day'})
         props = wrapper.find(CalendarDay).props().currentMoment.format('YYYY MM DD HH kk')
         expect(props).toEqual(moment().utc().format('YYYY MM DD HH kk'))
@@ -46,17 +44,14 @@ describe('CalendarContainer', () => {
     // comment prouver que les calendar Week et day ne s'affichent pas lorsque pas le steptype correct est utilisé ? 
     // seule réponse pour le moment : lorsque j'essaie de trouver les props comme les tests avec autre steptype
     //  il envoie qu'il ne trouve pas le node, donc pas de calendar week ou calendar day. 
-    
-    describe('change the correct stepType state when a link is clicked', () => {
-        it('update the state whith the param in the function', () => {
-            wrapper.find('.dayLink').simulate('click')
-            expect(wrapper.state('stepType')).toBe('day')
-            wrapper.find('.weekLink').simulate('click')
-            expect(wrapper.state('stepType')).toBe('week')
-            wrapper.find('.monthLink').simulate('click')
-            expect(wrapper.state('stepType')).toBe('month')
-            expect(wrapper.state('stepType')).not.toMatch('week')
-            expect(wrapper.state('stepType')).not.toMatch('day')
-        }) 
+    it('update the state whith the param in the function', () => {
+        wrapper.find('.dayLink').simulate('click')
+        expect(wrapper.state('stepType')).toBe('day')
+        wrapper.find('.weekLink').simulate('click')
+        expect(wrapper.state('stepType')).toBe('week')
+        wrapper.find('.monthLink').simulate('click')
+        expect(wrapper.state('stepType')).toBe('month')
+        expect(wrapper.state('stepType')).not.toMatch('week')
+        expect(wrapper.state('stepType')).not.toMatch('day')
     })
 })

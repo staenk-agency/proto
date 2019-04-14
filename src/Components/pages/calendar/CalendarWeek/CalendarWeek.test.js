@@ -10,6 +10,7 @@ configure({ adapter: new Adapter() })
 
 describe('CalendarWeek', () => {
     let wrapper    
+    const currentMoment = moment().utc().startOf('isoWeek')
     beforeEach(() => {
         wrapper = shallow(
         <CalendarWeek 
@@ -23,7 +24,6 @@ describe('CalendarWeek', () => {
         expect(wrapper.find('.calendar-week-container').type()).toBe('div')
     })
     it('has a button that returns the previous week', () => {
-        let currentMoment = moment().utc().startOf('isoWeek')
         expect(wrapper.find('.btn-previous-week').type()).toBe('button')
         wrapper.find('.btn-previous-week').simulate('click')
         expect(wrapper.find(DayWeekView).first().props().day.format('DD MM YYYY')).toBe(currentMoment.clone().subtract(7, 'd').format('DD MM YYYY'))
@@ -39,7 +39,6 @@ describe('CalendarWeek', () => {
         // }
     })
     it('has a button that returns the next week', () => {
-        let currentMoment = moment().utc().startOf('isoWeek')
         expect(wrapper.find('.btn-next-week').type()).toBe('button')
         wrapper.find('.btn-next-week').simulate('click')
         expect(wrapper.find(DayWeekView).first().props().day.format('DD MM YYYY')).toBe(currentMoment.clone().add(7, 'd').format('DD MM YYYY'))

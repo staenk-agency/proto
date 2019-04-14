@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() })
 
 describe('DayMonthView', () => {
     let wrapper
-    let currentMoment = moment().utc()
+    const currentMoment = moment().utc()
     beforeEach(() => {
         wrapper = shallow(
         <DayMonthView 

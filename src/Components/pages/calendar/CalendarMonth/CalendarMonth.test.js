@@ -2,7 +2,7 @@ import React from 'react'
 import CalendarMonth from './CalendarMonth'
 import DayMonthView from './DayMonthView'
 
-import {shallow, configure, mount} from 'enzyme'
+import {shallow, configure} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import moment from 'moment'
 
@@ -55,12 +55,11 @@ describe('CalendarMonth', () => {
         expect(wrapper.find(DayMonthView).last().props().day.format('D')).toBe(numberOfDays)
         
         //pour les tests : pourquoi ils marchent lorsque add est fait à la main, et lorsque j'automatise avec une boucle for ou while, MEME sans utiliser la variable qui s'incrémente i, il ne renvoie pas les bonnes valeurs ? 
-                const test = moment().utc().endOf('month').add(10, 'month').format('D')
-                expect(wrapper.find(DayMonthView).last().props().day.add(10, 'month').format('D')).toBe(test)
+        const test = moment().utc().endOf('month').add(10, 'month').format('D')
+        expect(wrapper.find(DayMonthView).last().props().day.add(10, 'month').format('D')).toBe(test)
     })
     it('returns the month according to the currentMonth', () => {
-        const displayMonthFrench=(mDate, monthsName) => {
-            return monthsName[mDate]}
+        const displayMonthFrench=(mDate, monthsName) => {return monthsName[mDate]}
         const monthsName=["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
             const currentMonth = moment().utc()
             expect(wrapper.find('h3').props().children[0]).toBe(displayMonthFrench(currentMonth.month(), monthsName))

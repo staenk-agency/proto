@@ -10,6 +10,7 @@ configure({ adapter: new Adapter() })
 
 describe('CalendarDay', () => {
     let wrapper    
+    const currentMoment = moment().utc().startOf('d')
     beforeEach(() => {
         wrapper = shallow(
         <CalendarDay currentMoment={moment().utc()}/>)
@@ -19,13 +20,11 @@ describe('CalendarDay', () => {
         expect(wrapper.find('.calendar-day-container').type()).toBe('div')
     })
     it('has a button that returns the previous day', () => {
-        let currentMoment = moment().utc().startOf('d')
         expect(wrapper.find('.btn-previous-day').type()).toBe('button')
         wrapper.find('.btn-previous-day').simulate('click')
         expect(wrapper.find(DayHourView).first().props().hour.format('kk mm')).toBe(currentMoment.clone().subtract(1, 'd').format('kk mm'))
     })
     it('has a button that returns the next day', () => {
-        let currentMoment = moment().utc().startOf('d')
         expect(wrapper.find('.btn-previous-day').type()).toBe('button')
         wrapper.find('.btn-next-day').simulate('click')
         expect(wrapper.find(DayHourView).first().props().hour.format('DD MM YYYY kk-mm')).toBe(currentMoment.clone().add(1, 'd').format('DD MM YYYY kk-mm'))
