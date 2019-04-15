@@ -12,9 +12,9 @@
     },
     {
         "date":{
-            "start": "07 04 19",
-            "startHour": "09 30",
-            "end": "07 04 19",
+            "start": "07/04/19",
+            "startHour": "09:30",
+            "end": "07/04/19",
             "endHour": null
         },
         "title": "Week End !",
@@ -23,14 +23,25 @@
     },
     {
         "date":{
-            "start": "12 04 19",
-            "startHour": "09 00",
-            "end": "14 04 19",
-            "endHour": "18 00"
+            "start": "12/04/19",
+            "startHour": "09:00",
+            "end": "14/04/19",
+            "endHour": "18h00"
         },
-        "title": "Find the flowers !",
-        "shortDescription": "desk deco bro !",
-        "message": "Go, find, and buy all the best flowers to have this !"
+        "title": "Teeeeest !",
+        "shortDescription": "try again bro !",
+        "message": "succed or what ?!"
+    },
+    {
+        "date":{
+            "start": "15/04/19",
+            "startHour": "09:00",
+            "end": "15/04/19",
+            "endHour": "18h00"
+        },
+        "title": "Anniv AnneGaga !",
+        "shortDescription": "HB !",
+        "message": "yeep !!"
     }
 
 ]
