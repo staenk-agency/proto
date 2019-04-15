@@ -42,6 +42,17 @@
         "title": "Anniv AnneGaga !",
         "shortDescription": "HB !",
         "message": "yeep !!"
+    },
+    {
+        "date":{
+            "start": "18/05/19",
+            "startHour": "09:00",
+            "end": "15/04/19",
+            "endHour": "18h00"
+        },
+        "title": "Ca passe ou pas ??!",
+        "shortDescription": "Come on!",
+        "message": "yeep !!"
     }
 
 ]

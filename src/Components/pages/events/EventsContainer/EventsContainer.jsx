@@ -7,7 +7,6 @@ import moment from 'moment'
 import EventsMonth from '../EventsMonth/EventsMonth'
 import EventsWeek from '../EventsWeek/EventsWeek'
 import EventsDay from '../EventsDay/EventsDay'
-// import EventsList from '../EventsList'
 
 export class EventsContainer extends Component {
     constructor(props){
@@ -22,11 +21,6 @@ export class EventsContainer extends Component {
             stepType: stepType
         })
     }
-
-    // fetchEvents = () => {
-    //     if(json.length > 0){
-    //     }
-    // }
 
     render() {
         const monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
@@ -66,11 +60,6 @@ export class EventsContainer extends Component {
                     <EventsDay currentMoment={this.state.currentMoment} />
                 )
             }
-            {/* {
-                this.state.stepType === 'list' &&(
-                    <EventsList currentMoment={this.state.currentMoment} />
-                )
-            } */}
             </div>
         </div>
         )

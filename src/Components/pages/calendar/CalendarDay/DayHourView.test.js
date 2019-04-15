@@ -17,6 +17,6 @@ describe('DayHourView', () => {
         />)
     })
     it('returns a hour container', () => {
-        expect(wrapper.find('.hour').type().toBe('div'))
+        expect(wrapper.find('.hour ').type().toBe('div'))
     })
 })

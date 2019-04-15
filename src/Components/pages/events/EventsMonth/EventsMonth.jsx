@@ -4,11 +4,11 @@ import EventsMonthView from './EventsMonthView'
 
 import './EventsMonth.scss'
 
-import {useEventState, useInitEventState, useHandleClick} from '../EventsHooks.js'
+import {useCalendarState, useInitCalendarState, useHandleClick} from '../../calendar/HooksCalendar.js'
 
 const EventsMonth = ({currentMoment, daysName}) => {
-    const [currentStart, nextStep, previousStep] = useEventState(currentMoment.clone(), 'month', 'month')
-    const [days, recomputeDays] = useInitEventState(currentStart, 'd', 'month')
+    const [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'month', 'month')
+    const [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 'month')
     const [dateSelected, select] = useHandleClick(null)
 
         return (
@@ -21,7 +21,7 @@ const EventsMonth = ({currentMoment, daysName}) => {
                 <p> {json[0].message} </p> */}
 
                 <div className="weekDays">
-                    {
+                    {/* {
                         daysName.map((day, id) => {
                             return (
                                 <div className={'weekDayName position' + id} key={id}>
@@ -29,7 +29,7 @@ const EventsMonth = ({currentMoment, daysName}) => {
                                 </div>
                             )
                         })
-                    }
+                    } */}
                     {
                         days.map((day, id) => {
                             return(

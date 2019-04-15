@@ -37,9 +37,17 @@
         }
         .weekDay{
             // width: 50px;
-            height: 80px;
+            height: 150px;
             border: 2px dashed black;
             margin: 2px;
+
+            .event-container{
+                background:#95DDDA;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 0,8em;
+                color: white;
+            }
         }
     }
 }

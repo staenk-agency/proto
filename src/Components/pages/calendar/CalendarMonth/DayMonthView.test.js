@@ -20,7 +20,7 @@ describe('DayMonthView', () => {
         expect(wrapper.find('.weekDay').type()).toBe('div')
     })
     it('receives a moment object in the day props', () => {
-        expect(wrapper.find('.weekDay').props().children).toBe(currentMoment.format('DD'))
+        expect(wrapper.find('.weekDay').at(0).props()).toBe(currentMoment.format('DD'))
     })
     it('receives the correct position for the css grid according to the day', () => {
         const checkPosition = (num) =>{

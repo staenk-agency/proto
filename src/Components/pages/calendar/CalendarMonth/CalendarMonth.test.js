@@ -77,8 +77,4 @@ describe('CalendarMonth', () => {
         const length2 = days2.length
         expect(length2).toBe(parseInt(daysInMonth2))
     })
-    // it('select the good day when a day is clicked', ()=>{
-    //     const daySelected = wrapper.find(DayMonthView).at(5).props().day.format('DD MM YYYY')
-    //     expect(wrapper.find(DayMonthView).at(0).props().day.format('DD MM YYYY')).toBe(daySelected)
-    // })
 })
