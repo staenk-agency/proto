@@ -43,10 +43,12 @@
 
             .event-container{
                 background:#95DDDA;
+                max-height: 25px;
                 border-radius: 25px;
                 text-align: center;
                 font-size: 0,8em;
                 color: white;
+                // overflow -y: auto;
             }
         }
     }

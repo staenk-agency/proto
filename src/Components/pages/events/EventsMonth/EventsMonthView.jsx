@@ -1,19 +1,20 @@
 import React from 'react'
-import {fetchDatas} from '../EventsHooks.js'
+import {fetchEvents} from '../EventsHooks.js'
 
 const EventsMonthView = ({day}) => {
-    const [title, shortDescription] = fetchDatas(day)
-
+    const event = fetchEvents(day)
+    // console.log("dans eventsview", event[0])
     return (
         <div>
-                {
-                    title && (
+            {
+                event.map(event => {
+                    return(
                         <div className="event-container">
-                            <p>{title}</p>
-                            <p>{shortDescription}</p>
+                            <p>{event.date.startHour}</p>
                         </div>
                     )
-                }
+                })
+            }
         </div>
     )
 }

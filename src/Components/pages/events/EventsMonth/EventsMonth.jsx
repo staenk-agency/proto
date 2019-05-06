@@ -21,7 +21,7 @@ const EventsMonth = ({currentMoment, daysName}) => {
                 <p> {json[0].message} </p> */}
 
                 <div className="weekDays">
-                    {/* {
+                    {
                         daysName.map((day, id) => {
                             return (
                                 <div className={'weekDayName position' + id} key={id}>
@@ -29,7 +29,7 @@ const EventsMonth = ({currentMoment, daysName}) => {
                                 </div>
                             )
                         })
-                    } */}
+                    }
                     {
                         days.map((day, id) => {
                             return(

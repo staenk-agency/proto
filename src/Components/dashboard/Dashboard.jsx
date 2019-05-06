@@ -11,7 +11,7 @@ export class Dashboard extends Component {
         return (
             <div className="dashboard-container">
             <NavbarDashboard />
-                {/* <Link to='/events'>Go to events !</Link> */}
+                <Link to='/events'>Go to events !</Link>
                 <Link to='/calendar'>Go to calendar ! </Link>
             </div>
         )
