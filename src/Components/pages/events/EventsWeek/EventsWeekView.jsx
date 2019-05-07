@@ -1,8 +1,8 @@
 import React from 'react'
-import {fetchEvents} from '../EventsHooks.js'
+import {filterEventsByDay} from '../EventsHooks.js'
 
 const EventsWeekView = ({day, halfday}) => {
-    const event = fetchEvents(day)
+    const event = filterEventsByDay(day)
     console.log("dans eventsview", event[0])
     return (
         <div>

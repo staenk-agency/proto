@@ -1,17 +1,35 @@
 import React from 'react'
-import {fetchEvents} from '../EventsHooks.js'
+import {filterEventsByDay, filterEventsByMonth, filterEventsByHalf} from '../EventsHooks.js'
+import './EventsMonthView.scss'
 
+//filtrer en une seule fois avec between ! 
 const EventsMonthView = ({day}) => {
-    const event = fetchEvents(day)
-    // console.log("dans eventsview", event[0])
+    const eventsInCurrentMonth = filterEventsByMonth(day)
+    const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)
+    const [half, isMorning] = filterEventsByHalf(eventByDay, day)
+    
+    // console.log("eventsInCurrentMonth filtered in month view", eventsInCurrentMonth)
+    console.log("eventByDay dans month view", eventByDay)
+    console.log("half dans month view", half)
     return (
-        <div>
+        <div className="events-container">
             {
-                event.map(event => {
+                half.map(eventByDay => {
                     return(
-                        <div className="event-container">
-                            <p>{event.date.startHour}</p>
-                        </div>
+                        <>
+                            {
+                                isMorning &&
+                                <div className="morning">
+                                    <p>{eventByDay.date.startHour}</p>
+                                </div>
+                            }
+                            {
+                                isMorning === false &&
+                                <div className="afternoon">
+                                    <p>{eventByDay.date.startHour}</p>
+                                </div>
+                            }
+                        </>
                     )
                 })
             }

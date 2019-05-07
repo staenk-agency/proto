@@ -1,0 +1,28 @@
+.events-container{
+    // background:#95DDDA;
+    // max-height: 25px;
+    // border-radius: 25px;
+    // text-align: center;
+    // font-size: 0,8em;
+    // color: white;
+    // overflow-y: auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+.morning{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+}
+.afternoon{
+    grid-row-start: 2;
+    grid-column-start: 1;
+}
+p{
+    background:#95DDDA;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 0,8em;
+    color: white;
+}

@@ -67,12 +67,23 @@
     },
     {
         "date":{
+            "start": "15/05/19",
+            "startHour": "13:00",
+            "end": "15/04/19",
+            "endHour": "18h00"
+        },
+        "title": "Boom",
+        "shortDescription": "Braa!",
+        "message": "yeep !!"
+    },
+    {
+        "date":{
             "start": "18/05/19",
-            "startHour": "12:00",
+            "startHour": "15:00",
             "end": "15/04/19",
             "endHour": null
         },
-        "title": "Ca passe ou pas ??!",
+        "title": "Ca c'est l'après-midi??!",
         "shortDescription": "Come on!",
         "message": "yeep !!"
     },
@@ -83,7 +94,7 @@
             "end": "15/04/19",
             "endHour": "18h00"
         },
-        "title": "Ca passe ou pas ??!",
+        "title": "Ca c'est le matin",
         "shortDescription": "Come on!",
         "message": "yeep !!"
     }
