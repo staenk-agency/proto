@@ -1,24 +1,51 @@
 import React from 'react'
-import {filterEventsByDay, filterEventsByMonth, filterEventsByHalf} from '../EventsHooks.js'
+import {filterEventsByDay, filterEventsByHalf, filterEventsByMonth} from '../EventsHooks.js'
 import './EventsMonthView.scss'
 
 //filtrer en une seule fois avec between ! 
 const EventsMonthView = ({day}) => {
-    const eventsInCurrentMonth = filterEventsByMonth(day)
+    const eventsInCurrentMonth = filterEventsByMonth(day, 'month')
     const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)
-    const [half, isMorning] = filterEventsByHalf(eventByDay, day)
+    const [half, isMorning, eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
     
     // console.log("eventsInCurrentMonth filtered in month view", eventsInCurrentMonth)
+    // console.log("eventsinmonth", eventsInCurrentMonth)
     console.log("eventByDay dans month view", eventByDay)
-    console.log("half dans month view", half)
+    // console.log("half dans month view", half)
     return (
         <div className="events-container">
             {
+                eventMorning.map(eventByDay => {
+                    return(
+                        <>
+                            {
+                                <div className="morning">
+                                    <p>{eventByDay.date.startHour}</p>
+                                </div>
+                            }
+                        </>
+                    )
+                })
+            }
+            {
+                eventAfternoon.map(eventByDay => {
+                    return(
+                        <>
+                            {
+                                <div className="afternoon">
+                                    <p>{eventByDay.date.startHour}</p>
+                                </div>
+                            }
+                        </>
+                    )
+                })
+            }
+            {/* {
                 half.map(eventByDay => {
                     return(
                         <>
                             {
-                                isMorning &&
+                                isMorning === true &&
                                 <div className="morning">
                                     <p>{eventByDay.date.startHour}</p>
                                 </div>
@@ -32,7 +59,7 @@ const EventsMonthView = ({day}) => {
                         </>
                     )
                 })
-            }
+            } */}
         </div>
     )
 }

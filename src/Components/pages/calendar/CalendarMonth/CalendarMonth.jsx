@@ -2,11 +2,13 @@ import React from 'react'
 import './CalendarMonth.scss'
 import DayMonthView from './DayMonthView'
 import {useCalendarState, useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
+import {filterEventsByMonth} from '../../events/EventsHooks.js'
 
 const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}) => {
     const [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'month', 'month')
     const [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 'month')
     const [dateSelected, select] = useHandleClick(null)
+    // const eventsInCurrentMonth = filterEventsByMonth(currentStart, 'month')
 
     // console.log('current moment month :', currentMoment.format('DD MM YY'))
     // console.log("current start:  month", currentStart.format('DD MM YY'))
