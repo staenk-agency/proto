@@ -1,0 +1,22 @@
+.eventsWeekView{
+    height: 300px;
+    overflow-y: auto;
+}
+.container-morning{
+    grid-row-start: 1;
+}
+.container-afternoon{
+    grid-row-start: 2;
+}
+.single-event{
+    height: 70px;
+    border: 0.5px solid black;
+    margin: 2px;
+    overflow-y: auto;
+    font-size: 0.8em;
+    background-image: linear-gradient(to right, #8a7f97, #80778e, #766f85, #6c687d, #636074);
+
+    p{
+        text-align: center;
+    }
+}

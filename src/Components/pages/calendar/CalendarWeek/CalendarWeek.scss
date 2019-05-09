@@ -44,11 +44,12 @@
     }
 
     .day-post{
-        height: 30vh;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        height: 600px;
         border: 2px dashed rgba(192, 190, 190, 0.582);
         margin: 2%
     }
-
     }
 
 }

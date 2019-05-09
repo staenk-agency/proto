@@ -1,28 +1,27 @@
-.events-container{
-    // background:#95DDDA;
-    // max-height: 25px;
-    // border-radius: 25px;
-    // text-align: center;
-    // font-size: 0,8em;
-    // color: white;
-    // overflow-y: auto;
+.events-container{  
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
+    height: 120px;
+
+    .morning-container{
+        height: 60px;
+        grid-row-start: 1;
+        grid-column-start: 1;
+        overflow-y: auto;
+    }
+    .afternoon-container{
+        height: 60px;
+        grid-row-start: 2;
+        grid-column-start: 1;
+    }
 }
-.morning{
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 1;
-}
-.afternoon{
-    grid-row-start: 2;
-    grid-column-start: 1;
-}
-p{
+.eventView{
+    margin: auto;
     background:#95DDDA;
-    border-radius: 25px;
-    text-align: center;
-    font-size: 0,8em;
     color: white;
+    border-radius: 25px;
+    font-size: 1em;
+    text-align: center;
+    width: 120px;
 }

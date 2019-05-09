@@ -1,29 +1,47 @@
 import React from 'react'
-import {filterEventsByDay} from '../EventsHooks.js'
+import moment from 'moment'
+import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
 
-const EventsWeekView = ({day, halfday}) => {
-    const event = filterEventsByDay(day)
-    console.log("dans eventsview", event[0])
-    return (
-        <div>
+import './EventsWeekView.scss'
+
+const EventsWeekView = ({day, halfday, eventsInCurrentWeek}) => {
+    const eventByDay = filterEventsByDay(eventsInCurrentWeek, day)
+    const [event, eventAfternoon, eventMorning, isMorning] = filterEventsByHalf(eventByDay, day)
+
+    // console.log("day", moment(day))
+    console.log("eventsInCurrentWeek", eventsInCurrentWeek)
+    console.log("eventByDay", eventByDay)
+    console.log("eventMorning", eventMorning)
+    console.log("eventAfternoon", eventAfternoon)
+    return(
+        <>
+            <div className="eventsWeekView container-morning">
             {
-                event[0] && (
-                    <div className="event-container halfday">
-                    {
-                        event.map(event => {
-                            return(
-                                <div>
-                                    <p>{event.date.startHour}</p>
-                                    <p>{event.title}</p>
-                                    <p>{event.shortDescription}</p>
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
+                isMorning  && (
+                    eventMorning.map((event) => {
+                        return(
+                            <div className="single-event">
+                                <p><span>{event.date.startHour}</span> {event.title}</p>
+                            </div>
+                        )
+                    })
                 )
             }
-        </div>
+            </div>
+            <div className="eventsWeekView container-afternoon">
+            {
+                isMorning === false && (
+                    eventAfternoon.map((event) => {
+                        return(
+                            <div className="single-event">
+                                <p><span>{event.date.startHour}</span> {event.title}</p>
+                            </div>
+                        )
+                    })
+                )
+            }
+            </div>
+        </>
     )
 }
 export default EventsWeekView;
