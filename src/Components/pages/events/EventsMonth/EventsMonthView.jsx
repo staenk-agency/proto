@@ -1,11 +1,11 @@
 import React from 'react'
-import {filterEventsByDay, filterEventsByHalf, filterEventsByMonth} from '../EventsUtils.js'
+import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
 import './EventsMonthView.scss'
 
 //filtrer en une seule fois avec between ! 
 const EventsMonthView = ({day, eventsInCurrentMonth}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)
-    const [event, eventAfternoon, eventMorning, isMorning] = filterEventsByHalf(eventByDay, day)
+    const [eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
 
     // console.log("eventsInCurrentMonth filtered in month view", eventsInCurrentMonth)
     // console.log("eventsinmonth", eventsInCurrentMonth)

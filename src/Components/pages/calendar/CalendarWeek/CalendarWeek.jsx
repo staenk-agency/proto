@@ -3,17 +3,17 @@ import './CalendarWeek.scss'
 import DayWeekView from './DayWeekView'
 
 import {useCalendarState, useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
-import {filterEventsByMonth} from '../../events/EventsUtils.js'
+import {filterEventsByView} from '../../events/EventsUtils.js'
 
 const CalendarWeek = ({currentMoment, displayDaysFrench, daysNameWeek}) => {
     const [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'isoWeek', 7) //isoWeek => startOf the first day of the week according iso format
     const [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 7)
     const [dateSelected, select] = useHandleClick(null)
-    const eventsInCurrentWeek = filterEventsByMonth(currentStart, 'isoWeek')
+    const eventsInCurrentWeek = filterEventsByView(currentStart, 'isoWeek')
     // console.log('current moment week :', currentMoment.format('DD MM YY'))
     // console.log("dateSelected week", dateSelected)
     // console.log('currentStart week', currentStart)
-    console.log("eventsInCurrentWeek in calendar week", eventsInCurrentWeek)
+    // console.log("eventsInCurrentWeek in calendar week", eventsInCurrentWeek)
     return (
         <div className="calendar-week-container">
             <div className="calendar-nav">

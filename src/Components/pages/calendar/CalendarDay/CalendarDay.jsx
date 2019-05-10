@@ -3,16 +3,19 @@ import './CalendarDay.scss'
 import DayHourView from '../CalendarDay/DayHourView'
 
 import {useCalendarState, useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
+import {filterEventsByView} from '../../events/EventsUtils.js'
+
 
 const CalendarDay = ({currentMoment}) => {
-    let [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'd', 24)
-    let [hours, recomputeDays] = useInitCalendarState(currentStart,'h', 24)
-    let [dateSelected, select] = useHandleClick(null)
+    const [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'd', 24)
+    const [hours, recomputeDays] = useInitCalendarState(currentStart,'h', 24)
+    const [dateSelected, select] = useHandleClick(null)
+    const eventsInCurrentDay = filterEventsByView(currentStart, 'd')
 
     // console.log('current moment day ', currentMoment.format('DD MM YY'))
     // console.log('current start day', currentStart)
     // if(dateSelected)
-    //     console.log('hour selected day', dateSelected.utc().format('DD MM YYYY kk mm') )
+    //      console.log('hour selected day', dateSelected.utc().format('DD MM YYYY kk mm') )
     return (
     <div className="calendar-day-container">
         <div className="calendar-day-button-and-date">
@@ -23,7 +26,7 @@ const CalendarDay = ({currentMoment}) => {
             {
                 hours.map((hour, id) => {
                     return(
-                        <DayHourView hour={hour} key={id}  handleClick={select}/>
+                        <DayHourView hour={hour} key={id}  handleClick={select} eventsInCurrentDay={eventsInCurrentDay}/>
                     )
                 })
             }
