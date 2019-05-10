@@ -1,5 +1,5 @@
 import React from 'react'
-import DayHourView from './DayHourView'
+import DayHourView from './DayHourView.jsx'
 
 import {shallow, configure} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
@@ -13,10 +13,11 @@ describe('DayHourView', () => {
     beforeEach(() => {
         wrapper = shallow(
         <DayHourView 
-            day={moment().utc()}
+            hour={moment().utc()}
         />)
     })
     it('returns a hour container', () => {
-        expect(wrapper.find('.hour ').type().toBe('div'))
+        expect(wrapper.type()).toBe('div')
+        expect(wrapper.find('.hour').type()).toBe('div')
     })
 })

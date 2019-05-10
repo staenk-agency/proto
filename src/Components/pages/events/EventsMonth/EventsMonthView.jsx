@@ -2,7 +2,6 @@ import React from 'react'
 import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
 import './EventsMonthView.scss'
 
-//filtrer en une seule fois avec between ! 
 const EventsMonthView = ({day, eventsInCurrentMonth}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
@@ -14,7 +13,7 @@ const EventsMonthView = ({day, eventsInCurrentMonth}) => {
     // console.log("tableau d'event matin", eventMorning)
 
     return (
-        <div className="events-container">
+        <div className="events-month-container">
             <div className="morning-container">
             {
                 eventMorning.map(eventByDay => {
