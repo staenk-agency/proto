@@ -1,60 +1,6 @@
 [
     {
         "date":{
-            "start": "05/04/19",
-            "startHour": "14:30",
-            "end": "05/04/19",
-            "endHour": null
-        },
-        "title": "Find the flowers !",
-        "shortDescription": "desk deco bro !",
-        "message": "Go, find, and buy all the best flowers to have this !",
-        "account": {
-            "name": "Bender",
-            "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
-        },
-        "socialNetworks": {
-            "url": "https://fr.linkedin.com/"
-        }
-    },
-    {
-        "date":{
-            "start": "05/04/19",
-            "startHour": "16:30",
-            "end": "05/04/19",
-            "endHour": null
-        },
-        "title": "Find the coffee !",
-        "shortDescription": "Cafe cafe cafe !",
-        "message": "CAFEEEEE",
-        "account": {
-            "name":"Bender",
-            "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
-        },
-        "socialNetworks": {
-            "url": "https://fr.linkedin.com/"
-        }
-    },
-    {
-        "date":{
-            "start": "07/04/19",
-            "startHour": "09:30",
-            "end": "07/04/19",
-            "endHour": null
-        },
-        "title": "Week End !",
-        "shortDescription": "Rest man",
-        "message": "Just lay in your bed, listen to music and SLEEP",
-        "account": {
-            "name": "Bender",
-            "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
-        },
-        "socialNetworks": {
-            "url": "https://fr.linkedin.com/"
-        }
-    },
-    {
-        "date":{
             "start": "07/05/19",
             "startHour": "13:30",
             "end": "15/04/19",
@@ -66,60 +12,6 @@
         "account": {
             "name": "Bender",
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
-        },
-        "socialNetworks": {
-            "url": "https://fr.linkedin.com/"
-        }
-    }, 
-    {
-        "date":{
-            "start": "12/04/19",
-            "startHour": "09:00",
-            "end": "14/04/19",
-            "endHour": "18h00"
-        },
-        "title": "Teeeeest !",
-        "shortDescription": "try again bro !",
-        "message": "display or what ?!",
-        "account": {
-            "name": "Fry",
-            "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
-        },
-        "socialNetworks": {
-            "url": "https://fr.linkedin.com/"
-        }
-    },
-    {
-        "date":{
-            "start": "15/04/19",
-            "startHour": "09:00",
-            "end": "15/04/19",
-            "endHour": "18h00"
-        },
-        "title": "Don't have any idea sorry",
-        "shortDescription": "Imagine ..!",
-        "message": "yeep !!",
-        "account": {
-            "name": "Fry",
-            "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
-        },
-        "socialNetworks": {
-            "url": "https://fr.linkedin.com/"
-        }
-    },
-    {
-        "date":{
-            "start": "05/04/19",
-            "startHour": "08:30",
-            "end": "05/04/19",
-            "endHour": null
-        },
-        "title": "Find the flowers !",
-        "shortDescription": "desk deco bro !",
-        "message": "Go, find, and buy all the best flowers to have this !",
-        "account": {
-            "name": "Fry",
-            "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
@@ -357,6 +249,7 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+
         }
     },
     {
@@ -377,4 +270,4 @@
             "url": "https://fr.linkedin.com/"
         }
     }
-]
+    ]

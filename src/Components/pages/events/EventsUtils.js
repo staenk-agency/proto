@@ -2,10 +2,21 @@ import moment from 'moment'
 import datasJson from '../../../data.json'
 
 const allEventsfromContext = datasJson;
+//convertir toutes les données reçues en moment !
 
 //continuer a trier les MINUTES !!
 const sortEvents = (array) => 
     array.sort((a, b) => parseInt(a.date.startHour).valueOf() - parseInt(b.date.startHour).valueOf())
+
+const sortMinutesEvents = ( array ) => {
+    // array = sortEvents(array)
+    array.sort((a, b) => parseInt(a.date.startHour).valueOf() - parseInt(b.date.startHour).valueOf())
+    array.sort((a, b) => {
+        const min = a.date.startHour.split(':')
+        const min2 = b.date.startHour.split(':')
+        return( parseInt(min[1].valueOf() - parseInt(min2[1]).valueOf()))
+    })
+}
 
 // function filterEventsByView rename
 export const filterEventsByView = (mDate, view) => {
@@ -42,9 +53,10 @@ export const filterEventsByHour = (eventsFilteredByView, mDate) => {
         const hour = event.date.startHour.split(':')
         if(event.date.startHour === mDate.format('HH:mm') || hour[0] === mDate.format('HH')){
             eventsByHour.push(event)
-            return eventsByHour
         }
     })
+    sortMinutesEvents(eventsByHour)
+    console.log("eventsByHour sorted ? ", eventsByHour)
     return eventsByHour
 }
 
@@ -62,13 +74,17 @@ export const filterEventsByHalf = (eventsFilteredByDay, mDate) => {
             // if events are during morning
             if(moment(eventMoment, "DD/MM/YY HH:mm").utc().isBetween(morning.format(), afternoon.format()) || moment(eventMoment, "DD/MM/YY HH:mm").utc().isSame(morning.format())){
                 eventMorning.push(event)
+                // console.log("eventMorning", eventMorning)
                 sortedEventsMorning = sortEvents(eventMorning)
+                // console.log("sortedEventsMorning", sortedEventsMorning)
                 return [sortedEventsMorning]
 
             // if events are during afternoon
             } else {
                 eventAfternoon.push(event)
+                // console.log("eventAfternoon", eventAfternoon)
                 sortedEventsAfternoon = sortEvents(eventAfternoon)
+                // console.log("sortedEventsAfternoon", sortedEventsAfternoon)
                 return [sortedEventsAfternoon] 
             }
             })

@@ -4,9 +4,7 @@ import {filterEventsByHour} from '../EventsUtils.js'
 
 const EventsDay = ({hour, eventsInCurrentDay}) => {
     const eventsByHours = filterEventsByHour(eventsInCurrentDay, hour)
-    console.log("eventsByHours", eventsByHours)
-    {/* le composant ne renvoie pas s'il y a deux composants les deux, il renvoie le dernier du tableau !!! */}
-
+    // console.log("eventsByHours", eventsByHours)
     return(
         <>
             {

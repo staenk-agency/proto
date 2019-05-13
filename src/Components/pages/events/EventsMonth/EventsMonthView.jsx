@@ -16,11 +16,12 @@ const EventsMonthView = ({day, eventsInCurrentMonth}) => {
         <div className="events-month-container">
             <div className="morning-container">
             {
-                eventMorning.map(eventByDay => {
+                // eventMorning &&
+                eventMorning.map((eventByDay) => {
                     return(
                         <>
                             {
-                                <p className="eventView morning">{eventByDay.date.startHour}</p>
+                                <p key={eventByDay.title} className="eventView morning" >{eventByDay.date.startHour}</p>
                             }
                         </>
                     )
@@ -29,6 +30,7 @@ const EventsMonthView = ({day, eventsInCurrentMonth}) => {
             </div>
             <div className="afternoon-container">
             {
+                // eventAfternoon &&
                 eventAfternoon.map(eventByDay => {
                     return(
                         <>

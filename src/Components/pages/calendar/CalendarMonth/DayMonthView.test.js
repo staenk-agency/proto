@@ -20,20 +20,18 @@ describe('DayMonthView', () => {
         expect(wrapper.find('.weekDay').type()).toBe('div')
     })
     it('receives a moment object in the day props', () => {
-        console.log(wrapper.debug())
+        // console.log("wrapper debug", wrapper.debug())
         // expect(wrapper.find('.weekDay').first().props()).toBe(currentMoment.format('DD'))
     })
     it('receives the correct position for the css grid according to the day', () => {
-        const checkPosition = (num) =>{
-            if(num % 7 === 0)
-                return num === 6
-            else
-                return num = (num % 7) - 1
-        } //check the right position in the grid according to the num of the day 0=monday 6=sunday
+        const checkPosition = (mDate) => {
+            const numposition = moment(mDate, 'DD').isoWeekday() -1
+            return numposition
+        }
 
         const position = wrapper.find('.weekDay').props().className
-        const numOfPosition = position.split("")
+        const numOfPosition = position.split("position")
         const day = parseInt(wrapper.props().children)
-        expect(numOfPosition[numOfPosition.length -1]).toBe(checkPosition(day).toString())
+        expect(numOfPosition[1]).toBe(checkPosition(day).toString())
     })
 })

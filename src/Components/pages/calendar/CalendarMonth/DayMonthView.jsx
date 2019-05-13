@@ -7,7 +7,7 @@ const DayMonthView = ({day, handleClick, eventsInCurrentMonth}) => {
     return (
         <div className={'weekDay position' + dayOfWeek} onClick={() => handleClick(day)}>
             {day.format("DD")}
-            <EventsMonthView key={'day' + day} day={day} eventsInCurrentMonth={eventsInCurrentMonth}/>
+            <EventsMonthView key={'day' + {day}} day={day} eventsInCurrentMonth={eventsInCurrentMonth}/>
         </div>
     )
 }
