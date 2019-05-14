@@ -16,6 +16,7 @@ const EventsWeekView = ({day, halfday, eventsInCurrentWeek}) => {
         <>
             <div className="eventsWeekView container-morning">
             {
+                eventMorning &&
                     eventMorning.map((event) => {
                         return(
                             <div className="single-event">
@@ -29,6 +30,7 @@ const EventsWeekView = ({day, halfday, eventsInCurrentWeek}) => {
             </div>
             <div className="eventsWeekView container-afternoon">
             {
+                eventAfternoon &&
                     eventAfternoon.map((event) => {
                         return(
                             <div className="single-event">

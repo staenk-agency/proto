@@ -9,6 +9,7 @@ import CalendarMonth from '../CalendarMonth/CalendarMonth'
 import CalendarWeek from '../CalendarWeek/CalendarWeek'
 import CalendarDay from '../CalendarDay/CalendarDay'
 
+//changer le current moment pour qu'il change lorsque je navigue dans le calendrier selon les vues ! 
 export class CalendarContainer extends Component {
     constructor(props){
         super(props)

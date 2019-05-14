@@ -7,8 +7,7 @@ const EventsMonthView = ({day, eventsInCurrentMonth}) => {
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
 
     // console.log("eventsInCurrentMonth filtered in month view", eventsInCurrentMonth)
-    // console.log("eventsinmonth", eventsInCurrentMonth)
-    // console.log("eventByDay dans month view", eventByDay
+    // console.log("eventByDay dans month view", eventByDay)
     // console.log("tableau d'event aprem", eventAfternoon)
     // console.log("tableau d'event matin", eventMorning)
 
@@ -16,28 +15,20 @@ const EventsMonthView = ({day, eventsInCurrentMonth}) => {
         <div className="events-month-container">
             <div className="morning-container">
             {
-                // eventMorning &&
-                eventMorning.map((eventByDay) => {
+                eventMorning &&
+                eventMorning.map((eventByDay, index) => {
                     return(
-                        <>
-                            {
-                                <p key={eventByDay.title} className="eventView morning" >{eventByDay.date.startHour}</p>
-                            }
-                        </>
+                        <p key={'morning' + index} className="eventView morning" >{eventByDay.date.startHour}</p>
                     )
                 })
             }
             </div>
             <div className="afternoon-container">
             {
-                // eventAfternoon &&
-                eventAfternoon.map(eventByDay => {
+                eventAfternoon &&
+                eventAfternoon.map((eventByDay,index) => {
                     return(
-                        <>
-                            {
-                                <p className="eventView afternoon">{eventByDay.date.startHour}</p>
-                            }
-                        </>
+                        <p key={'afternoon' + index} className="eventView afternoon">{eventByDay.date.startHour}</p>
                     )
                 })
             }

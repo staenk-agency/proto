@@ -54,7 +54,6 @@ describe('CalendarMonth', () => {
         const numberOfDays = currentMomentEnd.format('D')
         expect(wrapper.find(DayMonthView).last().props().day.format('D')).toBe(numberOfDays)
         
-        //pour les tests : pourquoi ils marchent lorsque add est fait à la main, et lorsque j'automatise avec une boucle for ou while, MEME sans utiliser la variable qui s'incrémente i, il ne renvoie pas les bonnes valeurs ? 
         const test = moment().utc().endOf('month').add(10, 'month').format('D')
         expect(wrapper.find(DayMonthView).last().props().day.add(10, 'month').format('D')).toBe(test)
     })

@@ -1,31 +1,35 @@
 import moment from 'moment'
 import datasJson from '../../../data.json'
 
-const allEventsfromContext = datasJson;
-//convertir toutes les données reçues en moment !
-
-//continuer a trier les MINUTES !!
-const sortEvents = (array) => 
-    array.sort((a, b) => parseInt(a.date.startHour).valueOf() - parseInt(b.date.startHour).valueOf())
-
-const sortMinutesEvents = ( array ) => {
-    // array = sortEvents(array)
-    array.sort((a, b) => parseInt(a.date.startHour).valueOf() - parseInt(b.date.startHour).valueOf())
-    array.sort((a, b) => {
-        const min = a.date.startHour.split(':')
-        const min2 = b.date.startHour.split(':')
-        return( parseInt(min[1].valueOf() - parseInt(min2[1]).valueOf()))
+//this function convert all JSON datas .date.start in moment object
+export const convertDatasInMoment = (datas) => {
+    const date = datas.map((event) => {
+        const fullDay = moment(event.date.start + " " + event.date.startHour, "DD/MM/YY kk:mm").utc()
+        event.date.start = fullDay
+        return event
     })
+    return date
+}
+//remove when context will be built
+const allEventsfromContext = convertDatasInMoment(datasJson);
+
+const sortEvents = (array) => {
+    if(array.length > 0) {
+        array = array.sort((a, b) => {
+            return a.date.start.valueOf() - b.date.start.valueOf()
+        })
+        return array
+    }
 }
 
-// function filterEventsByView rename
 export const filterEventsByView = (mDate, view) => {
     const events = allEventsfromContext.filter((event) => {
         const eventDate = event.date.start;
-        const firstDayView = mDate.clone().startOf(view).utc().format('DD/MM/YY')
-        const lastDayView= mDate.clone().endOf(view).utc().format('DD/MM/YY')
-        if(moment(eventDate, "DD/MM/YY").utc().isBetween(moment(firstDayView, "DD/MM/YY"), moment(lastDayView, "DD/MM/YY")) || moment(eventDate, "DD/MM/YY").utc().isSame(moment(firstDayView, "DD/MM/YY")) || moment(eventDate, "DD/MM/YY").utc().isSame(moment(lastDayView, "DD/MM/YY")))
+        const firstDayView = moment(mDate.clone().startOf(view)).utc()
+        const lastDayView = moment(mDate.clone().endOf(view)).utc()
+        if(eventDate.isBetween(firstDayView ,lastDayView) || eventDate.isSame(firstDayView) || eventDate.isSame(lastDayView)){
             return event
+        }
     })
     return events
 }
@@ -34,14 +38,11 @@ export const filterEventsByView = (mDate, view) => {
 // permet de ne pas aller chercher dans moment js direct 
 // filterEventsByMonth(mDate) {return filterEventsByView(mDate,'month')}
 
-//lors de la reception de tous les events, convertir les dates en moment une seule fois pour ne plus avoir à le faire!! 
-
-
 // afin d'être toujours sur la date courante dès lors que je navigue dans le calendrier, remonter les hooks de currentstart, next et previous step, et faire les changements ainsi, en envoyant arguments aux enfants ! 
 
 export const filterEventsByDay = (eventsFilteredByView, mDate) => {
     const event = eventsFilteredByView.filter((event) => {
-        if(event.date.start === moment(mDate).utc().format('DD/MM/YY'))
+        if(event.date.start.format('DD/MM/YY') === mDate.format('DD/MM/YY'))
             return event
     })
     return event
@@ -50,44 +51,40 @@ export const filterEventsByDay = (eventsFilteredByView, mDate) => {
 export const filterEventsByHour = (eventsFilteredByView, mDate) => {
     let eventsByHour = []
     eventsFilteredByView.filter((event) => {
-        const hour = event.date.startHour.split(':')
-        if(event.date.startHour === mDate.format('HH:mm') || hour[0] === mDate.format('HH')){
+        const eventDate = event.date.start
+        const currentHour = mDate.clone().utc()
+        console.log("event", eventDate.format('DD/MM/YY kk'))
+        console.log("mDate",currentHour.format('DD/MM/YY kk'))
+        if(eventDate.isSame(currentHour, 'hour')){
             eventsByHour.push(event)
         }
     })
-    sortMinutesEvents(eventsByHour)
-    console.log("eventsByHour sorted ? ", eventsByHour)
+    sortEvents(eventsByHour)
     return eventsByHour
 }
 
 export const filterEventsByHalf = (eventsFilteredByDay, mDate) => {
     let eventMorning = []
     let eventAfternoon = []
-    let sortedEventsAfternoon = []
-    let sortedEventsMorning = []
-    const morning = moment(mDate).startOf('d')
-    const afternoon = moment(morning).add(11, 'h')
+    const morning = moment(mDate).utc().startOf('day')
+    const afternoon = moment(morning).utc().add(11 , 'hour') // with uct(), the afternoon will start at 13pm
 
     if(eventsFilteredByDay){
-        const event = eventsFilteredByDay.filter((event) => {
-            const eventMoment = [event.date.start + " " + event.date.startHour].join()
-            // if events are during morning
-            if(moment(eventMoment, "DD/MM/YY HH:mm").utc().isBetween(morning.format(), afternoon.format()) || moment(eventMoment, "DD/MM/YY HH:mm").utc().isSame(morning.format())){
-                eventMorning.push(event)
-                // console.log("eventMorning", eventMorning)
-                sortedEventsMorning = sortEvents(eventMorning)
-                // console.log("sortedEventsMorning", sortedEventsMorning)
-                return [sortedEventsMorning]
-
+        eventsFilteredByDay.filter((event) => {
+        const eventDate = event.date.start;
+        // if events are during morning
+        if(eventDate.isBetween(morning, afternoon) || eventDate.isSame(morning)){
+            eventMorning.push(event)
+            return [eventMorning]
+            
             // if events are during afternoon
-            } else {
-                eventAfternoon.push(event)
-                // console.log("eventAfternoon", eventAfternoon)
-                sortedEventsAfternoon = sortEvents(eventAfternoon)
-                // console.log("sortedEventsAfternoon", sortedEventsAfternoon)
-                return [sortedEventsAfternoon] 
-            }
-            })
-            return [sortedEventsAfternoon, sortedEventsMorning]
+        } else {
+            eventAfternoon.push(event)
+            return [eventAfternoon] 
+        }
+        })
+        eventMorning = sortEvents(eventMorning)
+        eventAfternoon = sortEvents(eventAfternoon)
+        return [eventAfternoon, eventMorning]
     }
 }

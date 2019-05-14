@@ -5,7 +5,7 @@ const DayHourView = ({hour, handleClick, eventsInCurrentDay}) => {
     return (
         <div className={'hour ' + hour.format('kk')} onClick={() => handleClick(hour)}>
             {hour.format('kk a')}
-            <EventsDay key={"event" + `${hour}`} hour={hour} eventsInCurrentDay={eventsInCurrentDay}/>
+            <EventsDay key={"event" + {hour}} hour={hour} eventsInCurrentDay={eventsInCurrentDay}/>
         </div>
     )
 }

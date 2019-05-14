@@ -4,7 +4,9 @@ import {filterEventsByHour} from '../EventsUtils.js'
 
 const EventsDay = ({hour, eventsInCurrentDay}) => {
     const eventsByHours = filterEventsByHour(eventsInCurrentDay, hour)
-    // console.log("eventsByHours", eventsByHours)
+    
+    console.log("eventsByHours", eventsByHours)
+    console.log("hour", hour)
     return(
         <>
             {

@@ -10,6 +10,7 @@ const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}
     const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
 
+    // console.log(eventsInCurrentMonth)
     // console.log('current moment month :', currentMoment.format('DD MM YY'))
     // console.log("current start:  month", currentStart.format('DD MM YY'))
     // console.log("dateSelected month", dateSelected)
