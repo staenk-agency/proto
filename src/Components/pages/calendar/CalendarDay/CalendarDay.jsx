@@ -12,6 +12,7 @@ const CalendarDay = ({currentMoment}) => {
     const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentDay = filterEventsByView(currentStart, 'd')
 
+    console.log("dans calendar day, eventsInCurrentDay", eventsInCurrentDay[0].date.start.format('kk:mm'))
     // console.log('current moment day ', currentMoment.format('DD MM YY'))
     // console.log('current start day', currentStart)
     // if(dateSelected)

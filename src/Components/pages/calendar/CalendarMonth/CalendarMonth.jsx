@@ -10,6 +10,7 @@ const CalendarMonth = ({currentMoment, displayMonthFrench, daysName, monthsName}
     const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
 
+    console.log('dans calendar month', eventsInCurrentMonth[0].date.start.format('DD/MM/YY kk:mm'))
     // console.log(eventsInCurrentMonth)
     // console.log('current moment month :', currentMoment.format('DD MM YY'))
     // console.log("current start:  month", currentStart.format('DD MM YY'))

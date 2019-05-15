@@ -4,14 +4,14 @@ import moment from 'moment'
 export const useCalendarState = (mDate, step, end) => {
     const [currentStart, setCurrentStep] = useState(mDate.utc().startOf(step));
 
-    let nextStep = function(count, stepFunction, recomputeDays, stepArray){
-        let newCurrent = currentStart.clone().add(count, stepFunction);
+    const nextStep = function(count, stepFunction, recomputeDays, stepArray){
+        const newCurrent = currentStart.clone().add(count, stepFunction);
         setCurrentStep(newCurrent);
         recomputeDays(newCurrent, stepArray, end)
     }
 
-    let previousStep = function(count, stepFunction, recomputeDays, stepArray){
-        let newCurrent = currentStart.clone().subtract(count, stepFunction);
+    const previousStep = function(count, stepFunction, recomputeDays, stepArray){
+        const newCurrent = currentStart.clone().subtract(count, stepFunction);
         setCurrentStep(newCurrent);
         recomputeDays(newCurrent, stepArray, end)
     }
@@ -21,7 +21,7 @@ export const useCalendarState = (mDate, step, end) => {
 export const useInitCalendarState = (mDate, step, end) => {
     const [days, setDays] = useState(initDaysArray(mDate, step, end))
 
-    let recomputeDays = function(mDate, step, end) {
+    const recomputeDays = function(mDate, step, end) {
         setDays(initDaysArray(mDate, step, end));
     }
     return [days, recomputeDays];
@@ -43,7 +43,7 @@ function initDaysArray(mDate, step, end) {
 export const useHandleClick = (empty, mDate) => {
     const [dateSelected, setDateSelected] = useState(empty);
 
-    let select = function(mDate){
+    const select = function(mDate){
         setDateSelected(moment(mDate).utc())
     }
         return [dateSelected, select];

@@ -1,10 +1,10 @@
 import moment from 'moment'
 import datasJson from '../../../data.json'
 
-//this function convert all JSON datas .date.start in moment object
+//this function convert all JSON datas datas.date.start in moment object
 export const convertDatasInMoment = (datas) => {
     const date = datas.map((event) => {
-        const fullDay = moment(event.date.start + " " + event.date.startHour, "DD/MM/YY kk:mm").utc()
+        const fullDay = moment.utc(event.date.start + " " + event.date.startHour, "DD/MM/YY kk:mm")
         event.date.start = fullDay
         return event
     })
@@ -25,8 +25,8 @@ const sortEvents = (array) => {
 export const filterEventsByView = (mDate, view) => {
     const events = allEventsfromContext.filter((event) => {
         const eventDate = event.date.start;
-        const firstDayView = moment(mDate.clone().startOf(view)).utc()
-        const lastDayView = moment(mDate.clone().endOf(view)).utc()
+        const firstDayView = mDate.clone().startOf(view).utc()
+        const lastDayView = mDate.clone().endOf(view).utc()
         if(eventDate.isBetween(firstDayView ,lastDayView) || eventDate.isSame(firstDayView) || eventDate.isSame(lastDayView)){
             return event
         }
@@ -44,20 +44,18 @@ export const filterEventsByDay = (eventsFilteredByView, mDate) => {
     const event = eventsFilteredByView.filter((event) => {
         if(event.date.start.format('DD/MM/YY') === mDate.format('DD/MM/YY'))
             return event
+        
     })
     return event
 }
 
+//probleme avec filter by hours qui n'a pas les heures correctes contrairement a filterbyday qui les reçois en reconvertissant utc()
 export const filterEventsByHour = (eventsFilteredByView, mDate) => {
     let eventsByHour = []
     eventsFilteredByView.filter((event) => {
-        const eventDate = event.date.start
-        const currentHour = mDate.clone().utc()
-        console.log("event", eventDate.format('DD/MM/YY kk'))
-        console.log("mDate",currentHour.format('DD/MM/YY kk'))
-        if(eventDate.isSame(currentHour, 'hour')){
+        const eventDate = event.date.start.utc()
+        if(eventDate.isSame(mDate, 'hour'))
             eventsByHour.push(event)
-        }
     })
     sortEvents(eventsByHour)
     return eventsByHour
@@ -66,8 +64,8 @@ export const filterEventsByHour = (eventsFilteredByView, mDate) => {
 export const filterEventsByHalf = (eventsFilteredByDay, mDate) => {
     let eventMorning = []
     let eventAfternoon = []
-    const morning = moment(mDate).utc().startOf('day')
-    const afternoon = moment(morning).utc().add(11 , 'hour') // with uct(), the afternoon will start at 13pm
+    const morning = mDate.clone().utc().startOf('day')
+    const afternoon = morning.clone().add(13 , 'hour')
 
     if(eventsFilteredByDay){
         eventsFilteredByDay.filter((event) => {

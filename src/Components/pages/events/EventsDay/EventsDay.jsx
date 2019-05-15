@@ -4,9 +4,6 @@ import {filterEventsByHour} from '../EventsUtils.js'
 
 const EventsDay = ({hour, eventsInCurrentDay}) => {
     const eventsByHours = filterEventsByHour(eventsInCurrentDay, hour)
-    
-    console.log("eventsByHours", eventsByHours)
-    console.log("hour", hour)
     return(
         <>
             {
@@ -14,7 +11,7 @@ const EventsDay = ({hour, eventsInCurrentDay}) => {
                 eventsByHours.map((event) => {
                     return(
                             <div className="events-day-container">
-                                <p><strong>{event.date.startHour}</strong> </p>
+                                <p><strong>{event.date.start.format('kk:mm')}</strong> </p>
                                 {event.title} 
                                 {event.message} 
                                 <img src={event.account.picture} alt={event.account.name}/>
