@@ -5,11 +5,14 @@ import DayWeekView from './DayWeekView'
 import {useCalendarState, useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
 import {filterEventsByView} from '../../events/EventsUtils.js'
 
-const CalendarWeek = ({currentMoment, displayDaysFrench, daysNameWeek}) => {
-    const [currentStart, nextStep, previousStep] = useCalendarState(currentMoment.clone(), 'isoWeek', 7) //isoWeek => startOf the first day of the week according iso format
-    const [days, recomputeDays] = useInitCalendarState(currentStart, 'd', 7)
+//on ne peut pas utiliser le même currenstart qu'avec le mois, puisque commence au début de la semain e!! 
+const CalendarWeek = ({currentMoment, currentStart, currentStartWeek, nextStep, previousStep, displayDaysFrench, daysNameWeek}) => {
+    const [days, recomputeDays] = useInitCalendarState(currentStartWeek.clone(), 'd', 7)
     const [dateSelected, select] = useHandleClick(null)
-    const eventsInCurrentWeek = filterEventsByView(currentStart, 'isoWeek')
+    const eventsInCurrentWeek = filterEventsByView(currentStartWeek, 'isoWeek')
+
+    console.log('current start calendar week', currentStartWeek.format('DD/MM/YY'))
+
     // console.log('current moment week :', currentMoment.format('DD MM YY'))
     // console.log("dateSelected week", dateSelected)
     // console.log('currentStart week', currentStart)
@@ -18,10 +21,10 @@ const CalendarWeek = ({currentMoment, displayDaysFrench, daysNameWeek}) => {
         <div className="calendar-week-container">
             <div className="calendar-nav">
                 <p className="week-view-p"> 
-                    <button className="btn-previous-week"onClick={() => previousStep(7, 'd', recomputeDays, 'd')}>
+                    <button className="btn-previous-week"onClick={() => previousStep(7, 'd', recomputeDays, 'd', 7)}>
                         <i className="fas fa-caret-left"/>
-                    </button >Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('isoWeek').format('DD/MM/YY')}
-                    <button className="btn-next-week" onClick={() => nextStep(7, 'd', recomputeDays, 'd')}>
+                    </button >Du {currentStartWeek.clone().format('DD/MM/YY')} au {currentStartWeek.clone().endOf('isoWeek').format('DD/MM/YY')}
+                    <button className="btn-next-week" onClick={() => nextStep(7, 'd', recomputeDays, 'd', 7)}>
                         <i className="fas fa-caret-right"/>
                     </button>
                 </p>
