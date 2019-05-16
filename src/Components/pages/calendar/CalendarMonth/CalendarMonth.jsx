@@ -5,7 +5,7 @@ import DayMonthView from './DayMonthView'
 import {useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
 import {filterEventsByView} from '../../events/EventsUtils.js'
 
-const CalendarMonth = ({currentStart, nextStep, previousStep, displayMonthFrench, daysName, monthsName}) => {
+const CalendarMonth = ({currentStart, nextStep, previousStep, returnToCurrentDate, displayMonthFrench, daysName, monthsName}) => {
     currentStart = currentStart.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const [dateSelected, select] = useHandleClick(null)
@@ -19,6 +19,7 @@ const CalendarMonth = ({currentStart, nextStep, previousStep, displayMonthFrench
                 <button className="btn-previous-month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-caret-left"/></button>
                 <button className="btn-next-month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-caret-right"/></button>
                 <button className="btn-next-year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-forward"/></button>
+                <button className="btn-current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}>Aujourd'hui</button>
                 <h3>{displayMonthFrench(currentStart.month(), monthsName)} {currentStart.format("YYYY")}</h3>
             </div>
                 <div className="weekDays">

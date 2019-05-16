@@ -5,7 +5,7 @@ import DayWeekView from './DayWeekView'
 import {useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
 import {filterEventsByView} from '../../events/EventsUtils.js'
 
-const CalendarWeek = ({currentStart, nextStep, previousStep, displayDaysFrench, daysNameWeek}) => {
+const CalendarWeek = ({currentStart, nextStep, previousStep, returnToCurrentDate, displayDaysFrench, daysNameWeek}) => {
     currentStart = currentStart.clone().startOf('isoWeek')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 7)
     const [dateSelected, select] = useHandleClick(null)
@@ -22,6 +22,7 @@ const CalendarWeek = ({currentStart, nextStep, previousStep, displayDaysFrench, 
                     <button className="btn-next-week" onClick={() => nextStep('week', recomputeDays, 'd', 7, 'isoWeek')}>
                         <i className="fas fa-caret-right"/>
                     </button>
+                    <button onClick={() => returnToCurrentDate(recomputeDays, 'd', 7, 'isoWeek')}>Cette semaine</button>
                 </p>
             </div>
                 <div className="weekDays">
