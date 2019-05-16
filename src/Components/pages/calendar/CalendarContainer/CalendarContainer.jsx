@@ -8,14 +8,12 @@ import CalendarMonth from '../CalendarMonth/CalendarMonth'
 import CalendarWeek from '../CalendarWeek/CalendarWeek'
 import CalendarDay from '../CalendarDay/CalendarDay'
 
-//changer le current moment pour qu'il change lorsque je navigue dans le calendrier selon les vues ! 
 export class CalendarContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
             currentMoment: moment().utc(),
             currentStart: moment().utc().startOf('month'),
-            currentStartWeek: moment().utc().startOf('isoWeek'),
             stepType: 'month'
         }
     }
@@ -29,33 +27,27 @@ export class CalendarContainer extends Component {
         })
     }
 
-    nextStep = (count, stepFunction, recomputeDays, stepArray, end) => {
+    nextStep = (stepFunction, recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentStart : this.state.currentStart.add(count,stepFunction),
-            currentStartWeek : this.state.currentStart.clone().startOf('isoWeek')
+            currentStart: this.state.currentStart.add(1, stepFunction),
         })
-        recomputeDays(this.state.currentStart, stepArray, end)
+        recomputeDays(this.state.currentStart.startOf(startOf), stepArray, end)
     }
-
-    //recomputeDays => ne fonctionne pas pour les semaines car recompute qu'a partir de currentStart
-    //comment faire passer le recompute a chaque vue ? 
-
-    previousStep = (count, stepFunction, recomputeDays, stepArray, end) => {
+    previousStep = (stepFunction, recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentStart : this.state.currentStart.subtract(count,stepFunction),
-            currentStartWeek : this.state.currentStart.clone().subtract('isoWeek')
+            currentStart: this.state.currentStart.subtract(1, stepFunction),
         })
-        recomputeDays(this.state.currentStart, stepArray, end)
+        recomputeDays(this.state.currentStart.startOf(startOf), stepArray, end)
     }
 
     render(){
-        console.log("state ! ", this.state.currentStart.format('DD/MM/YY'))
+        console.log("state ! dans container ", this.state.currentStart.format('DD/MM/YY'))
+
         //pas en props, faire un json pour ça
         const monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
         const daysName = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE"]
         const daysNameWeek = [ "DIMANCHE" ,"LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI"]
 
-        // console.log('current moment container:', this.state.currentMoment.format('DD MM YY'))
         return (
             <div className="grid-container">
                 <div className="horizontalNavBar-app-container">
@@ -77,17 +69,17 @@ export class CalendarContainer extends Component {
                 </div>
                 {
                     this.state.stepType === 'month' && (
-                        <CalendarMonth currentMoment={this.state.currentMoment} currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} displayMonthFrench={this.displayMonthFrench} daysName={daysName} monthsName={monthsName}/>
+                        <CalendarMonth currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} displayMonthFrench={this.displayMonthFrench} daysName={daysName} monthsName={monthsName}/>
                     )
                 }
                 {
                     this.state.stepType === 'week' &&(
-                        <CalendarWeek currentMoment={this.state.currentMoment} currentStart={this.state.currentStart} currentStartWeek={this.state.currentStartWeek} nextStep={this.nextStep} previousStep={this.previousStep} displayDaysFrench={this.displayMonthFrench} daysNameWeek={daysNameWeek}/>
+                        <CalendarWeek currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} displayDaysFrench={this.displayMonthFrench} daysNameWeek={daysNameWeek}/>
                     )
                 }
                 {
                     this.state.stepType === 'day' &&(
-                        <CalendarDay currentMoment={this.state.currentMoment} currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} />
+                        <CalendarDay currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} />
                     )
                 }
                 </div>
