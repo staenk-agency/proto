@@ -2,15 +2,21 @@ import React from 'react'
 import './CalendarMonth.scss'
 import DayMonthView from './DayMonthView'
 
+import namesInFrench from '../momentsFrench.json'
 import {useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
 import {filterEventsByView} from '../../events/EventsUtils.js'
 
-const CalendarMonth = ({currentStart, nextStep, previousStep, returnToCurrentDate, displayMonthFrench, daysName, monthsName}) => {
-    currentStart = currentStart.clone().startOf('month')
+const displayNameFrench = (mDate, monthsName) => {
+    return monthsName[0].monthsName[mDate];
+}
+
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate}) => {
+    let currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
 
+    const monthsName = 'monthsName'
     // console.log('current startMonth calendar month', currentStart.format('DD/MM/YY'))
     return (
         <div className="calendar-month-container">
@@ -20,11 +26,11 @@ const CalendarMonth = ({currentStart, nextStep, previousStep, returnToCurrentDat
                 <button className="btn-next-month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-caret-right"/></button>
                 <button className="btn-next-year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-forward"/></button>
                 <button className="btn-current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}>Aujourd'hui</button>
-                <h3>{displayMonthFrench(currentStart.month(), monthsName)} {currentStart.format("YYYY")}</h3>
+                <h3>{displayNameFrench(currentStart.month(), namesInFrench)} {currentStart.format("YYYY")}</h3>
             </div>
                 <div className="weekDays">
                     {
-                        daysName.map((day, id) => {
+                        namesInFrench[1].daysName.map((day, id) => {
                             return (
                                 <div className={'weekDayName position' + id} key={id}>
                                     {day}

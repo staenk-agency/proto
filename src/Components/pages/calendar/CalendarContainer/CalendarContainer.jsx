@@ -9,18 +9,15 @@ import CalendarWeek from '../CalendarWeek/CalendarWeek'
 import CalendarDay from '../CalendarDay/CalendarDay'
 
 export class CalendarContainer extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
+        let currentMoment = moment().utc();
         this.state = {
-            currentMoment: moment().utc(),
-            currentStart: moment().utc().startOf('month'),
+            currentMoment: currentMoment,
             stepType: 'month'
         }
     }
-    displayMonthFrench = (mDate, monthsName) => {
-        return monthsName[mDate];
-    }
-    
+
     onChangeCalendarType= (stepType) => {
         this.setState({
             stepType: stepType
@@ -29,26 +26,25 @@ export class CalendarContainer extends Component {
 
     nextStep = (stepFunction, recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentStart: this.state.currentStart.add(1, stepFunction),
+            currentMoment: this.state.currentMoment.add(1, stepFunction),
         })
-        recomputeDays(this.state.currentStart.startOf(startOf), stepArray, end)
+        recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
     previousStep = (stepFunction, recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentStart: this.state.currentStart.subtract(1, stepFunction),
+            currentMoment: this.state.currentMoment.subtract(1, stepFunction),
         })
-        recomputeDays(this.state.currentStart.startOf(startOf), stepArray, end)
+        recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
 
     returnToCurrentDate = (recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentStart: this.state.currentMoment.clone().startOf(startOf),
+            currentMoment: moment().utc(),
         })
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
 
     render(){
-        console.log("state ! dans container ", this.state.currentStart.format('DD/MM/YY'))
         console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
 
         //pas en props, faire un json pour ça
@@ -77,17 +73,17 @@ export class CalendarContainer extends Component {
                 </div>
                 {
                     this.state.stepType === 'month' && (
-                        <CalendarMonth currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} displayMonthFrench={this.displayMonthFrench} daysName={daysName} monthsName={monthsName}/>
+                        <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate}/>
                     )
                 }
                 {
                     this.state.stepType === 'week' &&(
-                        <CalendarWeek currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} displayDaysFrench={this.displayMonthFrench} daysNameWeek={daysNameWeek}/>
+                        <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate}/>
                     )
                 }
                 {
                     this.state.stepType === 'day' &&(
-                        <CalendarDay currentStart={this.state.currentStart} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate}/>
+                        <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate}/>
                     )
                 }
                 </div>

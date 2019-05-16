@@ -7,21 +7,20 @@ const EventsDay = ({hour, eventsInCurrentDay}) => {
     return(
         <>
             {
-            eventsByHours.length > 0 && (
-                eventsByHours.map((event) => {
-                    return(
-                            <div className="events-day-container">
-                                <p><strong>{event.date.start.format('kk:mm')}</strong> </p>
-                                {event.title} 
-                                {event.message} 
-                                <img src={event.account.picture} alt={event.account.name}/>
-                            </div>
-                    )
-                })
-            )
+                eventsByHours.length > 0 && (
+                    eventsByHours.map((event) => {
+                        return(
+                                <div className="events-day-container">
+                                    <p><strong>{event.date.mDate.format('kk:mm')}</strong> </p>
+                                    {event.title} 
+                                    {event.message} 
+                                    <img src={event.account.picture} alt={event.account.name}/>
+                                </div>
+                        )
+                    })
+                )
             }
         </>
     )
 }
-
-export default EventsDay;
+export default EventsDay

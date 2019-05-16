@@ -1,17 +1,12 @@
 import React from 'react'
-import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
-
 import './EventsWeekView.scss'
+
+import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
 
 const EventsWeekView = ({day, halfday, eventsInCurrentWeek}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentWeek, day)
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
 
-    // console.log("day", moment(day))
-    // console.log("eventsInCurrentWeek", eventsInCurrentWeek)
-    // console.log("eventByDay", eventByDay)
-    // console.log("eventMorning", eventMorning)
-    // console.log("eventAfternoon", eventAfternoon)
     return(
         <>
             <div className="eventsWeekView container-morning">
@@ -20,7 +15,7 @@ const EventsWeekView = ({day, halfday, eventsInCurrentWeek}) => {
                     eventMorning.map((event) => {
                         return(
                             <div className="single-event">
-                                <div className="single-event-hour">{event.date.startHour}</div>
+                                <div className="single-event-hour">{event.date.mDate.format('kk:mm')}</div>
                                 <p><img src={event.account.picture} alt={event.account.name}/> {event.account.name}</p> 
                                 <p>{event.title}</p>
                             </div>
@@ -45,4 +40,4 @@ const EventsWeekView = ({day, halfday, eventsInCurrentWeek}) => {
         </>
     )
 }
-export default EventsWeekView;
+export default EventsWeekView

@@ -1,17 +1,22 @@
 import moment from 'moment'
 import datasJson from '../../../data.json'
 
-//this function convert all JSON datas datas.date.start in moment object
+//when navigating in the calendar, when click on go back to current month/week/view,
+//it doesn't reftech and display the evenements ! 
+//correct it! 
+
+//this function convert all JSON datas datas.date.mDate in moment object
 export const convertDatasInMoment = (datas) => {
     const date = datas.map((event) => {
         const fullDay = moment.utc(event.date.start + " " + event.date.startHour, "DD/MM/YY kk:mm")
-        event.date.start = fullDay
+        event.date.mDate = fullDay              //create another key in event with a moment value
         return event
     })
     return date
 }
 //remove when context will be built
 const allEventsfromContext = convertDatasInMoment(datasJson);
+// let allEventsfromContext = this.context
 
 const sortEvents = (array) => {
     if(array.length > 0) {
@@ -24,7 +29,7 @@ const sortEvents = (array) => {
 
 export const filterEventsByView = (mDate, view) => {
     const events = allEventsfromContext.filter((event) => {
-        const eventDate = event.date.start;
+        const eventDate = event.date.mDate;
         const firstDayView = mDate.clone().startOf(view).utc()
         const lastDayView = mDate.clone().endOf(view).utc()
         if(eventDate.isBetween(firstDayView ,lastDayView) || eventDate.isSame(firstDayView) || eventDate.isSame(lastDayView)){
@@ -38,22 +43,18 @@ export const filterEventsByView = (mDate, view) => {
 // permet de ne pas aller chercher dans moment js direct 
 // filterEventsByMonth(mDate) {return filterEventsByView(mDate,'month')}
 
-// afin d'être toujours sur la date courante dès lors que je navigue dans le calendrier, remonter les hooks de currentstart, next et previous step, et faire les changements ainsi, en envoyant arguments aux enfants ! 
-
 export const filterEventsByDay = (eventsFilteredByView, mDate) => {
     const event = eventsFilteredByView.filter((event) => {
-        if(event.date.start.format('DD/MM/YY') === mDate.format('DD/MM/YY'))
+        if(event.date.mDate.isSame(mDate, 'day'))
             return event
-        
     })
     return event
 }
 
-//probleme avec filter by hours qui n'a pas les heures correctes contrairement a filterbyday qui les reçois en reconvertissant utc()
 export const filterEventsByHour = (eventsFilteredByView, mDate) => {
     let eventsByHour = []
     eventsFilteredByView.filter((event) => {
-        const eventDate = event.date.start.utc()
+        const eventDate = event.date.mDate.utc()
         if(eventDate.isSame(mDate, 'hour'))
             eventsByHour.push(event)
     })
@@ -69,13 +70,13 @@ export const filterEventsByHalf = (eventsFilteredByDay, mDate) => {
 
     if(eventsFilteredByDay){
         eventsFilteredByDay.filter((event) => {
-        const eventDate = event.date.start;
-        // if events are during morning
+        const eventDate = event.date.mDate;
+        // if events are during morning (0am/12:59pm)
         if(eventDate.isBetween(morning, afternoon) || eventDate.isSame(morning)){
             eventMorning.push(event)
             return [eventMorning]
             
-            // if events are during afternoon
+        // if events are during afternoon (13pm/23:59pm)
         } else {
             eventAfternoon.push(event)
             return [eventAfternoon] 
