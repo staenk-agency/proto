@@ -12,6 +12,7 @@ const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDat
     const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentWeek = filterEventsByView(currentStart, 'isoWeek')
 
+    console.log("date selected", dateSelected)
     // console.log('current start calendar week', currentStart.format('DD/MM/YY'))
     return (
         <div className="calendar-week-container">

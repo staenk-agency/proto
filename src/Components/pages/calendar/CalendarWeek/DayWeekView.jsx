@@ -9,10 +9,10 @@ const displayNameFrench = (mDate, daysName) => {
 
 const DayWeekView = ({day, handleClick, eventsInCurrentWeek}) => {
     return (
-        <div className={"day position" + day.format('d')} onClick={() => handleClick(day)}>
+        <div className={"day position" + day.format('d')}>
             <p>{displayNameFrench(day.format('d'), namesInFrench)} {day.format('DD')}</p>
             <div className="day-post">
-                    <EventsWeekView key={'day' + day.id} day={day} halfday="afternoon" eventsInCurrentWeek={eventsInCurrentWeek}/>
+                <EventsWeekView key={'day' + day.id} day={day} halfday="afternoon" eventsInCurrentWeek={eventsInCurrentWeek} handleClick={handleClick}/>
             </div>
         </div>
     )

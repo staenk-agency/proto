@@ -1,10 +1,6 @@
 import moment from 'moment'
 import datasJson from '../../../data.json'
 
-//when navigating in the calendar, when click on go back to current month/week/view,
-//it doesn't reftech and display the evenements ! 
-//correct it! 
-
 //this function convert all JSON datas datas.date.mDate in moment object
 export const convertDatasInMoment = (datas) => {
     const date = datas.map((event) => {
@@ -21,7 +17,7 @@ const allEventsfromContext = convertDatasInMoment(datasJson);
 const sortEvents = (array) => {
     if(array.length > 0) {
         array = array.sort((a, b) => {
-            return a.date.start.valueOf() - b.date.start.valueOf()
+            return a.date.mDate.valueOf() - b.date.mDate.valueOf()
         })
         return array
     }

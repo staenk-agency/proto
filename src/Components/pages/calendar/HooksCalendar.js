@@ -24,10 +24,14 @@ function initDaysArray(mDate, step, end) {
 }
 
 export const useHandleClick = (empty, mDate) => {
-    const [dateSelected, setDateSelected] = useState(empty);
+    const [dateSelected, setDateSelected] = useState(empty)
 
-    const select = function(mDate){
-        setDateSelected(moment(mDate).utc())
+    const select = function(event){
+        if(event){
+            // console.log("event reçu", event)
+            // alert(event.title, event.message)
+            return setDateSelected(event)
+        }   
     }
-        return [dateSelected, select];
+    return [dateSelected, select];
 }

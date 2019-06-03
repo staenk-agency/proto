@@ -440,5 +440,21 @@
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
         }
+    },
+    {
+        "date":{
+            "start": "05/06/19",
+            "startHour": "13h30"
+        },
+        "title": "Sunglasses",
+        "shortDescription": "finis ton projet",
+        "message": "c'est le message de l'event",
+        "account": {
+            "name": "Leela",
+            "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
+        },
+        "socialNetworks": {
+            "url": "https://fr.linkedin.com/"
+        }
     }
 ]

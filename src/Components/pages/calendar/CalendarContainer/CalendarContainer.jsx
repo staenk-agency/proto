@@ -11,7 +11,8 @@ import CalendarDay from '../CalendarDay/CalendarDay'
 export class CalendarContainer extends Component {
     constructor(props) {
         super(props)
-        let currentMoment = moment().utc();
+        let currentMoment = moment().utc()
+        
         this.state = {
             currentMoment: currentMoment,
             stepType: 'month'
@@ -24,34 +25,26 @@ export class CalendarContainer extends Component {
         })
     }
 
-    nextStep = (stepFunction, recomputeDays, stepArray, end, startOf) => {
+    nextStep = (step, recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentMoment: this.state.currentMoment.add(1, stepFunction),
+            currentMoment: this.state.currentMoment.add(1, step),
         })
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
-    previousStep = (stepFunction, recomputeDays, stepArray, end, startOf) => {
+    previousStep = (step, recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentMoment: this.state.currentMoment.subtract(1, stepFunction),
+            currentMoment: this.state.currentMoment.subtract(1, step),
         })
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
-
     returnToCurrentDate = (recomputeDays, stepArray, end, startOf) => {
         this.setState({
             currentMoment: moment().utc(),
         })
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
-
     render(){
         console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
-
-        //pas en props, faire un json pour ça
-        const monthsName = ["JANVIER" ,"FEVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOUT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"]
-        const daysName = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE"]
-        const daysNameWeek = [ "DIMANCHE" ,"LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI"]
-
         return (
             <div className="grid-container">
                 <div className="horizontalNavBar-app-container">

@@ -16,8 +16,11 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
     const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
 
-    const monthsName = 'monthsName'
     // console.log('current startMonth calendar month', currentStart.format('DD/MM/YY'))
+    if(dateSelected){
+        console.log('date selectionnée', dateSelected.date.mDate)
+    }
+    // console.log("evenements", eventsInCurrentMonth)
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">

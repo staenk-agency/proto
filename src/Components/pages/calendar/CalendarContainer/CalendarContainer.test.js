@@ -36,14 +36,6 @@ describe('CalendarContainer', () => {
         props = wrapper.find(CalendarDay).props().currentMoment.format('YYYY MM DD HH kk')
         expect(props).toEqual(moment().utc().format('YYYY MM DD HH kk'))
     })
-    // it("doesn't return the Calendar's components that don't match with the steptype", () => {
-    //     wrapper.setState({stepType: 'month'})
-    //     expect(wrapper.find(CalendarWeek)).toBeDefined()
-    //     expect(wrapper.find(CalendarDay).props()).toBeDefined()
-    // })
-    // comment prouver que les calendar Week et day ne s'affichent pas lorsque pas le steptype correct est utilisé ? 
-    // seule réponse pour le moment : lorsque j'essaie de trouver les props comme les tests avec autre steptype
-    //  il envoie qu'il ne trouve pas le node, donc pas de calendar week ou calendar day. 
     it('update the state whith the param in the function', () => {
         wrapper.find('.dayLink').simulate('click')
         expect(wrapper.state('stepType')).toBe('day')

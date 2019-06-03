@@ -3,7 +3,7 @@ import './EventsMonthView.scss'
 
 import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
 
-const EventsMonthView = ({day, eventsInCurrentMonth}) => {
+const EventsMonthView = ({day, eventsInCurrentMonth, handleClick}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
 
@@ -14,7 +14,7 @@ const EventsMonthView = ({day, eventsInCurrentMonth}) => {
                 eventMorning &&
                 eventMorning.map((eventByDay, index) => {
                     return(
-                        <p key={'morning' + index} className="eventView morning" >{eventByDay.date.mDate.format('kk:mm')}</p>
+                        <p onClick={() => handleClick(eventByDay)} key={'morning' + index} className="eventView morning">{eventByDay.date.mDate.format('kk:mm')} </p>
                     )
                 })
             }
@@ -24,7 +24,7 @@ const EventsMonthView = ({day, eventsInCurrentMonth}) => {
                 eventAfternoon &&
                 eventAfternoon.map((eventByDay,index) => {
                     return(
-                        <p key={'afternoon' + index} className="eventView afternoon">{eventByDay.date.mDate.format('kk:mm')}</p>
+                        <p onClick={() => handleClick(eventByDay)} key={'afternoon' + index} className="eventView afternoon">{eventByDay.date.mDate.format('kk:mm')}</p>
                     )
                 })
             }
