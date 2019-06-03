@@ -3,23 +3,19 @@ import './CalendarMonth.scss'
 import DayMonthView from './DayMonthView'
 
 import namesInFrench from '../momentsFrench.json'
-import {useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
+import {useInitCalendarState} from '../HooksCalendar.js'
 import {filterEventsByView} from '../../events/EventsUtils.js'
 
 const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate];
 }
 
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate}) => {
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent}) => {
     let currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
-    const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
 
     // console.log('current startMonth calendar month', currentStart.format('DD/MM/YY'))
-    if(dateSelected){
-        console.log('date selectionnée', dateSelected.date.mDate)
-    }
     // console.log("evenements", eventsInCurrentMonth)
     return (
         <div className="calendar-month-container">
@@ -44,7 +40,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     {
                         days.map((day, id) => {
                             return(
-                                <DayMonthView day={day} key={'weekDay' + id} handleClick={select} eventsInCurrentMonth={eventsInCurrentMonth}/>
+                                <DayMonthView day={day} key={'weekDay' + id} handleClick={selectEvent} eventsInCurrentMonth={eventsInCurrentMonth}/>
                             )
                         })
                     }

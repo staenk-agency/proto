@@ -22,16 +22,3 @@ function initDaysArray(mDate, step, end) {
     }
     return days;
 }
-
-export const useHandleClick = (empty, mDate) => {
-    const [dateSelected, setDateSelected] = useState(empty)
-
-    const select = function(event){
-        if(event){
-            // console.log("event reçu", event)
-            // alert(event.title, event.message)
-            return setDateSelected(event)
-        }   
-    }
-    return [dateSelected, select];
-}

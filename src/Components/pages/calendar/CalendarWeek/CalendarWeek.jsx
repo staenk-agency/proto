@@ -2,17 +2,15 @@ import React from 'react'
 import './CalendarWeek.scss'
 import DayWeekView from './DayWeekView'
 
-import {useInitCalendarState, useHandleClick} from '../HooksCalendar.js'
+import {useInitCalendarState} from '../HooksCalendar.js'
 import {filterEventsByView} from '../../events/EventsUtils.js'
 
-const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDate}) => {
+const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent}) => {
     let currentStart = currentMoment.clone().startOf('isoWeek')
 
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 7)
-    const [dateSelected, select] = useHandleClick(null)
     const eventsInCurrentWeek = filterEventsByView(currentStart, 'isoWeek')
 
-    console.log("date selected", dateSelected)
     // console.log('current start calendar week', currentStart.format('DD/MM/YY'))
     return (
         <div className="calendar-week-container">
@@ -31,7 +29,7 @@ const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDat
                     {
                         days.map((day, id) => {
                             return(
-                                <DayWeekView day={day} key={'day' + id} handleClick={select} eventsInCurrentWeek={eventsInCurrentWeek}/>
+                                <DayWeekView day={day} key={'day' + id} handleClick={selectEvent} eventsInCurrentWeek={eventsInCurrentWeek}/>
                             )
                         })
                     }

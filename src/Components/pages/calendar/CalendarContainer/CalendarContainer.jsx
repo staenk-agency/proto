@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import './CalendarContainer.scss'
 import moment from 'moment'
 
-import './CalendarContainer.scss'
 import VerticalMenu from '../../../layout/VerticalMenu'
 import HorizontalNavBar from '../../../layout/HorizontalNavBar'
 import CalendarMonth from '../CalendarMonth/CalendarMonth'
@@ -15,7 +15,8 @@ export class CalendarContainer extends Component {
         
         this.state = {
             currentMoment: currentMoment,
-            stepType: 'month'
+            stepType: 'month',
+            eventSelected: null
         }
     }
 
@@ -25,18 +26,37 @@ export class CalendarContainer extends Component {
         })
     }
 
+    clickOnModal = () => {
+        const modal = document.getElementsByClassName("modal")
+        const close = document.getElementsByClassName("close")[0];
+        console.log("modal", modal)
+        modal[0].style.display = "block"
+        close.onclick = function() {
+            modal[0].style.display = "none";
+        }
+    }
+
+    selectEvent = (event) => {
+        if(event){
+            this.setState({eventSelected: event})
+        }
+        this.clickOnModal()
+    }
+
     nextStep = (step, recomputeDays, stepArray, end, startOf) => {
         this.setState({
             currentMoment: this.state.currentMoment.add(1, step),
         })
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
+
     previousStep = (step, recomputeDays, stepArray, end, startOf) => {
         this.setState({
             currentMoment: this.state.currentMoment.subtract(1, step),
         })
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
+
     returnToCurrentDate = (recomputeDays, stepArray, end, startOf) => {
         this.setState({
             currentMoment: moment().utc(),
@@ -45,6 +65,7 @@ export class CalendarContainer extends Component {
     }
     render(){
         console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
+        console.log("event selected : ", this.state.eventSelected)
         return (
             <div className="grid-container">
                 <div className="horizontalNavBar-app-container">
@@ -66,19 +87,53 @@ export class CalendarContainer extends Component {
                 </div>
                 {
                     this.state.stepType === 'month' && (
-                        <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate}/>
+                        <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}/>
                     )
                 }
                 {
                     this.state.stepType === 'week' &&(
-                        <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate}/>
+                        <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}/>
                     )
                 }
                 {
                     this.state.stepType === 'day' &&(
-                        <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate}/>
+                        <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}/>
                     )
                 }
+                </div>
+                <div className="modal">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                                <i className="fas fa-times close"></i>
+                            {
+                                this.state.eventSelected &&
+                                <>
+                                    <h2>{this.state.eventSelected.title} </h2>
+                                    <h3>{this.state.eventSelected.date.mDate.format("DD/MM/YY kk:mm")}</h3>
+                                </>
+                            }
+                        </div>
+                        <div className="modal-body">
+                        {
+                            this.state.eventSelected && 
+                            <>
+                                <p>{this.state.eventSelected.shortDescription}</p>
+                                <p>{this.state.eventSelected.message}</p>
+                                <img className="modal-body-picture" src={this.state.eventSelected.account.picture} alt={this.state.eventSelected.account.name} />
+                            </>
+                        }
+                        </div>
+                        <div className="modal-footer">
+                        {
+                                this.state.eventSelected && 
+                                <div className="modal-footer-buttons">
+                                <button>Annuler</button>
+                                <button>Editer</button>
+                                <button>Sauvegarder</button>
+                                </div>
+                        }
+                        </div>
+                    </div>
                 </div>
             </div>
         )
