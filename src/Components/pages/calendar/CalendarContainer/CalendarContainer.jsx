@@ -16,7 +16,7 @@ export class CalendarContainer extends Component {
         this.state = {
             currentMoment: currentMoment,
             stepType: 'month',
-            eventSelected: null, 
+            eventSelected: null,
         }
     }
 
@@ -46,7 +46,6 @@ export class CalendarContainer extends Component {
         this.setState({
             currentMoment: this.state.currentMoment.add(1, step),
         })
-        // console.log("when next currentMoment", this.state.currentMoment.format('DD/MM/YY'))
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
 
@@ -54,19 +53,17 @@ export class CalendarContainer extends Component {
         this.setState({
             currentMoment: this.state.currentMoment.subtract(1, step),
         })
-        // console.log("when previous currentMoment", this.state.currentMoment.format('DD/MM/YY'))
         recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
     }
 
     returnToCurrentDate = (recomputeDays, stepArray, end, startOf) => {
         this.setState({
-            currentMoment: moment().utc(),
+            currentMoment: moment().utc()
         })
-        console.log("when return to currentMoment", this.state.currentMoment.format('DD/MM/YY'))
-        recomputeDays(this.state.currentMoment.clone().startOf(startOf), stepArray, end)
+        recomputeDays(moment().utc().startOf(startOf), stepArray, end)
     }
     render(){
-        console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
+        // console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
         // console.log("event selected : ", this.state.eventSelected)
         return (
             <div className="grid-container">
