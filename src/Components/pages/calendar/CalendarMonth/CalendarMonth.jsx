@@ -11,12 +11,12 @@ const displayNameFrench = (mDate, monthsName) => {
 }
 
 const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent}) => {
-    let currentStart = currentMoment.clone().startOf('month')
+    const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
 
-    // console.log('current startMonth calendar month', currentStart.format('DD/MM/YY'))
-    // console.log("evenements", eventsInCurrentMonth)
+    console.log('current startMonth calendar month', currentStart.format('DD/MM/YY'))
+    console.log("evenements", eventsInCurrentMonth)
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">
