@@ -29,7 +29,6 @@ export class CalendarContainer extends Component {
     clickOnModal = () => {
         const modal = document.getElementsByClassName("modal")
         const close = document.getElementsByClassName("close")[0];
-        console.log("modal", modal)
         modal[0].style.display = "block"
         close.onclick = function() {
             modal[0].style.display = "none";
@@ -127,9 +126,8 @@ export class CalendarContainer extends Component {
                         {
                                 this.state.eventSelected && 
                                 <div className="modal-footer-buttons">
-                                <button>Annuler</button>
-                                <button>Editer</button>
-                                <button>Sauvegarder</button>
+                                    <button>Editer</button>
+                                    <button>Valider</button>
                                 </div>
                         }
                         </div>

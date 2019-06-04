@@ -7,7 +7,6 @@ import {filterEventsByView} from '../../events/EventsUtils.js'
 
 const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent}) => {
     let currentStart = currentMoment.clone().startOf('isoWeek')
-
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 7)
     const eventsInCurrentWeek = filterEventsByView(currentStart, 'isoWeek')
 
