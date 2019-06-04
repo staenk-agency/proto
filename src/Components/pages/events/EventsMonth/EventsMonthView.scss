@@ -24,7 +24,25 @@
     font-size: 1em;
     text-align: center;
     width: 120px;
+    display: flex;
+    justify-content: space-around;
+
+    .eventIcon{
+
+    }
+    .eventFormat{
+        margin: 0;
+    }
 }
 .eventView:hover{
     background: rgb(73, 121, 118)
+}
+.validate-true{
+    background:rgb(10, 193, 71);
+}
+.validate-false{
+    background: red;
+}
+.process-true{
+    background: rgb(0, 152, 255);
 }

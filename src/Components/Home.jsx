@@ -1,9 +1,10 @@
 import React from 'react'
+import './Home.scss'
+
 import Dashboard from './dashboard/Dashboard';
 import HorizontalNavbar from './layout/HorizontalNavBar';
 import VerticalMenu from './layout/VerticalMenu';
 
-import './Home.scss'
 
 const Home = () => {
     return (

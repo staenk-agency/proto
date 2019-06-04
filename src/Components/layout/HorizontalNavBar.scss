@@ -1,13 +1,6 @@
 .horizontalNavBar-container{
-    margin: 0;
+    margin: auto 0;
 
-    .input{
-        border-radius: 25px;
-        border: 1px solid grey;
-        padding: 2px 2px;
-        height: 25px;
-        background-color:#F8F8F9;
-    }
     .horizontalNavBar-elements{
         display:flex;
         justify-content: space-around;
@@ -31,6 +24,11 @@
                 }
             }
             .input-tweet{
+                border-radius: 25px;
+                border: 1px solid grey;
+                padding: 2px 2px;
+                height: 25px;
+                background-color:#F8F8F9;
                 align-self: center;
                 width: 350px;
             }

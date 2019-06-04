@@ -69,7 +69,7 @@ const VerticalMenu = () => {
               <li><i className="fas fa-bell"></i>Notifications</li>
               <li><i className="fas fa-ban"></i>Posts non validés</li>
               <li><i className="far fa-clock"></i>En attente de validation</li>
-              <li><i className="fas fa-redo-alt"></i>Post reçus par le client</li>
+              <li><i className="fas fa-check"></i>Post validés</li>
           </ul>
         
         </div>

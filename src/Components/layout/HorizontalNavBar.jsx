@@ -6,7 +6,6 @@ const HorizontalNavBar = () => {
             <div className="horizontalNavBar-container">
                 <div className="horizontalNavBar-elements">
                     <h2>CheckMyPost</h2>
-                    <input className="input option" type="text"/>
                     <div className="horizontalNavBar-elements-tweet">
                         <input className="input input-tweet" type="text" placeholder="Ceci est mon premier tweet !"/>
                         <ul className="horizontalNavBar-elements-list">

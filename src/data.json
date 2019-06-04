@@ -15,6 +15,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : true,
+            "isNotValidated": false
         }
     },
     {
@@ -33,6 +38,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : false,
+            "isNotValidated": true
         }
     },
     {
@@ -51,6 +61,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : true,
+            "isNotValidated": false
         }
     },
     {
@@ -69,6 +84,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     }, 
     {
@@ -87,6 +107,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -105,6 +130,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : true,
+            "isNotValidated": false
         }
     },
     {
@@ -123,6 +153,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -141,6 +176,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -159,6 +199,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -177,6 +222,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -195,6 +245,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -213,6 +268,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -231,6 +291,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -249,6 +314,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -267,6 +337,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -285,6 +360,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -303,6 +383,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -321,6 +406,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -339,6 +429,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -357,6 +452,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -375,6 +475,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -391,6 +496,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : false,
+            "isNotValidated": true
         }
     },
     {
@@ -407,12 +517,17 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : true,
+            "isNotValidated": false
         }
     },
     {
         "date":{
-            "start": "27/02/48",
-            "startHour": "00:00"
+            "start": "17/06/19",
+            "startHour": "06:00"
         },
         "title": "Wake up !",
         "shortDescription": "Touuuut au début",
@@ -423,11 +538,16 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : true,
+            "isNotValidated": false
         }
     },
     {
         "date":{
-            "start": "27/02/48",
+            "start": "27/06/19",
             "startHour": "00:59"
         },
         "title": "Wake up !",
@@ -439,6 +559,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
         }
     },
     {
@@ -455,6 +580,11 @@
         },
         "socialNetworks": {
             "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : false,
+            "isInProcess" : false,
+            "isNotValidated": true
         }
     }
 ]
