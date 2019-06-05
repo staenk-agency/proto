@@ -1,13 +1,13 @@
 import React from 'react'
 import './EventsWeekView.scss'
 
-import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
+import {filterEventsByDay, filterEventsByHalf, filterByStatus} from '../EventsUtils.js'
 
-const EventsWeekView = ({day, halfday, eventsInCurrentWeek, handleClick}) => {
+const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, status}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentWeek, day)
-    const [eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
+    const eventsFilteredByStatus = filterByStatus(eventByDay, status)
+    const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
 
-    // console.log("events in week", eventAfternoon, eventMorning)
     return(
         <>
             <div className="eventsWeekView container-morning">
@@ -15,8 +15,24 @@ const EventsWeekView = ({day, halfday, eventsInCurrentWeek, handleClick}) => {
                 eventMorning &&
                     eventMorning.map((event, index) => {
                         return(
-                            <div onClick={() => handleClick(event)} key={event + index} className="single-event">
-                                <div className="single-event-hour">{event.date.mDate.format('kk:mm')}</div>
+                            <div className="single-event" onClick={() => handleClick(event)} key={event + index} >
+                                <div className={`single-event-hour validate-${event.status.isValidated} process-${event.status.isInProcess} notValidate-${event.status.isNotValidated}`}>
+                                    {
+                                        event.status.isValidated &&
+                                        <i className="fas fa-check"/>
+                                    }
+                                    {
+                                        event.status.isNotValidated &&
+                                        <i className="fas fa-ban"/>
+                                    }
+                                    {
+                                        event.status.isInProcess &&
+                                        <i className="far fa-clock"/>
+                                    }
+                                    <p>
+                                        {event.date.mDate.format('kk:mm')}
+                                    </p>
+                                </div>
                                 <p><img src={event.account.picture} alt={event.account.name}/> {event.account.name}</p> 
                                 <p>{event.title}</p>
                             </div>
@@ -30,7 +46,23 @@ const EventsWeekView = ({day, halfday, eventsInCurrentWeek, handleClick}) => {
                     eventAfternoon.map((event, index) => {
                         return(
                             <div onClick={() => handleClick(event)} key={event + index} className="single-event">
-                                <div className="single-event-hour">{event.date.startHour}</div>
+                                <div className={`single-event-hour validate-${event.status.isValidated} process-${event.status.isInProcess} notValidate-${event.status.isNotValidated}`}>
+                                    {
+                                        event.status.isValidated &&
+                                        <i className="fas fa-check"/>
+                                    }
+                                    {
+                                        event.status.isNotValidated &&
+                                        <i className="fas fa-ban"/>
+                                    }
+                                    {
+                                        event.status.isInProcess &&
+                                        <i className="far fa-clock"/>
+                                    }
+                                    <p>
+                                        {event.date.mDate.format('kk:mm')}
+                                    </p>
+                                </div>
                                 <p><img src={event.account.picture} alt={event.account.name}/></p> 
                                 <p>{event.title}</p>
                             </div>

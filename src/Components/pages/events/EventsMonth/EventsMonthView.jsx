@@ -18,7 +18,7 @@ const EventsMonthView = ({day, eventsInCurrentMonth, handleClick, status}) => {
                         <div 
                             onClick={() => handleClick(eventByDay)} 
                             key={'morning' + index} 
-                            className={`eventView morning validate-${eventByDay.status.isValidated} process-${eventByDay.status.isInProcess}`}> 
+                            className={`eventView morning validated-${eventByDay.status.isValidated} process-${eventByDay.status.isInProcess} notValidated-${eventByDay.status.isNotValidated}`}> 
                         <div className="eventIcon">
                             {
                                 eventByDay.status.isValidated &&
@@ -47,7 +47,7 @@ const EventsMonthView = ({day, eventsInCurrentMonth, handleClick, status}) => {
                         <div 
                             onClick={() => handleClick(eventByDay)} 
                             key={'afternoon' + index} 
-                            className={`eventView afternoon validate-${eventByDay.status.isValidated} process-${eventByDay.status.isInProcess}`}>
+                            className={`eventView morning validated-${eventByDay.status.isValidated} process-${eventByDay.status.isInProcess} notValidated-${eventByDay.status.isNotValidated}`}>
                         <div className="eventIcon">
                             {
                                 eventByDay.status.isValidated &&

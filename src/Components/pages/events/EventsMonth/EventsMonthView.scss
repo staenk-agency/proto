@@ -14,6 +14,7 @@
         height: 60px;
         grid-row-start: 2;
         grid-column-start: 1;
+        overflow-y: auto;
     }
 }
 .eventView{
@@ -33,10 +34,10 @@
 .eventView:hover{
     background: rgb(73, 121, 118)
 }
-.validate-true{
+.validated-true{
     background:rgb(10, 193, 71);
 }
-.validate-false{
+.notValidated-true{
     background: red;
 }
 .process-true{

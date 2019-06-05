@@ -35,6 +35,32 @@ export class CalendarContainer extends Component {
             modal[0].style.display = "none";
         }
     }
+    commentPost = (event) => {
+        event.comment = "j'aimerais que ce soit publié le 17 juin à 13h30"
+        event.status.isValidated = false
+        event.status.isInProcess = false
+        event.status.isNotValidated = true;
+        console.log('event changed in modal', event)
+        const modal = document.getElementsByClassName("modal")
+        modal[0].style.display = "none";
+        return event
+    }
+    validatePost = (event) => {
+        event.comment = null
+        event.status.isValidated = true
+        event.status.isInProcess = false
+        event.status.isNotValidated = false;
+        console.log('event changed in modal', event)
+        return event
+    }
+    putInProcessPost = (event) => {
+        event.comment = null
+        event.status.isValidated = false
+        event.status.isInProcess = true
+        event.status.isNotValidated = false;
+        console.log('event changed in modal', event)
+        return event
+    }
 
     selectEvent = (event) => {
         if(event){
@@ -63,12 +89,13 @@ export class CalendarContainer extends Component {
         })
         recomputeDays(moment().utc().startOf(startOf), stepArray, end)
     }
+
     displayStatus = (status) => {
         this.setState({status : status})
     }
     render(){
         // console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
-        // console.log("event selected : ", this.state.eventSelected)
+        console.log("event selected : ", this.state.eventSelected)
         console.log("status selected", this.state.status)
         return (
             <div className="grid-container">
@@ -129,11 +156,12 @@ export class CalendarContainer extends Component {
                         </div>
                         <div className="modal-footer">
                         {
-                                this.state.eventSelected && 
-                                <div className="modal-footer-buttons">
-                                    <button>Editer</button>
-                                    <button>Valider</button>
-                                </div>
+                            this.state.eventSelected && 
+                            <div className="modal-footer-buttons">
+                                <button onClick={() => this.commentPost(this.state.eventSelected)}>Commenter</button>
+                                <button onClick={() => this.putInProcessPost(this.state.eventSelected)}>Mettre en attente</button>
+                                <button onClick={() => this.validatePost(this.state.eventSelected)}>Valider</button>
+                            </div>
                         }
                         </div>
                     </div>

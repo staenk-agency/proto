@@ -18,13 +18,27 @@
     .single-event-hour{
         border-radius: 25px;
         padding: 2px;
-        background-color: #0ac147;
         width: 60%;
         margin: auto;
         text-align: center;
         color: white;
+        display: flex;
+        justify-content: space-between;
+    }
+    .validate-true{
+        background:rgb(10, 193, 71);
+    }
+    .notValidate-true{
+        background: red;
+    }
+    .process-true{
+        background: rgb(0, 152, 255);
+    }
+    i{
+        margin: auto;
     }
     p{
+        margin: auto;
         text-align: center;
         img{
             border-radius: 25px;

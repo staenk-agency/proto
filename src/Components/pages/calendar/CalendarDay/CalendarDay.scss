@@ -5,13 +5,10 @@
     }
     .hour{
         background: #f1f1f1;
-        // height: 50px;
         width: 100%;
         padding: 10px;
-        
     }
     .hour:hover{
-        background: gray;
-        cursor: pointer;
+        background: rgb(139, 132, 132);
     }
 }

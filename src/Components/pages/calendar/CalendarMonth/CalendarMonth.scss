@@ -3,6 +3,7 @@
     .weekDays{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px ;
             
         .position0{
             grid-column: 1 / 2;
@@ -37,8 +38,7 @@
         }
         .weekDay{
             height: 150px;
-            border: 2px dashed black;
-            margin: 2px;
+            border: 1px solid rgb(90, 88, 88);
         }
     }
 }
