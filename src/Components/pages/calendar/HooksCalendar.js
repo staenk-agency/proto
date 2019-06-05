@@ -19,6 +19,6 @@ function initDaysArray(mDate, step, end) {
         let moment = mDate.clone().add(i, step)
         days.push(moment)
     }
-    console.log("days pushed in array in hooks", days)
+    // console.log("days pushed in array in hooks", days)
     return days;
 }

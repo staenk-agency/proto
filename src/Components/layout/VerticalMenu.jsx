@@ -1,20 +1,19 @@
 import React from 'react';
 import './VerticalMenu.scss';
 
-
-const VerticalMenu = () => {
-
-// function handleShowHideMenu(){
-//   let links = document.getElementsByClassName('verticalMenu-list-second-links')
-//     for(links of links){
-//       if(links.style.display === "block"){
-//         links.style.display = "none"
-//       } else {
-//         links.style.display = "block";
-//       }
-//   }
-// }
-
+const VerticalMenu = ({displayStatus}) => {
+  
+  // function handleShowHideMenu(){
+  //   let links = document.getElementsByClassName('verticalMenu-list-second-links')
+  //     for(links of links){
+  //       if(links.style.display === "block"){
+  //         links.style.display = "none"
+  //       } else {
+  //         links.style.display = "block";
+  //       }
+  //   }
+  // }
+  
   return (
     <div className="verticalMenu-container">
       <div className="verticalMenu-title">
@@ -66,10 +65,11 @@ const VerticalMenu = () => {
         <button className="add-btn"><i className="fas fa-plus"></i>AJOUTER UN COMPTE</button>
         <div className="verticalMenu-list-actions">
           <ul>
-              <li><i className="fas fa-bell"></i>Notifications</li>
-              <li><i className="fas fa-ban"></i>Posts non validés</li>
-              <li><i className="far fa-clock"></i>En attente de validation</li>
-              <li><i className="fas fa-check"></i>Post validés</li>
+              {/* <li><i className="fas fa-bell"></i>Notifications</li> */}
+              <li onClick={() => displayStatus('isNotValidated')}><i className="fas fa-ban"></i>Posts non validés</li>
+              <li onClick={() => displayStatus('isInProcess')}><i className="far fa-clock"></i>En attente de validation</li>
+              <li onClick={() => displayStatus('isValidated')}><i className="fas fa-check"></i>Post validés</li>
+              <li onClick={() => displayStatus('all')}><i className="fas fa-mail-bulk"></i>Tous les posts</li>
           </ul>
         
         </div>

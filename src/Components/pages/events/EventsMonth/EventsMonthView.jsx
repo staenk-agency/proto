@@ -1,12 +1,13 @@
 import React from 'react'
 import './EventsMonthView.scss'
 
-import {filterEventsByDay, filterEventsByHalf} from '../EventsUtils.js'
+import {filterEventsByDay, filterEventsByHalf, filterByStatus} from '../EventsUtils.js'
 
-const EventsMonthView = ({day, eventsInCurrentMonth, handleClick}) => {
-    const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)
-    const [eventAfternoon, eventMorning] = filterEventsByHalf(eventByDay, day)
-    
+const EventsMonthView = ({day, eventsInCurrentMonth, handleClick, status}) => {
+    const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)     //all events in the current day
+    const eventsFilteredByStatus = filterByStatus(eventByDay, status)     
+    const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
+
     return (
         <div className="events-month-container">
             <div className="morning-container">

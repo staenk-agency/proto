@@ -17,6 +17,7 @@ export class CalendarContainer extends Component {
             currentMoment: currentMoment,
             stepType: 'month',
             eventSelected: null,
+            status: 'all'
         }
     }
 
@@ -62,16 +63,20 @@ export class CalendarContainer extends Component {
         })
         recomputeDays(moment().utc().startOf(startOf), stepArray, end)
     }
+    displayStatus = (status) => {
+        this.setState({status : status})
+    }
     render(){
         // console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
         // console.log("event selected : ", this.state.eventSelected)
+        console.log("status selected", this.state.status)
         return (
             <div className="grid-container">
                 <div className="horizontalNavBar-app-container">
                     <HorizontalNavBar/>
                 </div>
                 <div className="verticalMenu-app-container">
-                    <VerticalMenu />
+                    <VerticalMenu displayStatus={this.displayStatus}/>
                 </div>
                 <div className="calendar-container">
                 <div className="NavBarDashboard-container">
@@ -86,17 +91,17 @@ export class CalendarContainer extends Component {
                 </div>
                 {
                     this.state.stepType === 'month' && (
-                        <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}/>
+                        <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} status={this.state.status}/>
                     )
                 }
                 {
                     this.state.stepType === 'week' &&(
-                        <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}/>
+                        <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} status={this.state.status}/>
                     )
                 }
                 {
                     this.state.stepType === 'day' &&(
-                        <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}/>
+                        <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} status={this.state.status}/>
                     )
                 }
                 </div>

@@ -46,7 +46,7 @@ export const filterEventsByDay = (eventsFilteredByView, mDate) => {
     })
     return event
 }
-
+// filter events by hour, use in eventDay
 export const filterEventsByHour = (eventsFilteredByView, mDate) => {
     let eventsByHour = []
     eventsFilteredByView.filter((event) => {
@@ -58,6 +58,7 @@ export const filterEventsByHour = (eventsFilteredByView, mDate) => {
     return eventsByHour
 }
 
+// filter events by half, use in eventsWeekView and eventsMonthView
 export const filterEventsByHalf = (eventsFilteredByDay, mDate) => {
     let eventMorning = []
     let eventAfternoon = []
@@ -82,4 +83,28 @@ export const filterEventsByHalf = (eventsFilteredByDay, mDate) => {
         eventAfternoon = sortEvents(eventAfternoon)
         return [eventAfternoon, eventMorning]
     }
+}
+
+//filter events by status (validated, notValidated and inProcess)
+export const filterByStatus = (eventsFilteredByDay, status) => {
+    let eventsByStatus = null
+    if(eventsFilteredByDay){
+        if(status === 'all'){
+            eventsByStatus = eventsFilteredByDay
+            return eventsByStatus
+        } else {
+            eventsByStatus = eventsFilteredByDay.filter((event) => {
+                if(event){
+                    // console.log("event in filter", event)
+                    return (event.status[status] === true)
+                }
+            })
+            return eventsByStatus;
+        }
+    }
+    return eventsByStatus
+}
+
+export const eventsAccordingToStatus = (status) => {
+
 }
