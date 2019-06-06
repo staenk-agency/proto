@@ -7,6 +7,8 @@ import HorizontalNavBar from '../../../layout/HorizontalNavBar'
 import CalendarMonth from '../CalendarMonth/CalendarMonth'
 import CalendarWeek from '../CalendarWeek/CalendarWeek'
 import CalendarDay from '../CalendarDay/CalendarDay'
+import Modal from '../../modal/Modal'
+import NavBarDashboard from '../../../dashboard/NavbarDashboard'
 
 export class CalendarContainer extends Component {
     constructor(props) {
@@ -17,7 +19,7 @@ export class CalendarContainer extends Component {
             currentMoment: currentMoment,
             stepType: 'month',
             eventSelected: null,
-            status: 'all'
+            statusSelected: 'all'
         }
     }
 
@@ -35,33 +37,23 @@ export class CalendarContainer extends Component {
             modal[0].style.display = "none";
         }
     }
-    commentPost = (event) => {
-        event.comment = "j'aimerais que ce soit publié le 17 juin à 13h30"
+    commentPost = (event, status) => {
         event.status.isValidated = false
         event.status.isInProcess = false
-        event.status.isNotValidated = true;
+        event.status.isNotValidated = false
+        if(status === 'isValidated'){
+            event.status.isValidated = true
+        } else if (status === 'isNotValidated'){
+            event.status.isNotValidated = true
+        } else {
+            event.status.isInProcess = true
+            event.comment = "j'aimerais que ce soit publié le 17 juin à 13h30"
+        }
         console.log('event changed in modal', event)
         const modal = document.getElementsByClassName("modal")
         modal[0].style.display = "none";
         return event
     }
-    validatePost = (event) => {
-        event.comment = null
-        event.status.isValidated = true
-        event.status.isInProcess = false
-        event.status.isNotValidated = false;
-        console.log('event changed in modal', event)
-        return event
-    }
-    putInProcessPost = (event) => {
-        event.comment = null
-        event.status.isValidated = false
-        event.status.isInProcess = true
-        event.status.isNotValidated = false;
-        console.log('event changed in modal', event)
-        return event
-    }
-
     selectEvent = (event) => {
         if(event){
             this.setState({eventSelected: event})
@@ -91,7 +83,7 @@ export class CalendarContainer extends Component {
     }
 
     displayStatus = (status) => {
-        this.setState({status : status})
+        this.setState({statusSelected : status})
     }
     render(){
         // console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
@@ -99,73 +91,27 @@ export class CalendarContainer extends Component {
         console.log("status selected", this.state.status)
         return (
             <div className="grid-container">
-                <div className="horizontalNavBar-app-container">
-                    <HorizontalNavBar/>
-                </div>
-                <div className="verticalMenu-app-container">
+                    <HorizontalNavBar />
                     <VerticalMenu displayStatus={this.displayStatus}/>
+                <div className="calendar-views">
+                    <NavBarDashboard onChangeCalendarType={this.onChangeCalendarType} />
+                    {
+                        this.state.stepType === 'month' && (
+                            <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+                        )
+                    }
+                    {
+                        this.state.stepType === 'week' &&(
+                            <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+                        )
+                    }
+                    {
+                        this.state.stepType === 'day' &&(
+                            <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+                        )
+                    }
                 </div>
-                <div className="calendar-container">
-                <div className="NavBarDashboard-container">
-                    <h2>Votre Dashboard</h2>
-                    <ul>
-                        <li className="NavBarDashboard-first-list">Liste</li>
-                        <li className="NavBarDashboard dayLink" onClick={() => this.onChangeCalendarType('day')}>Jour</li>
-                        <li className="NavBarDashboard weekLink" onClick={() => this.onChangeCalendarType('week')}>Semaine</li>
-                        <li className="NavBarDashboard-last-list monthLink" onClick={() => this.onChangeCalendarType('month')}>Mois</li>
-                    </ul>
-                    <button>ENVOYER AU CLIENT</button>        
-                </div>
-                {
-                    this.state.stepType === 'month' && (
-                        <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} status={this.state.status}/>
-                    )
-                }
-                {
-                    this.state.stepType === 'week' &&(
-                        <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} status={this.state.status}/>
-                    )
-                }
-                {
-                    this.state.stepType === 'day' &&(
-                        <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} status={this.state.status}/>
-                    )
-                }
-                </div>
-                <div className="modal">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                                <i className="fas fa-times close"></i>
-                            {
-                                this.state.eventSelected &&
-                                <>
-                                    <h2>{this.state.eventSelected.title} </h2>
-                                    <h3>{this.state.eventSelected.date.mDate.format("DD/MM/YY kk:mm")}</h3>
-                                </>
-                            }
-                        </div>
-                        <div className="modal-body">
-                        {
-                            this.state.eventSelected && 
-                            <>
-                                <p>{this.state.eventSelected.shortDescription}</p>
-                                <p>{this.state.eventSelected.message}</p>
-                                <img className="modal-body-picture" src={this.state.eventSelected.account.picture} alt={this.state.eventSelected.account.name} />
-                            </>
-                        }
-                        </div>
-                        <div className="modal-footer">
-                        {
-                            this.state.eventSelected && 
-                            <div className="modal-footer-buttons">
-                                <button onClick={() => this.commentPost(this.state.eventSelected)}>Commenter</button>
-                                <button onClick={() => this.putInProcessPost(this.state.eventSelected)}>Mettre en attente</button>
-                                <button onClick={() => this.validatePost(this.state.eventSelected)}>Valider</button>
-                            </div>
-                        }
-                        </div>
-                    </div>
-                </div>
+                <Modal eventSelected={this.state.eventSelected} commentPost={this.commentPost}/>
             </div>
         )
     }

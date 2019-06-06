@@ -3,9 +3,9 @@ import './EventsWeekView.scss'
 
 import {filterEventsByDay, filterEventsByHalf, filterByStatus} from '../EventsUtils.js'
 
-const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, status}) => {
+const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, statusSelected}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentWeek, day)
-    const eventsFilteredByStatus = filterByStatus(eventByDay, status)
+    const eventsFilteredByStatus = filterByStatus(eventByDay, statusSelected)
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
 
     return(

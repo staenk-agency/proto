@@ -3,9 +3,9 @@ import './EventsMonthView.scss'
 
 import {filterEventsByDay, filterEventsByHalf, filterByStatus} from '../EventsUtils.js'
 
-const EventsMonthView = ({day, eventsInCurrentMonth, handleClick, status}) => {
+const EventsMonthView = ({day, eventsInCurrentMonth, handleClick, statusSelected}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)     //all events in the current day
-    const eventsFilteredByStatus = filterByStatus(eventByDay, status)     
+    const eventsFilteredByStatus = filterByStatus(eventByDay, statusSelected)     
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
 
     return (

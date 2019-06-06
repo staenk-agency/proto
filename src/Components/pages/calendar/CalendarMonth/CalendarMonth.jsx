@@ -9,7 +9,7 @@ import {filterEventsByView} from '../../events/EventsUtils.js'
 const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate];
 }
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, status}) => {
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected}) => {
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
@@ -39,7 +39,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     {
                         days.map((day, id) => {
                             return(
-                                <DayMonthView day={day} key={'weekDay' + id} handleClick={selectEvent} eventsInCurrentMonth={eventsInCurrentMonth} status={status}/>
+                                <DayMonthView day={day} key={'weekDay' + id} handleClick={selectEvent} eventsInCurrentMonth={eventsInCurrentMonth} statusSelected={statusSelected}/>
                             )
                         })
                     }

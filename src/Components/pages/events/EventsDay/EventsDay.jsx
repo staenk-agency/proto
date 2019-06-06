@@ -2,8 +2,8 @@ import React from 'react'
 import './EventDay.scss'
 import {filterEventsByHour, filterByStatus} from '../EventsUtils.js'
 
-const EventsDay = ({hour, eventsInCurrentDay, handleClick, status}) => {
-    const eventsByStatus = filterByStatus(eventsInCurrentDay, status)
+const EventsDay = ({hour, eventsInCurrentDay, handleClick, statusSelected}) => {
+    const eventsByStatus = filterByStatus(eventsInCurrentDay, statusSelected)
     const eventsByHours = filterEventsByHour(eventsByStatus, hour)
 
     // console.log("events in day", eventsByHours)
