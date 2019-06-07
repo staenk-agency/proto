@@ -24,9 +24,7 @@ export class CalendarContainer extends Component {
     }
 
     onChangeCalendarType= (stepType) => {
-        this.setState({
-            stepType: stepType
-        })
+        this.setState({stepType: stepType})
     }
 
     clickOnModal = () => {
@@ -37,6 +35,7 @@ export class CalendarContainer extends Component {
             modal[0].style.display = "none";
         }
     }
+
     commentPost = (event, status) => {
         event.status.isValidated = false
         event.status.isInProcess = false
@@ -85,6 +84,17 @@ export class CalendarContainer extends Component {
     displayStatus = (status) => {
         this.setState({statusSelected : status})
     }
+
+    displayCalendarView = (stepType) => {
+        console.log("dans la fonction displayCalendar ")
+        if(stepType === 'month')
+            return <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+        else if(stepType === 'week')
+            return <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+        else
+            return <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+    }
+
     render(){
         // console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
         console.log("event selected : ", this.state.eventSelected)
@@ -96,19 +106,7 @@ export class CalendarContainer extends Component {
                 <div className="calendar-views">
                     <NavBarDashboard onChangeCalendarType={this.onChangeCalendarType} />
                     {
-                        this.state.stepType === 'month' && (
-                            <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
-                        )
-                    }
-                    {
-                        this.state.stepType === 'week' &&(
-                            <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
-                        )
-                    }
-                    {
-                        this.state.stepType === 'day' &&(
-                            <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
-                        )
+                        this.displayCalendarView(this.state.stepType)
                     }
                 </div>
                 <Modal eventSelected={this.state.eventSelected} commentPost={this.commentPost}/>

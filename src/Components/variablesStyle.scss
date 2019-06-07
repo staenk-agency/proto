@@ -1,0 +1,45 @@
+// colors
+$greenTurquoise : #95DDDA;
+$violet : #3A3A5E;
+$green : rgb(10, 193, 71);
+$red : red;
+$blue : rgb(0, 152, 255);
+$white : #f1f1f1;
+
+//color hover
+$violetHover : #63637F;
+
+
+
+// other
+$widthInput : 80px;
+
+//mixin
+@mixin input(){
+    background-color: $white;
+    padding: 8px;
+    width: 80px;
+    text-align: center;
+    margin: 1px;
+    border: none;
+}
+
+@mixin inputLeft(){
+    @include input();
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+@mixin inputRight(){
+    @include input();
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+@mixin inputBorder(){
+    @include input();
+    border-radius : 25px;
+}
+
+
+
+//background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);

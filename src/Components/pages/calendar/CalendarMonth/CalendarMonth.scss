@@ -1,3 +1,5 @@
+@import '../../../variablesStyle.scss';
+
 .calendar-month-container{
 
     .weekDays{
@@ -39,6 +41,24 @@
         .weekDay{
             height: 150px;
             border: 1px solid rgb(90, 88, 88);
+        }
+        .weekDayName{
+            text-align: center;
+        }
+    }
+    .calendar-nav{
+        .btn{
+            @include input();
+        }
+        .current-date{
+            @include inputBorder();
+            width: 150px;
+        }
+        .previous-year{
+            @include inputLeft();
+        }
+        .next-year{
+            @include inputRight();
         }
     }
 }

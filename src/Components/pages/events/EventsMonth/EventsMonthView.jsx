@@ -1,40 +1,20 @@
 import React from 'react'
 import './EventsMonthView.scss'
 
-import {filterEventsByDay, filterEventsByHalf, filterByStatus} from '../EventsUtils.js'
+import EventFormat from './EventFormat'
+import {filterEventsByHalf} from '../../events/EventsUtils.js'
 
-const EventsMonthView = ({day, eventsInCurrentMonth, handleClick, statusSelected}) => {
-    const eventByDay = filterEventsByDay(eventsInCurrentMonth, day)     //all events in the current day
-    const eventsFilteredByStatus = filterByStatus(eventByDay, statusSelected)     
+const EventsMonthView = ({day, eventsFilteredByStatus, handleClick}) => {  
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
-
+    
     return (
         <div className="events-month-container">
             <div className="morning-container">
             {
                 eventMorning &&
-                eventMorning.map((eventByDay, index) => {
+                eventMorning.map((eventByHalf, index) => {
                     return(
-                        <div 
-                            onClick={() => handleClick(eventByDay)} 
-                            key={'morning' + index} 
-                            className={`eventView morning validated-${eventByDay.status.isValidated} process-${eventByDay.status.isInProcess} notValidated-${eventByDay.status.isNotValidated}`}> 
-                        <div className="eventIcon">
-                            {
-                                eventByDay.status.isValidated &&
-                                <i className="fas fa-check"/>
-                            }
-                            {
-                                eventByDay.status.isNotValidated &&
-                                <i className="fas fa-ban"/>
-                            }
-                            {
-                                eventByDay.status.isInProcess &&
-                                <i className="far fa-clock"/>
-                            }
-                        </div>
-                            <p className="eventFormat">{eventByDay.date.mDate.format('kk:mm')}</p>
-                        </div>
+                        <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick}/>
                     )
                 })
             }
@@ -42,28 +22,9 @@ const EventsMonthView = ({day, eventsInCurrentMonth, handleClick, statusSelected
             <div className="afternoon-container">
             {
                 eventAfternoon &&
-                eventAfternoon.map((eventByDay,index) => {
+                eventAfternoon.map((eventByHalf,index) => {
                     return(
-                        <div 
-                            onClick={() => handleClick(eventByDay)} 
-                            key={'afternoon' + index} 
-                            className={`eventView morning validated-${eventByDay.status.isValidated} process-${eventByDay.status.isInProcess} notValidated-${eventByDay.status.isNotValidated}`}>
-                        <div className="eventIcon">
-                            {
-                                eventByDay.status.isValidated &&
-                                <i className="fas fa-check"/>
-                            }
-                            {
-                                eventByDay.status.isNotValidated &&
-                                <i className="fas fa-ban"/>
-                            }
-                            {
-                                eventByDay.status.isInProcess &&
-                                <i className="far fa-clock"/>
-                            }
-                        </div>
-                            <p className="eventFormat">{eventByDay.date.mDate.format('kk:mm')}</p>
-                        </div>
+                        <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick}/>
                     )
                 })
             }

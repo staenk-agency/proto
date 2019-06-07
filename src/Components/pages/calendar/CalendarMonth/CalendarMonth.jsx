@@ -4,7 +4,7 @@ import DayMonthView from './DayMonthView'
 
 import namesInFrench from '../momentsFrench.json'
 import {useInitCalendarState} from '../HooksCalendar.js'
-import {filterEventsByView} from '../../events/EventsUtils.js'
+import {filterEventsByView, filterEventsByDay} from '../../events/EventsUtils.js'
 
 const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate];
@@ -18,14 +18,15 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
     console.log("evenements", eventsInCurrentMonth)
     return (
         <div className="calendar-month-container">
+            {/* <CalendarMonthNavBar previousStep={previousStep} nextStep={nextStep} returnToCurrentDate={returnToCurrentDate} /> */}
             <div className="calendar-nav">
-                <button className="btn-previous-year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-backward"/></button>
-                <button className="btn-previous-month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-caret-left"/></button>
-                <button className="btn-next-month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-caret-right"/></button>
-                <button className="btn-next-year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-forward"/></button>
-                <button className="btn-current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}>Aujourd'hui</button>
-                <h3>{displayNameFrench(currentStart.month(), namesInFrench)} {currentStart.format("YYYY")}</h3>
+                <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}>Aujourd'hui</button>
+                <button className="btn previous-year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-backward"/></button>
+                <button className="btn previous-month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-caret-left"/></button>
+                <button className="btn next-month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-caret-right"/></button>
+                <button className="btn next-year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-forward"/></button>
             </div>
+                <h3>{displayNameFrench(currentStart.month(), namesInFrench)} {currentStart.format("YYYY")}</h3>
                 <div className="weekDays">
                     {
                         namesInFrench[1].daysName.map((day, id) => {
@@ -39,7 +40,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     {
                         days.map((day, id) => {
                             return(
-                                <DayMonthView day={day} key={'weekDay' + id} handleClick={selectEvent} eventsInCurrentMonth={eventsInCurrentMonth} statusSelected={statusSelected}/>
+                                <DayMonthView day={day} key={'weekDay' + id} handleClick={selectEvent} statusSelected={statusSelected} eventByDay={filterEventsByDay(eventsInCurrentMonth, day)}/>
                             )
                         })
                     }
