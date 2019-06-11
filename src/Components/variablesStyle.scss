@@ -5,6 +5,7 @@ $green : rgb(10, 193, 71);
 $red : red;
 $blue : rgb(0, 152, 255);
 $white : #f1f1f1;
+$border-grey: rgba(192, 190, 190, 0.582);
 
 //color hover
 $violetHover : #63637F;
@@ -38,6 +39,25 @@ $widthInput : 80px;
 @mixin inputBorder(){
     @include input();
     border-radius : 25px;
+}
+@mixin calendarNavDiv(){
+    @include inputLeft();
+    @include inputRight();
+    width: 315px; 
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid $border-grey;
+    background: none;
+    height: 40px;
+    padding: 0;
+}
+@mixin calendarNavBtn(){
+    width: 45px;
+    height: 40px;
+    background: none;
+    margin: 0;
+    padding: 0;
 }
 
 

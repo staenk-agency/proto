@@ -1,3 +1,5 @@
+@import '../variablesStyle.scss';
+
 .NavBarDashboard-container{
     display: flex;
     align-items: center;
@@ -22,15 +24,16 @@
             margin: 1px;
         }
         .NavBarDashboard-first-list{
-            border-top-left-radius: 25px;
-            border-bottom-left-radius: 25px;
+            @include inputLeft();
         }
         .NavBarDashboard-last-list{
-            border-top-right-radius: 25px;
-            border-bottom-right-radius: 25px;
+            @include inputRight();
         }
         li:hover{
             cursor: pointer;
+            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+        }
+        li:target{
             background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
         }
     }

@@ -17,29 +17,3 @@
         overflow-y: auto;
     }
 }
-.eventView{
-    margin: auto;
-    color: white;
-    border-radius: 25px;
-    font-size: 1em;
-    text-align: center;
-    width: 120px;
-    display: flex;
-    justify-content: space-around;
-
-    .eventFormat{
-        margin: 0;
-    }
-}
-.eventView:hover{
-    background: rgb(73, 121, 118)
-}
-.validated-true{
-    background:rgb(10, 193, 71);
-}
-.notValidated-true{
-    background: red;
-}
-.process-true{
-    background: rgb(0, 152, 255);
-}

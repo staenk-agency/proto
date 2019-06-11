@@ -6,8 +6,7 @@ const NavBarDashboard = ({onChangeCalendarType}) => {
         <div className="NavBarDashboard-container">
             <h2>Votre Dashboard</h2>
             <ul>
-                <li className="NavBarDashboard-first-list">Liste</li>
-                <li className="NavBarDashboard dayLink" onClick={() => onChangeCalendarType('day')}>Jour</li>
+                <li className="NavBarDashboard-first-list dayLink" onClick={() => onChangeCalendarType('day')}>Jour</li>
                 <li className="NavBarDashboard weekLink" onClick={() => onChangeCalendarType('week')}>Semaine</li>
                 <li className="NavBarDashboard-last-list monthLink" onClick={() => onChangeCalendarType('month')}>Mois</li>
             </ul>

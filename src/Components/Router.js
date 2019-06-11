@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Switch, Route} from 'react-router-dom'
 
-// import Home from './Home.jsx'
 import Calendar from './pages/calendar/CalendarContainer/CalendarContainer'
 
 class Router extends Component {
@@ -9,7 +8,6 @@ class Router extends Component {
     return (
             <Switch>
                 <Route exact path="/" component={Calendar} />
-                {/* <Route path="/calendar" component={Calendar} /> */}
             </Switch>
     )
     }

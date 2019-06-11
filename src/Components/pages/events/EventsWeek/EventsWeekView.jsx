@@ -1,10 +1,10 @@
 import React from 'react'
 import './EventsWeekView.scss'
 
-import EventFormat from '../EventsMonth/EventFormat'
+import EventFormat from '../EventFormat'
 import {filterEventsByDay, filterEventsByHalf, filterByStatus} from '../EventsUtils.js'
 
-const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, statusSelected}) => {
+const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, statusSelected, stepType}) => {
     const eventByDay = filterEventsByDay(eventsInCurrentWeek, day)
     const eventsFilteredByStatus = filterByStatus(eventByDay, statusSelected)
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
@@ -16,7 +16,7 @@ const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, statusSelected})
                 eventMorning &&
                     eventMorning.map((eventByHalf, index) => {
                         return(
-                            <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick}/>
+                            <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick} stepType={stepType}/>
                         )
                     })
             }
@@ -26,7 +26,7 @@ const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, statusSelected})
                 eventAfternoon &&
                     eventAfternoon.map((eventByHalf, index) => {
                         return(
-                            <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick}/>
+                            <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick} stepType={stepType}/>
                         )
                     })
             }

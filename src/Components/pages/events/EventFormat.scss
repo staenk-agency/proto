@@ -1,0 +1,50 @@
+.eventView{
+    margin: auto;
+    color: white;
+    border-radius: 25px;
+    font-size: 1em;
+    text-align: center;
+    width: 120px;
+    display: flex;
+    justify-content: space-around;
+
+    .eventFormat{
+        margin: 0;
+    }
+}
+.eventView:hover{
+    background: rgb(88, 94, 93)
+}
+.validated-true{
+    background:rgb(10, 193, 71);
+}
+.notValidated-true{
+    background: red;
+}
+.process-true{
+    background: rgb(0, 152, 255);
+}
+.week{
+    border: 1px solid grey;
+    // max-height: 130px;
+
+    .eventAccountPic{
+        border: 0.5px solid grey;
+        border-radius: 25px;
+        width: 30px;
+        height: 30px;
+    }
+    .hideContent{
+    overflow: hidden;
+    line-height: 1em;
+    height: 2em;
+        p{
+            margin: auto;
+            text-align: center;
+        }
+    }
+    // .showContent {
+    //     line-height: 1em;
+    //     height: auto;
+    // }
+}

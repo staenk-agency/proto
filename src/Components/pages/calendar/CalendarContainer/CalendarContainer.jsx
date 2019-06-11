@@ -16,6 +16,7 @@ export class CalendarContainer extends Component {
         let currentMoment = moment().utc()
         
         this.state = {
+            currentDate: currentMoment,
             currentMoment: currentMoment,
             stepType: 'month',
             eventSelected: null,
@@ -28,11 +29,12 @@ export class CalendarContainer extends Component {
     }
 
     clickOnModal = () => {
-        const modal = document.getElementsByClassName("modal")
+        const modal = document.getElementsByClassName("modal")[0]
         const close = document.getElementsByClassName("close")[0];
-        modal[0].style.display = "block"
+        // console.log('le modal,', modal, "le bouton close,", close)
+        modal.style.display = "block"
         close.onclick = function() {
-            modal[0].style.display = "none";
+            modal.style.display = "none";
         }
     }
 
@@ -88,21 +90,21 @@ export class CalendarContainer extends Component {
     displayCalendarView = (stepType) => {
         console.log("dans la fonction displayCalendar ")
         if(stepType === 'month')
-            return <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+            return <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected} stepType={this.state.stepType}/>
         else if(stepType === 'week')
-            return <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+            return <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected} stepType={this.state.stepType}/>
         else
-            return <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected}/>
+            return <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected} stepType={this.state.stepType}/>
     }
-
+    
     render(){
         // console.log("current state ! dans container ", this.state.currentMoment.format('DD/MM/YY'))
-        console.log("event selected : ", this.state.eventSelected)
-        console.log("status selected", this.state.status)
+        // console.log("event selected : ", this.state.eventSelected)
+        // console.log("status selected", this.state.status)
         return (
             <div className="grid-container">
-                    <HorizontalNavBar />
-                    <VerticalMenu displayStatus={this.displayStatus}/>
+                <HorizontalNavBar />
+                <VerticalMenu displayStatus={this.displayStatus}/>
                 <div className="calendar-views">
                     <NavBarDashboard onChangeCalendarType={this.onChangeCalendarType} />
                     {

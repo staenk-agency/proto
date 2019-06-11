@@ -1,11 +1,12 @@
 @import '../../../variablesStyle.scss';
 
 .calendar-month-container{
-
+    // background-image: linear-gradient(to bottom, #e5e4ea, #e8e8ed, #ececef, #efeff2, #f3f3f4);
+    background: #efeef1;
     .weekDays{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px ;
+            grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px;
             
         .position0{
             grid-column: 1 / 2;
@@ -41,24 +42,61 @@
         .weekDay{
             height: 150px;
             border: 1px solid rgb(90, 88, 88);
+            background: $white;
         }
         .weekDayName{
             text-align: center;
         }
     }
     .calendar-nav{
-        .btn{
-            @include input();
+        border-radius:25px;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        div{
+            @include inputLeft();
+            @include inputRight();
+            @include calendarNavDiv();
+            width: 400px;
+
+            .previous{
+                @include inputLeft();
+            }
+            .next{
+                @include inputRight();
+            }
+            .month{
+                @include inputBorder();
+            }
+            .btn{
+                @include calendarNavBtn();
+            }
+            .btn:hover{
+                background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+            }
+            .btn:focus{
+                outline: none;
+            }
+            p{
+                margin: auto;
+                color: $greenTurquoise;
+                font-weight: bold;
+            }
         }
         .current-date{
             @include inputBorder();
+            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+            color: $white;
             width: 150px;
+            height: 40px;
         }
-        .previous-year{
-            @include inputLeft();
+        .current-date:hover{
+            background: #95ddda;
         }
-        .next-year{
-            @include inputRight();
+        .current-date:focus{
+            outline: none;
         }
     }
 }

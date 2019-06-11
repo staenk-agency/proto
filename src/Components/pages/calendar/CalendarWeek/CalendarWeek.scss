@@ -1,55 +1,96 @@
+@import '../../../variablesStyle.scss';
+
 .calendar-week-container{
-    .calendar-nav{
-        .week-view-p{
-            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
-            width: 300px;
-            border-radius:25px;
-            text-align: center;
-        }
-    }
     .weekDays{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
         justify-items: auto;
 
-    .day {
-        grid-row: 1/2;
-    }
-    .position1{
-        grid-column: 1 / 2;
-    }
-    .position2{
-        grid-column: 2 / 3;
-    }
-    .position3{
-        grid-column: 3 / 4;
-    }
-    .position4{
-        grid-column: 4 / 5;
-    }
-    .position5{
-        grid-column: 5 / 6;
-    }
-    .position6{
-        grid-column: 6 / 7;
-    }
-    .position0{
-        grid-column: 7 / 8;
-    }
+        .day {
+            grid-row: 1/2;
+        }
+        .position1{
+            grid-column: 1 / 2;
+        }
+        .position2{
+            grid-column: 2 / 3;
+        }
+        .position3{
+            grid-column: 3 / 4;
+        }
+        .position4{
+            grid-column: 4 / 5;
+        }
+        .position5{
+            grid-column: 5 / 6;
+        }
+        .position6{
+            grid-column: 6 / 7;
+        }
+        .position0{
+            grid-column: 7 / 8;
+        }
 
-    .day:hover{
-        cursor: pointer;
-        background:rgba(192, 190, 190, 0.582);
-    }
+        .day:hover{
+            cursor: pointer;
+            background:rgba(192, 190, 190, 0.582);
+        }
 
-    .day-post{
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        height: 600px;
-        border: 2px dashed rgba(192, 190, 190, 0.582);
-        margin: 2%
+        .day-post{
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            height: 600px;
+            border: 2px dashed rgba(192, 190, 190, 0.582);
+            margin: 2%
+        }
     }
-    }
+    .calendar-nav{
+        border-radius:25px;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        
+        div{
+            @include inputLeft();
+            @include inputRight();
+            @include calendarNavDiv();
 
+            .previous-week{
+                @include inputLeft();
+            }
+            .next-week{
+                @include inputRight();
+            }
+            .btn{
+                @include calendarNavBtn();
+            }
+            .btn:hover{
+                background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+            }
+            .btn:focus{
+                outline: none;
+            }
+            p{
+                margin: auto;
+                color: $greenTurquoise;
+                font-weight: bold;
+            }
+        }
+        .current-date{
+            @include inputBorder();
+            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+            color: $white;
+            width: 150px;
+            height: 40px;
+        }
+        .current-date:hover{
+            background: #95ddda;
+
+        }
+        .current-date:focus{
+            outline: none;
+        }
+    }
 }
