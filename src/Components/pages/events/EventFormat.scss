@@ -1,6 +1,8 @@
+@import '../../variablesStyle.scss';
+
 .eventView{
     margin: auto;
-    color: white;
+    color: $white;
     border-radius: 25px;
     font-size: 1em;
     text-align: center;
@@ -24,9 +26,9 @@
 .process-true{
     background: rgb(0, 152, 255);
 }
-.week{
+.content{
     border: 1px solid grey;
-    // max-height: 130px;
+    background: $white;
 
     .eventAccountPic{
         border: 0.5px solid grey;
@@ -34,17 +36,29 @@
         width: 30px;
         height: 30px;
     }
-    .hideContent{
-    overflow: hidden;
-    line-height: 1em;
-    height: 2em;
-        p{
-            margin: auto;
-            text-align: center;
-        }
+    .day{
+        width: 50px;
+        height: 50px;
     }
-    // .showContent {
-    //     line-height: 1em;
-    //     height: auto;
-    // }
+    .hideContent{
+        overflow: hidden;
+        line-height: 1em;
+        height: 2em;
+        // z-index: 2;
+        h3{
+            font-size: 1em; 
+            margin: 0;
+        }
+            p{
+                color:white
+            }
+        }  
+    button{
+        border: none;
+        color : $greenTurquoise;
+        background: none;
+        font-weight: bold;
+        margin: auto;
+
+    }
 }

@@ -14,7 +14,7 @@ const EventsMonthView = ({day, eventsFilteredByStatus, handleClick, stepType}) =
                 eventMorning &&
                 eventMorning.map((eventByHalf, index) => {
                     return(
-                        <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick} stepType={stepType}/>
+                        <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick} stepType={stepType} />
                     )
                 })
             }

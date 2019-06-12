@@ -30,6 +30,7 @@ const EventsWeekView = ({day, eventsInCurrentWeek, handleClick, statusSelected, 
                         )
                     })
             }
+            
             </div>
         </>
     )
