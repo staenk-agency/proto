@@ -4,8 +4,12 @@ import './EventsMonthView.scss'
 import EventFormat from '../EventFormat'
 import {filterEventsByHalf} from '../../events/EventsUtils.js'
 
-const EventsMonthView = ({day, eventsFilteredByStatus, handleClick, stepType}) => {  
+const EventsMonthView = ({day, eventsFilteredByStatus, selectEvent, stepType}) => {  
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
+
+    const showMore = () => {
+        return console.log("lol")
+    }
     
     return (
         <div className="events-month-container">
@@ -14,7 +18,7 @@ const EventsMonthView = ({day, eventsFilteredByStatus, handleClick, stepType}) =
                 eventMorning &&
                 eventMorning.map((eventByHalf, index) => {
                     return(
-                        <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick} stepType={stepType} />
+                        <EventFormat eventByHalf={eventByHalf} index={index} selectEvent={selectEvent} stepType={stepType} showMore={showMore}/>
                     )
                 })
             }
@@ -24,7 +28,7 @@ const EventsMonthView = ({day, eventsFilteredByStatus, handleClick, stepType}) =
                 eventAfternoon &&
                 eventAfternoon.map((eventByHalf,index) => {
                     return(
-                        <EventFormat eventByHalf={eventByHalf} index={index} handleClick={handleClick} stepType={stepType}/>
+                        <EventFormat eventByHalf={eventByHalf} index={index} selectEvent={selectEvent} stepType={stepType} showMore={showMore} />
                     )
                 })
             }

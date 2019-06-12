@@ -42,7 +42,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     {
                         days.map((day, id) => {
                             return(
-                                <DayMonthView day={day} key={'weekDay' + id} handleClick={selectEvent} statusSelected={statusSelected} eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} stepType={stepType} />
+                                <DayMonthView day={day} key={'weekDay' + id} selectEvent={selectEvent} statusSelected={statusSelected} eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} stepType={stepType} />
                             )
                         })
                     }

@@ -1,12 +1,14 @@
 import React from 'react'
 import './Modal.scss'
 
-const Modal = ({eventSelected, commentPost}) => {
+const Modal = ({eventSelected, commentPost, modalOpened, closeModal}) => {
+    console.log("modal open", modalOpened)
     return (
+        modalOpened &&
         <div className="modal">
             <div className="modal-content">
                 <div className="modal-header">
-                    <i className="fas fa-times close"></i>
+                    <i className="fas fa-times close" onClick={() => closeModal()}></i>
                     {
                         eventSelected &&
                         <>
