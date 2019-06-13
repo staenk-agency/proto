@@ -1,5 +1,4 @@
 import moment from 'moment'
-import datasJson from '../../../data.json'
 
 //this function convert all JSON datas datas.date.mDate in moment object
 export const convertDatasInMoment = (datas) => {
@@ -10,9 +9,6 @@ export const convertDatasInMoment = (datas) => {
     })
     return date
 }
-//remove when context will be built
-const allEventsfromContext = convertDatasInMoment(datasJson);
-// let allEventsfromContext = this.context
 
 const sortEvents = (array) => {
     if(array.length > 0) {
@@ -23,7 +19,7 @@ const sortEvents = (array) => {
     }
 }
 
-export const filterEventsByView = (mDate, view) => {
+export const filterEventsByView = (mDate, view, allEventsfromContext) => {
     const events = allEventsfromContext.filter((event) => {
         const eventDate = event.date.mDate;
         const firstDayView = mDate.clone().startOf(view).utc()

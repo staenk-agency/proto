@@ -5,10 +5,10 @@ import DayHourView from '../CalendarDay/DayHourView'
 import {useInitCalendarState} from '../HooksCalendar.js'
 import {filterEventsByView,filterEventsByHour} from '../../events/EventsUtils.js'
 
-const CalendarDay = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType}) => {
+const CalendarDay = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext}) => {
     const currentStart = currentMoment.clone().startOf('day')
     const [hours, recomputeDays] = useInitCalendarState(currentStart,'h', 24)
-    const eventsInCurrentDay = filterEventsByView(currentStart, 'd')
+    const eventsInCurrentDay = filterEventsByView(currentStart, 'd', allEventsfromContext)
 
     return (
     <div className="calendar-day-container">

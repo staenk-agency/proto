@@ -9,10 +9,10 @@ import {filterEventsByView, filterEventsByDay} from '../../events/EventsUtils.js
 const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate];
 }
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType}) => {
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext}) => {
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
-    const eventsInCurrentMonth = filterEventsByView(currentStart, 'month')
+    const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
 
     // console.log('current startMonth calendar month', currentStart.format('DD/MM/YY'))
     // console.log("evenements", eventsInCurrentMonth)

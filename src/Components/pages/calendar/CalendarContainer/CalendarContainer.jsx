@@ -10,14 +10,20 @@ import CalendarDay from '../CalendarDay/CalendarDay'
 import Modal from '../../modal/Modal'
 import NavBarDashboard from '../../../dashboard/NavbarDashboard'
 
+import datasJson from '../../../../data.json'
+import {convertDatasInMoment} from '../../events/EventsUtils.js'
+
+
 export class CalendarContainer extends Component {
     constructor(props) {
         super(props)
         let currentMoment = moment().utc()
+        const allEventsfromContext = convertDatasInMoment(datasJson);
         
         this.state = {
             currentDate: currentMoment,
             currentMoment: currentMoment,
+            allEventsfromContext: allEventsfromContext,
             stepType: 'month',
             eventSelected: null,
             statusSelected: 'all',
@@ -45,8 +51,7 @@ export class CalendarContainer extends Component {
             event.status.isInProcess = true
             event.comment = "j'aimerais que ce soit publié le 17 juin à 13h30"
         }
-        const modal = document.getElementsByClassName("modal")
-        modal[0].style.display = "none";
+        this.toggleModal()
         return event
     }
     selectEvent = (event) => {
@@ -82,7 +87,7 @@ export class CalendarContainer extends Component {
     }
 
     displayCalendarView = (stepType) => {
-        const args = {currentMoment:this.state.currentMoment, nextStep:this.nextStep, previousStep:this.previousStep, returnToCurrentDate:this.returnToCurrentDate, selectEvent:this.selectEvent,  statusSelected:this.state.statusSelected, stepType:this.state.stepType}
+        const args = {currentMoment:this.state.currentMoment, nextStep:this.nextStep, previousStep:this.previousStep, returnToCurrentDate:this.returnToCurrentDate, selectEvent:this.selectEvent,  statusSelected:this.state.statusSelected, stepType:this.state.stepType, allEventsfromContext:this.state.allEventsfromContext}
         if(stepType === 'month')
             return <CalendarMonth {...args} />
         else if(stepType === 'week')
@@ -92,7 +97,7 @@ export class CalendarContainer extends Component {
     }
     
     render(){
-        console.log("eventContentDisplayed", this.state.eventContentDisplayed)
+        console.log("state : ", this.state)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />
