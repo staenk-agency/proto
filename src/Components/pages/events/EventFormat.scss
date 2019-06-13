@@ -41,18 +41,12 @@
         height: 50px;
     }
     .hideContent{
-        overflow: hidden;
-        line-height: 1em;
-        height: 2em;
-        // z-index: 2;
+        // display: block;
         h3{
             font-size: 1em; 
             margin: 0;
         }
-            p{
-                color:white
-            }
-        }  
+    } 
     button{
         border: none;
         color : $greenTurquoise;
@@ -62,3 +56,6 @@
 
     }
 }
+// .hideContent-false{
+//     display: none;
+// }  

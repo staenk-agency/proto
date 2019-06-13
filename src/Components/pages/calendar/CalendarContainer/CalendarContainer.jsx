@@ -21,7 +21,7 @@ export class CalendarContainer extends Component {
             stepType: 'month',
             eventSelected: null,
             statusSelected: 'all',
-            modalOpened: false
+            modalOpened: false,
         }
     }
 
@@ -30,7 +30,7 @@ export class CalendarContainer extends Component {
     }
 
     toggleModal = () => {
-        this.setState({modalOpened: this.state.modalOpened ? false : true})
+        this.setState({modalOpened: !this.state.modalOpened})
     }
 
     commentPost = (event, status) => {
@@ -91,6 +91,7 @@ export class CalendarContainer extends Component {
     }
     
     render(){
+        console.log("eventContentDisplayed", this.state.eventContentDisplayed)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />

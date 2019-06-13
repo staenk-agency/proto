@@ -2,7 +2,6 @@ import React from 'react'
 import './Modal.scss'
 
 const Modal = ({eventSelected, commentPost, modalOpened, closeModal}) => {
-    console.log("modal open", modalOpened)
     return (
         modalOpened &&
         <div className="modal">

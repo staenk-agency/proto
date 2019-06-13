@@ -2,8 +2,12 @@ import React from 'react'
 import './EventFormat.scss'
 
 import EventsIcon from './EventsIcon'
+import EventDetailed from './EventDetailed'
+import {useEventContent} from './EventsHook.js'
 
-const EventFormat = ({selectEvent, eventByHalf, index, stepType, showMore}) => {
+const EventFormat = ({selectEvent, eventByHalf, index, stepType}) => {
+    const [eventContentDisplayed, text, displayContent] = useEventContent(eventByHalf.id)
+    
     return (
         <>
             <div 
@@ -17,12 +21,9 @@ const EventFormat = ({selectEvent, eventByHalf, index, stepType, showMore}) => {
                 stepType !=='month' &&
                 <div className={`eventFormat content ${eventByHalf.id}`}>
                     <img className={`eventAccountPic ${stepType}`} src={eventByHalf.account.picture} alt={eventByHalf.account.name}/> 
-                    <div className={`hideContent ${eventByHalf.id}`}>
-                        <h3>{eventByHalf.title}</h3>
-                        <p>{eventByHalf.shortDescription}</p>
-                        <p>{eventByHalf.message} </p>
-                    </div>
-                    <button className="showMoreOrLess">Plus</button>
+                    <h3>{eventByHalf.title}</h3>
+                        <EventDetailed eventByHalf={eventByHalf} eventContentDisplayed={eventContentDisplayed}/>
+                        <button className="showMoreOrLess" onClick={() => displayContent()}>{text}</button>
                 </div>
             }
         </>

@@ -3,14 +3,13 @@ import './CalendarWeek.scss'
 import DayWeekView from './DayWeekView'
 
 import {useInitCalendarState} from '../HooksCalendar.js'
-import {filterEventsByView} from '../../events/EventsUtils.js'
+import {filterEventsByView, filterEventsByDay} from '../../events/EventsUtils.js'
 
 const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType}) => {
     const currentStart = currentMoment.clone().startOf('isoWeek')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 7)
     const eventsInCurrentWeek = filterEventsByView(currentStart, 'isoWeek')
 
-    // console.log('current start calendar week', currentStart.format('DD/MM/YY'))
     return (
         <div className="calendar-week-container">
             <div className="calendar-nav">
@@ -29,7 +28,7 @@ const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDat
                     {
                         days.map((day, id) => {
                             return(
-                                <DayWeekView day={day} key={'day' + id} handleClick={selectEvent} eventsInCurrentWeek={eventsInCurrentWeek} statusSelected={statusSelected} stepType={stepType} />
+                                <DayWeekView day={day} key={'day' + id} selectEvent={selectEvent} eventsByDay={filterEventsByDay(eventsInCurrentWeek, day)} statusSelected={statusSelected} stepType={stepType}/>
                             )
                         })
                     }

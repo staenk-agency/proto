@@ -3,7 +3,7 @@ import './CalendarDay.scss'
 import DayHourView from '../CalendarDay/DayHourView'
 
 import {useInitCalendarState} from '../HooksCalendar.js'
-import {filterEventsByView} from '../../events/EventsUtils.js'
+import {filterEventsByView,filterEventsByHour} from '../../events/EventsUtils.js'
 
 const CalendarDay = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType}) => {
     const currentStart = currentMoment.clone().startOf('day')
@@ -21,7 +21,7 @@ const CalendarDay = ({currentMoment, nextStep, previousStep, returnToCurrentDate
             {
                 hours.map((hour, id) => {
                     return(
-                        <DayHourView hour={hour} key={id}  handleClick={selectEvent} eventsInCurrentDay={eventsInCurrentDay} statusSelected={statusSelected} stepType={stepType}/>
+                        <DayHourView hour={hour} key={id} handleClick={selectEvent} eventsByHour={filterEventsByHour(eventsInCurrentDay, hour)} statusSelected={statusSelected} stepType={stepType}/>
                     )
                 })
             }

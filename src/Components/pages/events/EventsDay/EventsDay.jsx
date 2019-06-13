@@ -2,13 +2,10 @@ import React from 'react'
 import './EventDay.scss'
 
 import EventsFormat from '../EventFormat'
-import {filterEventsByHour, filterByStatus} from '../EventsUtils.js'
+import {filterEventsByHour} from '../EventsUtils.js'
 
-const EventsDay = ({hour, eventsInCurrentDay, handleClick, statusSelected, stepType}) => {
-    const eventsByStatus = filterByStatus(eventsInCurrentDay, statusSelected)
-    const eventsByHours = filterEventsByHour(eventsByStatus, hour)
-
-    // console.log("events in day", eventsByHours)
+const EventsDay = ({hour, eventsFilteredByStatus, handleClick, stepType}) => {
+    const eventsByHours = filterEventsByHour(eventsFilteredByStatus, hour)
     return(
         <>
             {
