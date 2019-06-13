@@ -1,7 +1,7 @@
 import React from 'react'
 import './EventDay.scss'
 
-import EventsFormat from '../EventFormat'
+import EventsCard from '../EventCard'
 import {filterEventsByHour} from '../EventsUtils.js'
 
 const EventsDay = ({hour, eventsFilteredByStatus, handleClick, stepType}) => {
@@ -12,7 +12,7 @@ const EventsDay = ({hour, eventsFilteredByStatus, handleClick, stepType}) => {
                 eventsByHours.length > 0 && (
                     eventsByHours.map((event, index) => {
                         return(
-                            <EventsFormat eventByHalf={event} index={index} handleClick={handleClick} stepType={stepType}/>
+                            <EventsCard eventByHalf={event} index={index} handleClick={handleClick} stepType={stepType}/>
                         )
                     })
                 )

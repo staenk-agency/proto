@@ -1,5 +1,7 @@
 import React from 'react'
-import EventsMonthView from '../../events/EventsMonth/EventsMonthView'
+// import EventsMonthView from '../../events/EventsMonth/EventsMonthView'
+import Events from '../../events/Events'
+
 import {filterByStatus} from '../../events/EventsUtils.js'
 
 const DayMonthView = ({day, selectEvent, eventByDay, statusSelected, stepType}) => {
@@ -8,7 +10,7 @@ const DayMonthView = ({day, selectEvent, eventByDay, statusSelected, stepType}) 
     return (
         <div className={'weekDay position' + dayOfWeek}>
             {day.format("DD")}
-            <EventsMonthView key={'day' + day} day={day} eventsFilteredByStatus={filterByStatus(eventByDay, statusSelected)} selectEvent={selectEvent} stepType={stepType}/>
+            <Events key={'day' + day} day={day} eventsFilteredByStatus={filterByStatus(eventByDay, statusSelected)} selectEvent={selectEvent} stepType={stepType}/>
         </div>
     )
 }

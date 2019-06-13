@@ -82,12 +82,13 @@ export class CalendarContainer extends Component {
     }
 
     displayCalendarView = (stepType) => {
+        const args = {currentMoment:this.state.currentMoment, nextStep:this.nextStep, previousStep:this.previousStep, returnToCurrentDate:this.returnToCurrentDate, selectEvent:this.selectEvent,  statusSelected:this.state.statusSelected, stepType:this.state.stepType}
         if(stepType === 'month')
-            return <CalendarMonth currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}  statusSelected={this.state.statusSelected} stepType={this.state.stepType}/>
+            return <CalendarMonth {...args} />
         else if(stepType === 'week')
-            return <CalendarWeek currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent}  statusSelected={this.state.statusSelected} stepType={this.state.stepType}/>
+            return <CalendarWeek {...args} />
         else
-            return <CalendarDay currentMoment={this.state.currentMoment} nextStep={this.nextStep} previousStep={this.previousStep} returnToCurrentDate={this.returnToCurrentDate} selectEvent={this.selectEvent} statusSelected={this.state.statusSelected} stepType={this.state.stepType}/>
+            return <CalendarDay {...args} />
     }
     
     render(){

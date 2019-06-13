@@ -1,0 +1,36 @@
+.events-container{  
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+
+    .morning-container{
+        grid-row-start: 1;
+        grid-column-start: 1;
+        overflow-y: auto;
+    }
+    .afternoon-container{
+        grid-row-start: 2;
+        grid-column-start: 1;
+        overflow-y: auto;
+    }
+}
+.month-cont{
+    height: 120px;
+    .month-mor{
+        height: 60px;
+    }
+    .month-aft{
+        height: 60px;
+    }
+}
+.week-cont{
+    height: 500px;
+    overflow-y: auto;
+    .week-mor{
+        max-height:175px;
+    }
+    .week-aft{
+        max-height: 175px;
+    }
+}

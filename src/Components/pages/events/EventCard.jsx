@@ -1,11 +1,11 @@
 import React from 'react'
-import './EventFormat.scss'
+import './EventCard.scss'
 
 import EventsIcon from './EventsIcon'
 import EventDetailed from './EventDetailed'
 import {useEventContent} from './EventsHook.js'
 
-const EventFormat = ({selectEvent, eventByHalf, index, stepType}) => {
+const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
     const [eventContentDisplayed, text, displayContent] = useEventContent(eventByHalf.id)
     
     return (
@@ -29,4 +29,4 @@ const EventFormat = ({selectEvent, eventByHalf, index, stepType}) => {
         </>
     )
 }
-export default EventFormat
+export default EventCard
