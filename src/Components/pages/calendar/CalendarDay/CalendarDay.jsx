@@ -21,7 +21,7 @@ const CalendarDay = ({currentMoment, nextStep, previousStep, returnToCurrentDate
             {
                 hours.map((hour, id) => {
                     return(
-                        <DayHourView hour={hour} key={id} handleClick={selectEvent} eventsByHour={filterEventsByHour(eventsInCurrentDay, hour)} statusSelected={statusSelected} stepType={stepType}/>
+                        <DayHourView hour={hour} key={id} selectEvent={selectEvent} eventsByHour={filterEventsByHour(eventsInCurrentDay, hour)} statusSelected={statusSelected} stepType={stepType}/>
                     )
                 })
             }

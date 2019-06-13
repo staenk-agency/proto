@@ -5,7 +5,7 @@ const EventDetailed = ({eventByHalf, eventContentDisplayed}) => {
         <>
         {
             eventContentDisplayed === eventByHalf.id &&
-            <div className={`hideContent`}>
+            <div className="events-content">
                 <p>{eventByHalf.shortDescription}</p>
                 <p>{eventByHalf.message} </p>
             </div>

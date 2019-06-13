@@ -19,7 +19,7 @@ const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
             </div>
             {
                 stepType !=='month' &&
-                <div className={`eventFormat content ${eventByHalf.id}`}>
+                <div className={`eventFormat content`}>
                     <img className={`eventAccountPic ${stepType}`} src={eventByHalf.account.picture} alt={eventByHalf.account.name}/> 
                     <h3>{eventByHalf.title}</h3>
                         <EventDetailed eventByHalf={eventByHalf} eventContentDisplayed={eventContentDisplayed}/>

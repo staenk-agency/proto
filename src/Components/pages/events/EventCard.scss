@@ -42,18 +42,25 @@
     }
     button{
         border: none;
+        width: 100%;
         color : $greenTurquoise;
         background: none;
         font-weight: bold;
-        margin-left: 32%;
+        margin: auto;
     }
     button:hover{
         cursor: pointer;
+        color: rgb(188, 236, 234);  
     }
     button:focus{
         outline:0;
     }
+    // .events-content{
+    //     background: $violet;
+    //     color: $white;
+    // }
 }
-// .hideContent-false{
-//     display: none;
-// }  
+.isOpen-true{
+    background: $violet;
+    color: $white;
+}

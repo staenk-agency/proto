@@ -87,17 +87,29 @@ export class CalendarContainer extends Component {
     }
 
     displayCalendarView = (stepType) => {
-        const args = {currentMoment:this.state.currentMoment, nextStep:this.nextStep, previousStep:this.previousStep, returnToCurrentDate:this.returnToCurrentDate, selectEvent:this.selectEvent,  statusSelected:this.state.statusSelected, stepType:this.state.stepType, allEventsfromContext:this.state.allEventsfromContext}
-        if(stepType === 'month')
-            return <CalendarMonth {...args} />
-        else if(stepType === 'week')
-            return <CalendarWeek {...args} />
-        else
-            return <CalendarDay {...args} />
+        const CalendarView = this.componentByType(stepType);
+        return (
+            <CalendarView
+                currentMoment={this.state.currentMoment} 
+                nextStep={this.nextStep}
+                previousStep={this.previousStep} 
+                returnToCurrentDate={this.returnToCurrentDate}
+                selectEvent={this.selectEvent}
+                statusSelected={this.state.statusSelected} 
+                stepType={this.state.stepType} 
+                allEventsfromContext={this.state.allEventsfromContext}
+            />
+        )
     }
-    
+    componentByType = (stepType) => {
+        switch(stepType) {
+            case 'month' : return CalendarMonth;
+            case 'week' : return CalendarWeek;
+            default : return CalendarDay;
+        }
+    }
+
     render(){
-        console.log("state : ", this.state)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />
@@ -108,7 +120,11 @@ export class CalendarContainer extends Component {
                         this.displayCalendarView(this.state.stepType)
                     }
                 </div>
-                <Modal eventSelected={this.state.eventSelected} commentPost={this.commentPost} modalOpened={this.state.modalOpened} closeModal={this.toggleModal}/>
+                <Modal 
+                    eventSelected={this.state.eventSelected} 
+                    commentPost={this.commentPost} 
+                    modalOpened={this.state.modalOpened} 
+                    closeModal={this.toggleModal}/>
             </div>
         )
     }
