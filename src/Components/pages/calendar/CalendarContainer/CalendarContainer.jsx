@@ -28,17 +28,32 @@ export class CalendarContainer extends Component {
             eventSelected: null,
             statusSelected: 'all',
             modalOpened: false,
+            commentInput: false,
+            comment: null,
         }
     }
 
     onChangeCalendarType= (stepType) => {
         this.setState({stepType: stepType})
     }
-
     toggleModal = () => {
         this.setState({modalOpened: !this.state.modalOpened})
     }
-
+    toggleCommentInput = () => {
+        this.setState({commentInput: !this.state.commentInput})
+    }
+    handleSubmit = (e, event) => {
+        e.preventDefault()
+        event.comment = this.state.comment
+        this.setState({comment : null})
+        event.status.isValidated = false
+        event.status.isInProcess = false
+        event.status.isNotValidated = true
+    }
+    handleChange = (e) => {
+        this.setState({comment : e.target.value})
+    }
+    
     commentPost = (event, status) => {
         event.status.isValidated = false
         event.status.isInProcess = false
@@ -49,7 +64,6 @@ export class CalendarContainer extends Component {
             event.status.isNotValidated = true
         } else {
             event.status.isInProcess = true
-            event.comment = "j'aimerais que ce soit publié le 17 juin à 13h30"
         }
         this.toggleModal()
         return event
@@ -98,6 +112,7 @@ export class CalendarContainer extends Component {
                 statusSelected={this.state.statusSelected} 
                 stepType={this.state.stepType} 
                 allEventsfromContext={this.state.allEventsfromContext}
+                toggleModal={this.toggleModal}
             />
         )
     }
@@ -110,6 +125,7 @@ export class CalendarContainer extends Component {
     }
 
     render(){
+        console.log("this.state", this.state.comment)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />
@@ -124,7 +140,13 @@ export class CalendarContainer extends Component {
                     eventSelected={this.state.eventSelected} 
                     commentPost={this.commentPost} 
                     modalOpened={this.state.modalOpened} 
-                    closeModal={this.toggleModal}/>
+                    closeModal={this.toggleModal}
+                    comment={this.state.comment}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    toggleCommentInput={this.toggleCommentInput}
+                    commentInput={this.state.commentInput}
+                    />
             </div>
         )
     }

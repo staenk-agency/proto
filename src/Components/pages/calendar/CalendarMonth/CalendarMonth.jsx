@@ -14,8 +14,6 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
 
-    // console.log('current startMonth calendar month', currentStart.format('DD/MM/YY'))
-    // console.log("evenements", eventsInCurrentMonth)
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">
@@ -42,7 +40,13 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     {
                         days.map((day, id) => {
                             return(
-                                <DayMonthView day={day} key={'weekDay' + id} selectEvent={selectEvent} statusSelected={statusSelected} eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} stepType={stepType} />
+                                <DayMonthView 
+                                    day={day} key={'weekDay' + id} 
+                                    selectEvent={selectEvent} 
+                                    statusSelected={statusSelected} 
+                                    eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} 
+                                    stepType={stepType} 
+                                />
                             )
                         })
                     }

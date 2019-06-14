@@ -4,7 +4,7 @@ import './Events.scss'
 import EventCard from './EventCard'
 import {filterEventsByHalf} from '../events/EventsUtils.js'
 
-const Events = ({day, eventsFilteredByStatus, selectEvent, stepType}) => {
+const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, toggleModal}) => {
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
 
     return (
@@ -14,7 +14,7 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType}) => {
                 eventMorning &&
                 eventMorning.map((eventByHalf, index) => {
                     return(
-                        <EventCard eventByHalf={eventByHalf} index={index} selectEvent={selectEvent} stepType={stepType}/>
+                        <EventCard eventByHalf={eventByHalf} index={index} selectEvent={selectEvent} stepType={stepType} toggleModal={toggleModal}/>
                     )
                 })
             }
@@ -24,7 +24,7 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType}) => {
                 eventAfternoon &&
                 eventAfternoon.map((eventByHalf,index) => {
                     return(
-                        <EventCard eventByHalf={eventByHalf} index={index} selectEvent={selectEvent} stepType={stepType}/>
+                        <EventCard eventByHalf={eventByHalf} index={index} selectEvent={selectEvent} stepType={stepType} toggleModal={toggleModal}/>
                     )
                 })
             }

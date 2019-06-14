@@ -5,7 +5,7 @@ import EventsIcon from './EventsIcon'
 import EventDetailed from './EventDetailed'
 import {useEventContent} from './EventsHook.js'
 
-const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
+const EventCard = ({selectEvent, eventByHalf, index, stepType, toggleModal}) => {
     const [eventContentDisplayed, text, displayContent] = useEventContent(eventByHalf.id)
     
     return (
@@ -23,7 +23,7 @@ const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
                     <img className={`eventAccountPic ${stepType}`} src={eventByHalf.account.picture} alt={eventByHalf.account.name}/> 
                     <h3>{eventByHalf.title}</h3>
                         <EventDetailed eventByHalf={eventByHalf} eventContentDisplayed={eventContentDisplayed}/>
-                        <button className="showMoreOrLess" onClick={() => displayContent()}>{text}</button>
+                        <button className="showMoreOrLess" onClick={() => selectEvent(eventByHalf)}>{text}</button>
                 </div>
             }
         </>

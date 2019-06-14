@@ -1,7 +1,7 @@
 import React from 'react'
 import './Modal.scss'
 
-const Modal = ({eventSelected, commentPost, modalOpened, closeModal}) => {
+const Modal = ({eventSelected, commentPost, modalOpened, closeModal, comment, handleSubmit, handleChange, toggleCommentInput, commentInput}) => {
     return (
         modalOpened &&
         <div className="modal">
@@ -25,15 +25,40 @@ const Modal = ({eventSelected, commentPost, modalOpened, closeModal}) => {
                             <img className="modal-body-picture" src={eventSelected.account.picture} alt={eventSelected.account.name} />
                         </>
                     }
+                    {
+                        eventSelected.comment &&
+                        <>
+                            <p>Commentaire : {eventSelected.comment}</p>
+                        </>
+
+                    }
                 </div>
                 <div className="modal-footer">
                     {
                         eventSelected && 
                         <div className="modal-footer-buttons">
-                            <button onClick={() => commentPost(eventSelected, 'isNotValidated')}>Commenter</button>
+                            <button onClick={() => toggleCommentInput()}>Commenter</button>
                             <button onClick={() => commentPost(eventSelected, 'isInProcess')}>Mettre en attente</button>
                             <button onClick={() => commentPost(eventSelected, 'isValidated')}>Valider</button>
                         </div>
+                    }
+                    {
+                        commentInput &&
+                        <form onSubmit={(e) => handleSubmit(e, eventSelected)}>
+                            <label>
+                            Commentaire : 
+                                <textarea 
+                                    // type="text" 
+                                    value={comment} 
+                                    onChange={handleChange} 
+                                    placeholder="Ajouter un commentaire"
+                                />
+                            </label>
+                            <input 
+                                type="submit" 
+                                value="Envoyer" 
+                            />
+                        </form>
                     }
                 </div>
             </div>
