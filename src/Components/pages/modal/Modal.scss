@@ -1,9 +1,11 @@
+@import '../../variablesStyle.scss';
+
 .modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 300px; /* Location of the box */
-    left: 0;
-    top: 0;
+    margin: auto;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -12,15 +14,15 @@
 
     /* Modal Content */
     .modal-content {
-        position: relative;
+        // position: relative;
         background-color: #fefefe;
-        margin: auto;
+        margin: 300px auto;
         padding: 0;
         border: 1px solid #888;
-        width: 50%;
+        width: 60%;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         animation-name: animatetop;
-        animation-duration: 0.4s;
+        animation-duration: 0.5s;
 
         /* Modal Header */
         .modal-header {
@@ -51,6 +53,10 @@
             p{
                 grid-column-start: 1;
             }
+            .comment-display{
+                max-height: 150px;
+                overflow: scroll;
+            }
         }
 
         /* Modal Footer */
@@ -70,6 +76,10 @@
                     padding: 6px 3px;
                     width: 100px;
                     margin: 5px;
+                    outline: none;
+                }
+                button:hover{
+                    background-image: $greenBackground;
                 }
             }
         form{
@@ -81,7 +91,10 @@
             }
             textarea{
                 width: 100%;
-                min-height: 50px;
+                min-height: 100px;
+                max-height: 200px;
+                outline: none;
+                font-family: 'Roboto',  'sans serif'
             }
             button{
                 border-radius: 25px;
@@ -96,7 +109,7 @@
     }
     /* Add Animation */
     @keyframes animatetop {
-    from {top: -300px; opacity: 0}
+    from {top: -600px; opacity: 0}
     to {top: 0; opacity: 1}
     }
 }

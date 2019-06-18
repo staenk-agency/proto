@@ -1,7 +1,10 @@
+@import '../../../variablesStyle.scss';
+
 .grid-container{
     display: grid;
     grid-template-rows: 0.8fr 8fr;
     grid-template-columns: 1fr 4fr;
+    color: $black;
 
     //in horizontalNavBar component
     .horizontalNavBar-container{

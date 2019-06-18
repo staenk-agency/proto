@@ -5,10 +5,17 @@ $green : rgb(10, 193, 71);
 $red : red;
 $blue : rgb(0, 152, 255);
 $white : #f1f1f1;
+$whiteSnow: #FFFFFF;
+$greyBackground: #f4f3f8;
 $border-grey: rgba(192, 190, 190, 0.582);
+$black : #333333;
 
-//color hover
+// color hover
 $violetHover : #63637F;
+
+
+// background over
+$greenBackground : linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
 
 // other
 $widthInput : 80px;
@@ -45,7 +52,6 @@ $widthInput : 80px;
     display: flex;
     justify-content: center;
     align-content: center;
-    border: 1px solid $border-grey;
     background: none;
     height: 40px;
     padding: 0;

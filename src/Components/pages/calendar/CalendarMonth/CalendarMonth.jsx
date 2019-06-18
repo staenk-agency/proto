@@ -18,7 +18,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
         <div className="calendar-month-container">
             <div className="calendar-nav">
                 <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}>Aujourd'hui</button>
-                <div>
+                <div className="all-btn">
                     <button className="btn previous year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-left"/></button>
                     <button className="btn previous month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-chevron-left"/></button>
                     <p>Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('month').format('DD/MM/YY')}</p>
@@ -26,7 +26,8 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     <button className="btn next year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-right"/></button>
                 </div>
             </div>
-                <h3>{displayNameFrench(currentStart.month(), namesInFrench)} {currentStart.format("YYYY")}</h3>
+                {/* <h3>{displayNameFrench(currentStart.month(), namesInFrench)} {currentStart.format("YYYY")}</h3> */}
+                    <hr/>
                 <div className="weekDays">
                     {
                         namesInFrench[1].daysName.map((day, id) => {

@@ -1,13 +1,14 @@
 @import '../../../variablesStyle.scss';
 
 .calendar-month-container{
-    // background-image: linear-gradient(to bottom, #e5e4ea, #e8e8ed, #ececef, #efeff2, #f3f3f4);
-    background: #efeef1;
+    background: $greyBackground;
     .weekDays{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px;
-            grid-gap: 0;
+            // grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px;
+            grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+            width: 95%;
+            margin: auto;
             
         .position0{
             grid-column: 1 / 2;
@@ -31,17 +32,21 @@
             grid-column: 7 / 8;
         }
         .weekDay:hover{
-            background: grey;
-            cursor: pointer;
+            background: rgb(213, 213, 216);
         }
         .weekDay{
-            height: 150px;
-            border: 1px solid rgb(90, 88, 88);
-            background: $white;
+            height: 148px;  
+            margin: 1%;
+            background: $whiteSnow;
             text-align: end;
+            p{
+                margin: 5% 10%;
+            }
         }
         .weekDayName{
             text-align: center;
+            font-weight: bold;
+            margin: 10% 0;
         }
     }
     .calendar-nav{
@@ -51,20 +56,36 @@
         justify-content: flex-start;
         align-items: center;
 
-        div{
+        .all-btn{
             @include inputLeft();
             @include inputRight();
             @include calendarNavDiv();
             width: 400px;
+            background: $whiteSnow;
+            padding: 2px;
+            margin: 10px;
+            border: none;
 
             .previous{
                 @include inputLeft();
             }
+            .previous:hover{
+                cursor: pointer;
+            }
             .next{
                 @include inputRight();
             }
-            .month{
-                @include inputBorder();
+            .next:hover{
+                cursor: pointer;
+            }
+            .previous.month{
+                border-left: 2px solid #E8E8E9;
+                border-radius: 0;
+            }
+            .next.month{
+                border-right: 2px solid #E8E8E9;
+                border-radius: 0;
+
             }
             .btn{
                 @include calendarNavBtn();
@@ -95,4 +116,12 @@
             outline: none;
         }
     }
+    // h3{
+    //     font-weight: bold;
+    // }
 }
+        hr{
+            border: $whiteSnow 1px solid;
+            width: 95%;
+            margin: 10px auto;
+        }

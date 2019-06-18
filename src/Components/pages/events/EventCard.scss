@@ -4,14 +4,14 @@
     margin: auto;
     color: $white;
     border-radius: 25px;
-    font-size: 1em;
     text-align: center;
-    width: 120px;
+    width: 75%;
+    height: 25px;
     display: flex;
-    justify-content: space-around;
-
+    align-items: center;
     .eventFormat{
         margin: 0;
+        text-align: center;
     }
 }
 .eventView:hover{
@@ -55,12 +55,15 @@
     button:focus{
         outline:0;
     }
-    // .events-content{
-    //     background: $violet;
-    //     color: $white;
-    // }
 }
 .isOpen-true{
     background: $violet;
     color: $white;
+}
+.events-content{
+    background: $violet;
+    color: $white;
+}
+.eventIcon{
+    margin: auto;
 }

@@ -9,7 +9,7 @@ const DayMonthView = ({day, selectEvent, eventByDay, statusSelected, stepType}) 
     
     return (
         <div className={'weekDay position' + dayOfWeek}>
-            {day.format("DD")}
+            <p>{day.format("DD")}</p>
             <Events key={'day' + day} day={day} eventsFilteredByStatus={filterByStatus(eventByDay, statusSelected)} selectEvent={selectEvent} stepType={stepType}/>
         </div>
     )

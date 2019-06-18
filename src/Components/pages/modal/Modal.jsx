@@ -1,13 +1,13 @@
 import React from 'react'
 import './Modal.scss'
 
-const Modal = ({eventSelected, commentPost, modalOpened, closeModal, comment, handleSubmit, handleChange, toggleCommentInput, commentInput}) => {
+const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, handleSubmit, handleChange, toggleCommentInput, commentInput}) => {
     return (
         modalOpened &&
         <div className="modal">
             <div className="modal-content">
                 <div className="modal-header">
-                    <i className="fas fa-times close" onClick={() => closeModal()}></i>
+                    <i className="fas fa-times close" onClick={() => toggleModal()}></i>
                     {
                         eventSelected &&
                         <>
@@ -28,7 +28,7 @@ const Modal = ({eventSelected, commentPost, modalOpened, closeModal, comment, ha
                     {
                         eventSelected.comment &&
                         <>
-                            <p>Commentaire : {eventSelected.comment}</p>
+                            <p className="comment-display">Commentaire : {eventSelected.comment}</p>
                         </>
 
                     }
@@ -48,16 +48,12 @@ const Modal = ({eventSelected, commentPost, modalOpened, closeModal, comment, ha
                             <label>
                             Commentaire : 
                                 <textarea 
-                                    // type="text" 
                                     value={comment} 
                                     onChange={handleChange} 
                                     placeholder="Ajouter un commentaire"
                                 />
                             </label>
-                            <input 
-                                type="submit" 
-                                value="Envoyer" 
-                            />
+                            <button type="submit">Envoyer</button>
                         </form>
                     }
                 </div>
@@ -66,3 +62,4 @@ const Modal = ({eventSelected, commentPost, modalOpened, closeModal, comment, ha
     )
 }
 export default Modal
+

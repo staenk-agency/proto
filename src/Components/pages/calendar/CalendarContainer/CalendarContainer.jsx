@@ -17,38 +17,39 @@ import {convertDatasInMoment} from '../../events/EventsUtils.js'
 export class CalendarContainer extends Component {
     constructor(props) {
         super(props)
-        let currentMoment = moment().utc()
+        const currentMoment = moment().utc()
         const allEventsfromContext = convertDatasInMoment(datasJson);
         
         this.state = {
-            currentDate: currentMoment,
-            currentMoment: currentMoment,
-            allEventsfromContext: allEventsfromContext,
-            stepType: 'month',
-            eventSelected: null,
-            statusSelected: 'all',
-            modalOpened: false,
-            commentInput: false,
-            comment: null,
+            currentDate: currentMoment,     // display the currentDate with another color
+            currentMoment: currentMoment,   // change the currentMoment during the navigation in the calendar
+            allEventsfromContext: allEventsfromContext, // access to all the events 
+            stepType: 'month',      // changes when navigation between the different views of the calendar 
+            eventSelected: null,    // display the selected event
+            statusSelected: 'all',  // changes when filter the display of events according to the status
+            modalOpened: false,     // open or close the modal
+            commentInput: false,    // display or hide the comment text area 
+            comment: '',        // save the comment 
         }
     }
 
     onChangeCalendarType= (stepType) => {
         this.setState({stepType: stepType})
     }
-    toggleModal = () => {
+    toggleModal = () => {       // display or hide the modal
         this.setState({modalOpened: !this.state.modalOpened})
     }
-    toggleCommentInput = () => {
+    toggleCommentInput = () => {        //display or hide the text area for the comment in modal
         this.setState({commentInput: !this.state.commentInput})
     }
-    handleSubmit = (e, event) => {
+    handleSubmit = (e, event) => {      //submit the comment and save it in the event
         e.preventDefault()
         event.comment = this.state.comment
-        this.setState({comment : null})
+        this.setState({comment : ''})
         event.status.isValidated = false
         event.status.isInProcess = false
         event.status.isNotValidated = true
+        this.toggleCommentInput()
     }
     handleChange = (e) => {
         this.setState({comment : e.target.value})
@@ -68,6 +69,7 @@ export class CalendarContainer extends Component {
         this.toggleModal()
         return event
     }
+
     selectEvent = (event) => {
         if(event){
             this.setState({eventSelected: event})
@@ -125,7 +127,8 @@ export class CalendarContainer extends Component {
     }
 
     render(){
-        console.log("this.state", this.state.comment)
+        // console.log("this.state", this.state.comment)
+        console.log("state : ", this.state)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />
@@ -140,7 +143,7 @@ export class CalendarContainer extends Component {
                     eventSelected={this.state.eventSelected} 
                     commentPost={this.commentPost} 
                     modalOpened={this.state.modalOpened} 
-                    closeModal={this.toggleModal}
+                    toggleModal={this.toggleModal}
                     comment={this.state.comment}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
