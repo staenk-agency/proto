@@ -5,12 +5,13 @@
     color: $white;
     border-radius: 25px;
     text-align: center;
-    width: 75%;
-    height: 25px;
+    width: 55%;
+    height: 18px;
     display: flex;
     align-items: center;
+    font-size: 0.8em;
     .eventFormat{
-        margin: 0;
+        margin: auto;
         text-align: center;
     }
 }

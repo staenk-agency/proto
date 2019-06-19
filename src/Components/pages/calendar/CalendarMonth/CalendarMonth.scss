@@ -2,52 +2,70 @@
 
 .calendar-month-container{
     background: $greyBackground;
-    .weekDays{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            // grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px;
-            grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
-            width: 95%;
-            margin: auto;
-            
-        .position0{
-            grid-column: 1 / 2;
-        }
-        .position1{
-            grid-column: 2 / 3;
-        }
-        .position2{
-            grid-column: 3 / 4;
-        }
-        .position3{
-            grid-column: 4 / 5;
-        }
-        .position4{
-            grid-column: 5 / 6;
-        }
-        .position5{
-            grid-column: 6 / 7;
-        }
-        .position6{
-            grid-column: 7 / 8;
-        }
-        .weekDay:hover{
-            background: rgb(213, 213, 216);
-        }
-        .weekDay{
-            height: 148px;  
-            margin: 1%;
-            background: $whiteSnow;
-            text-align: end;
-            p{
-                margin: 5% 10%;
-            }
-        }
+    
+    .grid-dayName{
+        display:grid;
+        grid-template-columns: repeat(7, 1fr);
+        height: 50px;
+        margin:0;
+        padding: 0;
+
         .weekDayName{
             text-align: center;
             font-weight: bold;
             margin: 10% 0;
+            width: 20px;
         }
+    }
+    .weekDays{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            // grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px;
+            // grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+            grid-auto-rows: 145px;
+            grid-auto-flow: row;
+            width: 95%;
+            margin: auto;
+            
+        .weekDay:hover{
+            background: rgb(213, 213, 216);
+        }
+        .weekDay{
+            // height: 148px;  
+            margin: 1%;
+            background: $whiteSnow;
+            text-align: end;
+            display: grid;
+            grid-template-rows: 21% 38% 38%;
+            grid-template-columns: 1fr;
+            .day-display{
+                margin: 5% 8%;
+                font-size: 0.8em;
+
+            }
+        }
+        
+    }
+    .position0{
+        grid-column: 1 / 2;
+    }
+    .position1{
+        grid-column: 2 / 3;
+    }
+    .position2{
+        grid-column: 3 / 4;
+    }
+    .position3{
+        grid-column: 4 / 5;
+    }
+    .position4{
+        grid-column: 5 / 6;
+    }
+    .position5{
+        grid-column: 6 / 7;
+    }
+    .position6{
+        grid-column: 7 / 8;
     }
     .calendar-nav{
         border-radius:25px;

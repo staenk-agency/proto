@@ -1,31 +1,39 @@
 .events-container{  
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
+    // display: grid;
+    // grid-template-rows: 1fr 1fr;
+    // grid-template-columns: 1fr;
     overflow-y: auto;
 
     .morning-container{
-        grid-row-start: 1;
+        grid-row-start: 2;
+        // grid-row-end: 3;
         grid-column-start: 1;
         overflow-y: auto;
     }
     .afternoon-container{
-        grid-row-start: 2;
+        grid-row-start: 4;
+        // grid-row-end: 4;
         grid-column-start: 1;
         overflow-y: auto;
     }
 }
 .month-cont{
-    height: 120px;
+    // height: 120px;
+    grid-row-start: 2;
+    grid-row-end: 4;
     .month-mor{
-        height: 60px;
+        // height: 60px;
+        overflow-y: auto;
+
     }
     .month-aft{
-        height: 60px;
+        // height: 60px;
+        overflow-y: auto;
+
     }
 }
 .week-cont{
-    height: 600px;
+    // height: 600px;
     overflow-y: auto;
     .week-mor{
         margin: 2.5px 0;

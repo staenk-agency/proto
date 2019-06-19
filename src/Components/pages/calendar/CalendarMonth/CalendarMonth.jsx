@@ -9,13 +9,15 @@ import {filterEventsByView, filterEventsByDay} from '../../events/EventsUtils.js
 const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate];
 }
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext}) => {
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, height}) => {
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
+    height = height - 130;
+    const daysBox = height - (64+2+50);
 
     return (
-        <div className="calendar-month-container">
+        <div className="calendar-month-container" style={{height :`${height}px`}}>
             <div className="calendar-nav">
                 <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}>Aujourd'hui</button>
                 <div className="all-btn">
@@ -28,16 +30,18 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
             </div>
                 {/* <h3>{displayNameFrench(currentStart.month(), namesInFrench)} {currentStart.format("YYYY")}</h3> */}
                     <hr/>
-                <div className="weekDays">
+                    <div className="grid-dayName">
                     {
                         namesInFrench[1].daysName.map((day, id) => {
                             return (
-                                <div className={'weekDayName position' + id} key={id}>
-                                    {day}
-                                </div>
+                                    <div className={'weekDayName position' + id} key={id}>
+                                        <p>{day}</p>
+                                    </div>
                             )
                         })
                     }
+                    </div>
+                <div className="weekDays" style={{height: `${daysBox}px`}}> 
                     {
                         days.map((day, id) => {
                             return(
@@ -46,7 +50,8 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                                     selectEvent={selectEvent} 
                                     statusSelected={statusSelected} 
                                     eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} 
-                                    stepType={stepType} 
+                                    stepType={stepType}
+                                    daysBox={daysBox}
                                 />
                             )
                         })

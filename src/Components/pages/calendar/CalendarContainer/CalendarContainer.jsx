@@ -30,6 +30,7 @@ export class CalendarContainer extends Component {
             modalOpened: false,     // open or close the modal
             commentInput: false,    // display or hide the comment text area 
             comment: '',        // save the comment 
+            height: window.innerHeight
         }
     }
 
@@ -115,6 +116,7 @@ export class CalendarContainer extends Component {
                 stepType={this.state.stepType} 
                 allEventsfromContext={this.state.allEventsfromContext}
                 toggleModal={this.toggleModal}
+                height={this.state.height}
             />
         )
     }
@@ -126,11 +128,25 @@ export class CalendarContainer extends Component {
         }
     }
 
+    getSizePage = () => {
+        let height = window.innerHeight
+        let width = window.innerWidth
+        console.log("largeur", width)
+        console.log("hauteur", height)
+        let w = document.body.clientWidth;
+        let h = document.body.clientHeight;
+        console.log("page w", w)
+        console.log("page h", h)
+        this.setState({height : height})
+    }
+    componentDidMount(){
+        this.getSizePage()
+    }
+
     render(){
-        // console.log("this.state", this.state.comment)
         console.log("state : ", this.state)
         return (
-            <div className="grid-container">
+            <div className="grid-container" style={{height :`${this.state.height}px`}}>
                 <HorizontalNavBar />
                 <VerticalMenu displayStatus={this.displayStatus}/>
                 <div className="calendar-views">
