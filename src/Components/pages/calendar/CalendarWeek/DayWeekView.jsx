@@ -12,7 +12,7 @@ const displayNameFrench = (mDate, daysName) => {
 const DayWeekView = ({day, selectEvent, eventsByDay, statusSelected, stepType, toggleModal}) => {
     return (
         <div className={"day position" + day.format('d')}>
-            <p>{displayNameFrench(day.format('d'), namesInFrench)} {day.format('DD/MM')}</p>
+            <p>{displayNameFrench(day.format('d'), namesInFrench)}</p>
             <div className="day-post">
                 <Events key={'day' + day.id} day={day} eventsFilteredByStatus={filterByStatus(eventsByDay, statusSelected)} selectEvent={selectEvent} stepType={stepType} toggleModal={toggleModal}/>
             </div>

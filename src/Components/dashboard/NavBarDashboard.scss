@@ -5,17 +5,17 @@
     align-items: center;
     justify-content: space-evenly;
     background-image: linear-gradient(to bottom, #e5e4ea, #e2e1e7, #e0dfe5, #dddce2, #dbdae0);
-    padding: 10px;
-    max-height:40px;
 
     h2{
-        margin: 0;
+        margin: 0 10px;
         color : #95DDDA;
+        padding: 10px;
     }
     ul{
         list-style: none;
         display: flex;
         justify-content: space-around;
+        padding: 0 10px;
 
         li{
             background-color: #f1f1f1;
@@ -24,11 +24,14 @@
             text-align: center;
             margin: 1px;
         }
-        .NavBarDashboard-first-list{
+        .first-list{
             @include inputLeft();
         }
-        .NavBarDashboard-last-list{
+        .last-list{
             @include inputRight();
+        }
+        .NavBarDashboard{
+            background: $whiteSnow;
         }
         li:hover{
             cursor: pointer;

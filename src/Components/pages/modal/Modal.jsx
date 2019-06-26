@@ -8,29 +8,33 @@ const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, h
             <div className="modal-content">
                 <div className="modal-header">
                     <i className="fas fa-times close" onClick={() => toggleModal()}></i>
-                    {
+                    {/* {
                         eventSelected &&
                         <>
                             <h2>{eventSelected.title} </h2>
                             <h3>{eventSelected.date.mDate.format("DD/MM/YY kk:mm")}</h3>
                         </>
-                    }
+                    } */}
                 </div>
                 <div className="modal-body">
                     {
                         eventSelected && 
                         <>
+                        <div className="body-text">
+                            <h2>{eventSelected.title} </h2>
+                            <h3>{eventSelected.date.mDate.format("DD/MM/YY kk:mm")}</h3>
                             <p>{eventSelected.shortDescription}</p>
                             <p>{eventSelected.message}</p>
+                            {
+                                eventSelected.comment &&
+                                <>
+                                    <p className="comment-display">Commentaire : {eventSelected.comment}</p>
+                                </>
+        
+                            }
+                        </div>
                             <img className="modal-body-picture" src={eventSelected.account.picture} alt={eventSelected.account.name} />
                         </>
-                    }
-                    {
-                        eventSelected.comment &&
-                        <>
-                            <p className="comment-display">Commentaire : {eventSelected.comment}</p>
-                        </>
-
                     }
                 </div>
                 <div className="modal-footer">

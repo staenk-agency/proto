@@ -1,50 +1,41 @@
 @import '../../../variablesStyle.scss';
 
 .calendar-month-container{
-    background: $greyBackground;
-    
     .grid-dayName{
         display:grid;
         grid-template-columns: repeat(7, 1fr);
-        height: 50px;
-        margin:0;
+        margin: auto;
         padding: 0;
+        margin: 0 20px;
 
         .weekDayName{
-            text-align: center;
             font-weight: bold;
-            margin: 10% 0;
-            width: 20px;
+            margin: auto;
         }
     }
     .weekDays{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            // grid-template-rows: 21.5px 150px 150px 150px 150px 150px 150px;
-            // grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
-            grid-auto-rows: 145px;
-            grid-auto-flow: row;
-            width: 95%;
-            margin: auto;
+            grid-auto-rows: minmax(0,1fr);
+            height: 670px;
+            max-height: 670px;
+            margin: 0 20px;
             
         .weekDay:hover{
             background: rgb(213, 213, 216);
         }
         .weekDay{
-            // height: 148px;  
             margin: 1%;
             background: $whiteSnow;
             text-align: end;
             display: grid;
-            grid-template-rows: 21% 38% 38%;
+            grid-template-rows: 20% 1fr;
             grid-template-columns: 1fr;
             .day-display{
                 margin: 5% 8%;
                 font-size: 0.8em;
-
             }
         }
-        
     }
     .position0{
         grid-column: 1 / 2;
@@ -103,7 +94,6 @@
             .next.month{
                 border-right: 2px solid #E8E8E9;
                 border-radius: 0;
-
             }
             .btn{
                 @include calendarNavBtn();
@@ -124,8 +114,13 @@
             @include inputBorder();
             background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
             color: $white;
+            font-weight: bold;
             width: 150px;
-            height: 40px;
+            margin: 0 20px;
+            display:flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0;
         }
         .current-date:hover{
             background: #95ddda;
@@ -134,12 +129,4 @@
             outline: none;
         }
     }
-    // h3{
-    //     font-weight: bold;
-    // }
 }
-        hr{
-            border: $whiteSnow 1px solid;
-            width: 95%;
-            margin: 10px auto;
-        }

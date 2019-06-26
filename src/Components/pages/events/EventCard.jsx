@@ -9,6 +9,11 @@ const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
     const [eventContentDisplayed, text, displayContent] = useEventContent(eventByHalf.id)
     return (
         <>
+        <div className="event-view">
+            {/* <div className="event-view-pic">
+                <img src={eventByHalf.account.picture} alt={eventByHalf.account.name}/>
+                <img src={eventByHalf.socialNetworks} alt={eventByHalf.socialNetworks}/>
+            </div> */}
             <div 
             onClick={() => selectEvent(eventByHalf)} 
             key={'eventHalf' + index} 
@@ -26,6 +31,7 @@ const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
                         {/* <button className="showMoreOrLess" onClick={() => displayContent()}>{text}</button>      */}
                 </div>
             }
+        </div>
         </>
     )
 }

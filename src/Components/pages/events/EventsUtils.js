@@ -101,6 +101,6 @@ export const filterByStatus = (eventsFilteredByDay, status) => {
     return eventsByStatus
 }
 
-export const eventsAccordingToStatus = (status) => {
+export const filterEventNetwork = (event) => {
 
 }

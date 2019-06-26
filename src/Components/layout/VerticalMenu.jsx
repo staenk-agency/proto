@@ -3,17 +3,6 @@ import './VerticalMenu.scss';
 
 const VerticalMenu = ({displayStatus}) => {
   
-  // function handleShowHideMenu(){
-  //   let links = document.getElementsByClassName('verticalMenu-list-second-links')
-  //     for(links of links){
-  //       if(links.style.display === "block"){
-  //         links.style.display = "none"
-  //       } else {
-  //         links.style.display = "block";
-  //       }
-  //   }
-  // }
-  
   return (
     <div className="verticalMenu-container">
       <div className="verticalMenu-title">

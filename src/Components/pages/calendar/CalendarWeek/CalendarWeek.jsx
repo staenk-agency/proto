@@ -13,7 +13,7 @@ const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDat
     return (
         <div className="calendar-week-container">
             <div className="calendar-nav">
-                <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 7, 'isoWeek')}>Aujourd'hui</button>
+                <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 7, 'isoWeek')}>Aujourd'hui <i className="fas fa-angle-double-right"/></button>
                 <div>
                     <button className="btn previous-week" onClick={() => previousStep('week', recomputeDays, 'd', 7, 'isoWeek')}>
                         <i className="fas fa-chevron-left"/>
@@ -24,6 +24,7 @@ const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDat
                     </button>
                 </div>
             </div>
+                <hr/>
                 <div className="weekDays">
                     {
                         days.map((day, id) => {

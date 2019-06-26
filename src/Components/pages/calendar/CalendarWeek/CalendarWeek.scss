@@ -1,6 +1,8 @@
 @import '../../../variablesStyle.scss';
 
 .calendar-week-container{
+    height: 832px;
+    margin: 0 20px;
     .weekDays{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -9,6 +11,10 @@
 
         .day {
             grid-row: 1/2;
+            p{
+                font-weight: bold;
+                text-align: center;
+            }
         }
         .position1{
             grid-column: 1 / 2;
@@ -31,18 +37,15 @@
         .position0{
             grid-column: 7 / 8;
         }
-
         .day:hover{
             cursor: pointer;
             background:rgba(192, 190, 190, 0.582);
         }
-
         .day-post{
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            height: 600px;
-            border: 2px dashed rgba(192, 190, 190, 0.582);
-            margin: 2%
+            height: 680px;
+            border: 1px dashed rgba(192, 190, 190, 0.582);
+            margin: 2%;
+            background: $whiteSnow; 
         }
     }
     .calendar-nav{
@@ -56,6 +59,11 @@
             @include inputLeft();
             @include inputRight();
             @include calendarNavDiv();
+            width: 400px;
+            background: $whiteSnow;
+            padding: 2px;
+            margin: 10px;
+            border: none;
 
             .previous-week{
                 @include inputLeft();
@@ -80,14 +88,18 @@
         }
         .current-date{
             @include inputBorder();
+            height: 42.16px;
             background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
             color: $white;
+            font-weight: bold;
             width: 150px;
-            height: 40px;
+            margin: 0 20px;
+            display:flex;
+            align-items: center;
+            justify-content: space-evenly;
         }
         .current-date:hover{
             background: #95ddda;
-
         }
         .current-date:focus{
             outline: none;

@@ -9,17 +9,15 @@ import {filterEventsByView, filterEventsByDay} from '../../events/EventsUtils.js
 const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate];
 }
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, height}) => {
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext}) => {
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
-    height = height - 130;
-    const daysBox = height - (64+2+50);
 
     return (
-        <div className="calendar-month-container" style={{height :`${height}px`}}>
+        <div className="calendar-month-container">
             <div className="calendar-nav">
-                <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}>Aujourd'hui</button>
+                <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}> <p>Aujourd'hui</p> <i className="fas fa-angle-double-right"/></button>
                 <div className="all-btn">
                     <button className="btn previous year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-left"/></button>
                     <button className="btn previous month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-chevron-left"/></button>
@@ -28,7 +26,6 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     <button className="btn next year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-right"/></button>
                 </div>
             </div>
-                {/* <h3>{displayNameFrench(currentStart.month(), namesInFrench)} {currentStart.format("YYYY")}</h3> */}
                     <hr/>
                     <div className="grid-dayName">
                     {
@@ -41,7 +38,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                         })
                     }
                     </div>
-                <div className="weekDays" style={{height: `${daysBox}px`}}> 
+                <div className="weekDays"> 
                     {
                         days.map((day, id) => {
                             return(
@@ -51,7 +48,6 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                                     statusSelected={statusSelected} 
                                     eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} 
                                     stepType={stepType}
-                                    daysBox={daysBox}
                                 />
                             )
                         })
