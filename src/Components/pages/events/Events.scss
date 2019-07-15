@@ -1,13 +1,38 @@
+@import '../../variablesStyle.scss';
+
 .events-container{  
     overflow-y: auto;
 
     .morning-container{
         grid-row-start: 1;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
     .afternoon-container{
         grid-row-start: 2;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .moreButton{
+    border-radius: 25px;
+    width: 30%;
+    margin: auto;
+    border: none;
+    background: none;
+    // justify-self: center;
+    
+    div{
+        text-align: center;
+        color:$greenTurquoise;
+        font-size:1.2em;
+        margin: 0 auto;
+    }
+    }
+    .moreButton:hover{
+        cursor: pointer;
+        background: $greyBackground;
     }
 }
 .month-cont{

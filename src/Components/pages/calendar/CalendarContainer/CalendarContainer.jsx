@@ -9,6 +9,7 @@ import CalendarWeek from '../CalendarWeek/CalendarWeek'
 import CalendarDay from '../CalendarDay/CalendarDay'
 import Modal from '../../modal/Modal'
 import NavBarDashboard from '../../../dashboard/NavbarDashboard'
+import ModalEventsList from '../../modal/ModalEventsList';
 
 import datasJson from '../../../../data.json'
 import {convertDatasInMoment} from '../../events/EventsUtils.js'
@@ -30,7 +31,8 @@ export class CalendarContainer extends Component {
             modalOpened: false,     // open or close the modal
             commentInput: false,    // display or hide the comment text area 
             comment: '',        // save the comment 
-            // height: window.innerHeight
+            eventsMoreButton: false,
+            eventsList: [],
         }
     }
 
@@ -71,9 +73,16 @@ export class CalendarContainer extends Component {
         return event
     }
 
+    displayMoreEvents = (list) => {
+        this.setState({
+            eventsMoreButton: !this.state.eventsMoreButton,
+            eventsList: list
+        })
+    }
+
     selectEvent = (event) => {
         if(event){
-            this.setState({eventSelected: event})
+            this.setState({eventSelected: event, eventsMoreButton:false})
         }
         this.toggleModal()
     }
@@ -116,7 +125,9 @@ export class CalendarContainer extends Component {
                 stepType={this.state.stepType} 
                 allEventsfromContext={this.state.allEventsfromContext}
                 toggleModal={this.toggleModal}
-                // height={this.state.height}
+                eventsMoreButton={this.state.eventsMoreButton}
+                displayMoreEvents={this.displayMoreEvents}
+                eventsList={this.state.eventsList}
             />
         )
     }
@@ -128,20 +139,20 @@ export class CalendarContainer extends Component {
         }
     }
 
-    getSizePage = () => {
-        // let height = window.innerHeight
-        let width = window.innerWidth
-        // console.log("largeur", width)
-        // console.log("hauteur", height)
-        // let w = document.body.clientWidth;
-        // let h = document.body.clientHeight;
-        // console.log("page w", w)
-        // console.log("page h", h)
-        // this.setState({height : height})
-    }
-    componentDidMount(){
-        this.getSizePage()
-    }
+    // getSizePage = () => {
+    //     // let height = window.innerHeight
+    //     let width = window.innerWidth
+    //     // console.log("largeur", width)
+    //     // console.log("hauteur", height)
+    //     // let w = document.body.clientWidth;
+    //     // let h = document.body.clientHeight;
+    //     // console.log("page w", w)
+    //     // console.log("page h", h)
+    //     // this.setState({height : height})
+    // }
+    // componentDidMount(){
+    //     this.getSizePage()
+    // }
 
     render(){
         console.log("state : ", this.state)
@@ -165,7 +176,14 @@ export class CalendarContainer extends Component {
                     handleSubmit={this.handleSubmit}
                     toggleCommentInput={this.toggleCommentInput}
                     commentInput={this.state.commentInput}
-                    />
+                />
+                <ModalEventsList
+                    eventsMoreButton={this.state.eventsMoreButton}
+                    displayMoreEvents={this.displayMoreEvents}
+                    eventsList={this.state.eventsList}
+                    selectEvent={this.selectEvent}
+                    stepType={this.state.stepType} 
+                />
             </div>
         )
     }

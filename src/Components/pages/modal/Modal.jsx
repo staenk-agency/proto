@@ -8,13 +8,6 @@ const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, h
             <div className="modal-content">
                 <div className="modal-header">
                     <i className="fas fa-times close" onClick={() => toggleModal()}></i>
-                    {/* {
-                        eventSelected &&
-                        <>
-                            <h2>{eventSelected.title} </h2>
-                            <h3>{eventSelected.date.mDate.format("DD/MM/YY kk:mm")}</h3>
-                        </>
-                    } */}
                 </div>
                 <div className="modal-body">
                     {

@@ -1,0 +1,56 @@
+@import '../../variablesStyle.scss';
+
+.modal-events{
+    position: fixed;
+    width: 100%; /* Full width */
+    height: inherit; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    z-index: 1;
+    // position: element();
+    // transform: translateY(-100%);
+    // background:bisque;
+    // width:300px;
+    // height:300px;
+
+    /* Modal Content */
+.modal-events-content {
+    margin: 30% auto;
+    padding: 0;
+    width: 25%;
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+    box-shadow: 3px 1px 16px 6px rgba(0, 0, 0, 0.17);
+    
+    /* Modal Header */
+    .modal-events-header {
+        // border-radius: 10px 10px 0 0;
+        padding: 10px 16px;
+        background:$whiteSnow;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display:flex;
+
+        .close{
+            margin: 5px 0;
+        }
+        .close:hover{
+            cursor: pointer;
+        }
+        h2{
+            margin: auto;
+            font-size:1.1em;
+        }
+    }
+    /* Modal Body */
+    .modal-events-body {
+        // border-radius:  0 0 10px 10px;
+        padding: 2px 16px;
+        background: $whiteSnow;
+    }
+}
+    /* Add Animation */
+    @keyframes animatetop {
+    from {top: -600px; opacity: 0}
+    to {top: 0; opacity: 1}
+    }
+}
