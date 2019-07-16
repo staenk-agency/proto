@@ -4,15 +4,16 @@ import './Events.scss'
 import EventCard from './EventCard'
 import {filterEventsByHalf} from '../events/EventsUtils.js'
 
-const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, eventsMoreButton, displayMoreEvents, eventsList}) => {
+const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMoreEvents, eventsList}) => {
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
-
+    
     const displayComponent = (eventsHaflDay) => {
+        console.log("eventsHaflDay", eventsHaflDay)
         return (
             <>
             { 
                 eventsHaflDay && 
-                    eventsHaflDay.length < 3 &&
+                    eventsHaflDay.length <= 2 &&
                     eventsHaflDay.map((eventByHalf, index) => {
                         return <EventCard
                             eventByHalf={eventByHalf} 
@@ -24,8 +25,8 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, eventsMoreB
                     })
             }
             { 
-                eventsHaflDay && 
-                    eventsHaflDay.length > 2 &&
+                eventsHaflDay && stepType === "week" &&
+                    eventsHaflDay.length >= 3 &&
                 <>
                     <EventCard
                         eventByHalf={eventsHaflDay[0]} 
@@ -34,7 +35,30 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, eventsMoreB
                         stepType={stepType} 
                         key={0}
                     />
-                    <div id={`button-${eventsHaflDay[0].id}`} className="moreButton" onClick={() => displayMoreEvents(eventsHaflDay)}>
+                    <EventCard
+                        eventByHalf={eventsHaflDay[1]} 
+                        index={0} 
+                        selectEvent={selectEvent} 
+                        stepType={stepType} 
+                        key={0}
+                    />
+                    <div className={`moreButton button-${stepType}`} onClick={() => displayMoreEvents(eventsHaflDay)}>
+                        <div>...</div> 
+                    </div>
+                </>
+            }
+            { 
+                eventsHaflDay && stepType === "month" &&
+                    eventsHaflDay.length >= 3 &&
+                <>
+                    <EventCard
+                        eventByHalf={eventsHaflDay[0]} 
+                        index={0} 
+                        selectEvent={selectEvent} 
+                        stepType={stepType} 
+                        key={0}
+                    />
+                    <div className={`moreButton button-${stepType}`} onClick={() => displayMoreEvents(eventsHaflDay)}>
                         <div>...</div> 
                     </div>
                 </>
@@ -42,10 +66,7 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, eventsMoreB
             </>
         )
     }
-
-    // console.log("eventAfternoon", eventAfternoon)
-    // console.log("eventMorning", eventMorning)
-    // console.log("eventsMoreButton", eventsMoreButton)
+    console.log("eventsList", eventsList)
     return (
             <div className={`events-container ${stepType}-cont`}>
                 <div className={`morning-container ${stepType}-mor`}>

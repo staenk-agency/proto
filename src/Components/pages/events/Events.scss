@@ -8,6 +8,7 @@
         overflow-y: auto;
         display: flex;
         flex-direction: column;
+        
     }
     .afternoon-container{
         grid-row-start: 2;
@@ -34,6 +35,23 @@
         cursor: pointer;
         background: $greyBackground;
     }
+    .button-month{
+
+    }
+    .button-week{
+        // position: relative;
+        margin: 0 auto;
+        // top: 90px;
+        // background: aliceblue;
+
+        div{
+            font-size:1.6em;
+        }
+    }
+    .button-day{
+
+    }
+
 }
 .month-cont{
     grid-row-start: 2;
@@ -56,8 +74,10 @@
     grid-template-rows: 1fr 1fr;
     .week-mor{
         margin: 2.5px 0;
+        justify-content: space-around;
     }
     .week-aft{
         margin: 2.5px 0;
+        justify-content: space-around;
     }
 }

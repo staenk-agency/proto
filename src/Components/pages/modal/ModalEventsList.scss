@@ -20,7 +20,8 @@
     animation-name: animatetop;
     animation-duration: 0.5s;
     box-shadow: 3px 1px 16px 6px rgba(0, 0, 0, 0.17);
-    
+    border-radius: 15px;
+
     /* Modal Header */
     .modal-events-header {
         // border-radius: 10px 10px 0 0;
@@ -43,7 +44,7 @@
     }
     /* Modal Body */
     .modal-events-body {
-        // border-radius:  0 0 10px 10px;
+        border-radius:  0 0 10px 10px;
         padding: 2px 16px;
         background: $whiteSnow;
     }

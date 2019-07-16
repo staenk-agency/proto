@@ -1,5 +1,6 @@
 import React from 'react';
 import '../modal/ModalEventsList.scss'
+import moment from 'moment'
 
 import EventCard from '../events/EventCard'
 

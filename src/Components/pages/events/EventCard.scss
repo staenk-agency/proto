@@ -15,11 +15,16 @@
     display: flex;
     align-items: center;
     font-size: 0.8em;
+    
     .eventFormat{
         margin: auto;
         text-align: center;
         padding: 2px;
     }
+}
+.eventView-week{
+    position: relative;
+    top: 11px;
 }
 
 .eventView:hover{
@@ -36,9 +41,10 @@
 }
 
 .content{
-    // border: 1px solid grey;
+    border: 0.2px solid grey;
     background: $whiteSnow;
     margin: 0 8px;
+    height:92px;
 
     .eventAccountPic{
         // border: 0.5px solid grey;

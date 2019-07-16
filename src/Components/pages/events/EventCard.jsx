@@ -6,7 +6,7 @@ import EventDetailed from './EventDetailed'
 import {useEventContent} from './EventsHook.js'
 
 const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
-    const [eventContentDisplayed, text, displayContent] = useEventContent(eventByHalf.id)
+    const [eventContentDisplayed, text] = useEventContent(eventByHalf.id)
     return (
         <>
         <div className="event-view">
@@ -17,7 +17,7 @@ const EventCard = ({selectEvent, eventByHalf, index, stepType}) => {
             <div 
             onClick={() => selectEvent(eventByHalf)} 
             key={'eventHalf' + index} 
-            className={`eventView validated-${eventByHalf.status.isValidated} process-${eventByHalf.status.isInProcess} notValidated-${eventByHalf.status.isNotValidated}`}>
+            className={`eventView validated-${eventByHalf.status.isValidated} process-${eventByHalf.status.isInProcess} notValidated-${eventByHalf.status.isNotValidated} eventView-${stepType}`}>
                 <EventsIcon eventByHalf={eventByHalf} />
                 <p className="eventFormat month">{eventByHalf.date.mDate.format('kk:mm')}</p>
             </div>
