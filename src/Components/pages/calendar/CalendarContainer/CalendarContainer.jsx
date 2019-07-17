@@ -31,7 +31,7 @@ export class CalendarContainer extends Component {
             modalOpened: false,     // open or close the modal
             commentInput: false,    // display or hide the comment text area 
             comment: '',        // save the comment 
-            eventsMoreButton: false,
+            eventsListModal: false,
             eventsList: [],
         }
     }
@@ -75,14 +75,14 @@ export class CalendarContainer extends Component {
 
     displayMoreEvents = (list) => {
         this.setState({
-            eventsMoreButton: !this.state.eventsMoreButton,
+            eventsListModal: !this.state.eventsListModal,
             eventsList: list
         })
     }
 
     selectEvent = (event) => {
         if(event){
-            this.setState({eventSelected: event, eventsMoreButton:false})
+            this.setState({eventSelected: event, eventsListModal:false})
         }
         this.toggleModal()
     }
@@ -125,7 +125,7 @@ export class CalendarContainer extends Component {
                 stepType={this.state.stepType} 
                 allEventsfromContext={this.state.allEventsfromContext}
                 toggleModal={this.toggleModal}
-                eventsMoreButton={this.state.eventsMoreButton}
+                eventsListModal={this.state.eventsListModal}
                 displayMoreEvents={this.displayMoreEvents}
                 eventsList={this.state.eventsList}
             />
@@ -178,7 +178,7 @@ export class CalendarContainer extends Component {
                     commentInput={this.state.commentInput}
                 />
                 <ModalEventsList
-                    eventsMoreButton={this.state.eventsMoreButton}
+                    eventsListModal={this.state.eventsListModal}
                     displayMoreEvents={this.displayMoreEvents}
                     eventsList={this.state.eventsList}
                     selectEvent={this.selectEvent}

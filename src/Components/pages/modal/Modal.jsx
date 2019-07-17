@@ -14,6 +14,7 @@ const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, h
                         eventSelected && 
                         <>
                         <div className="body-text">
+                            <div>
                             <h2>{eventSelected.title} </h2>
                             <h3>{eventSelected.date.mDate.format("DD/MM/YY kk:mm")}</h3>
                             <p>{eventSelected.shortDescription}</p>
@@ -25,8 +26,11 @@ const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, h
                                 </>
         
                             }
+                            </div>
                         </div>
-                            <img className="modal-body-picture" src={eventSelected.account.picture} alt={eventSelected.account.name} />
+                        <div className="body-picture">
+                            <img className="img-body-picture" src={eventSelected.account.picture} alt={eventSelected.account.name} />
+                        </div>
                         </>
                     }
                 </div>
@@ -43,7 +47,7 @@ const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, h
                         commentInput &&
                         <form onSubmit={(e) => handleSubmit(e, eventSelected)}>
                             <label>
-                            Commentaire : 
+                                <p>Commentaire :</p>
                                 <textarea 
                                     value={comment} 
                                     onChange={handleChange} 

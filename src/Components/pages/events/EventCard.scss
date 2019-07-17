@@ -31,13 +31,13 @@
     background: rgb(88, 94, 93)
 }
 .validated-true{
-    background:rgb(10, 193, 71);
+    background: $green;
 }
 .notValidated-true{
-    background: red;
+    background: $red;
 }
 .process-true{
-    background: rgb(0, 152, 255);
+    background: $blue;
 }
 
 .content{
@@ -47,7 +47,6 @@
     height:92px;
 
     .eventAccountPic{
-        // border: 0.5px solid grey;
         border-radius: 25px;
         width: 28px;
         height:28px;

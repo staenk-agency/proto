@@ -9,7 +9,7 @@ import {filterEventsByView, filterEventsByDay} from '../../events/EventsUtils.js
 const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate];
 }
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, eventsMoreButton, displayMoreEvents, eventsList}) => {
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, eventsListModal, displayMoreEvents, eventsList}) => {
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
@@ -25,6 +25,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     <button className="btn next month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-chevron-right"/></button>
                     <button className="btn next year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-right"/></button>
                 </div>
+                    {/* <p> {currentMoment.clone().format('dddd DD MMMM')}</p> */}
             </div>
                     <hr/>
                     <div className="grid-dayName">
@@ -48,7 +49,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                                     statusSelected={statusSelected} 
                                     eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} 
                                     stepType={stepType}
-                                    eventsMoreButton={eventsMoreButton}
+                                    eventsListModal={eventsListModal}
                                     displayMoreEvents={displayMoreEvents}
                                     eventsList={eventsList}
                                 />

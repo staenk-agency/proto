@@ -4,7 +4,7 @@ import Events from '../../events/Events'
 
 import {filterByStatus} from '../../events/EventsUtils.js'
 
-const DayMonthView = ({day, selectEvent, eventByDay, statusSelected, stepType, eventsMoreButton, displayMoreEvents, eventsList}) => {
+const DayMonthView = ({day, selectEvent, eventByDay, statusSelected, stepType, eventsListModal, displayMoreEvents, eventsList}) => {
 	let dayOfWeek = day.isoWeekday() -1;		//use to have the correct position in the grid, isoWeekday display days between 1 and 7
     
     return (
@@ -16,7 +16,7 @@ const DayMonthView = ({day, selectEvent, eventByDay, statusSelected, stepType, e
                 eventsFilteredByStatus={filterByStatus(eventByDay, statusSelected)} 
                 selectEvent={selectEvent} 
                 stepType={stepType} 
-                eventsMoreButton={eventsMoreButton} 
+                eventsListModal={eventsListModal} 
                 displayMoreEvents={displayMoreEvents}
                 eventsList={eventsList}
                 />

@@ -1,22 +1,27 @@
 // colors
 $greenTurquoise : #95DDDA;
 $violet : #3A3A5E;
-$green : rgb(10, 193, 71);
-$red : red;
-$blue : rgb(0, 152, 255);
+$green : #8BC52B;
+$red : #E13B21;
+$blue : #5DBFD1;
 $white : #f1f1f1;
 $whiteSnow: #FFFFFF;
 $greyBackground: #f4f3f8;
 $border-grey: rgba(192, 190, 190, 0.582);
 $black : #333333;
 
+// background-image: linear-gradient(to right, #62bdd1, #4ac6d3, #2ecfd0, #17d7c8, #21debb);
+
 // color hover
 $violetHover : #63637F;
 
 
 // background over
-$greenBackground : linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
 
+// $greenBackground : linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+$greenBackground : linear-gradient(to right, #62bdd1, #4ac6d3, #2ecfd0, #17d7c8, #21debb);
+$greenBackgroundHover : linear-gradient(to right, #7ecfe1, #70d6e1, #64dcde, #5de2d8, #5ee8ce);
+$violetBackground : linear-gradient(to right, #815a9b, #775c96, #6f5e90, #675f89, #625f81);
 // other
 $widthInput : 80px;
 

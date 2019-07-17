@@ -1,13 +1,13 @@
 import React from 'react';
 import '../modal/ModalEventsList.scss'
-import moment from 'moment'
 
 import EventCard from '../events/EventCard'
+// import EventCardModal from '../events/EventCardModal'
 
-const ModalEventsList = ({eventsMoreButton, displayMoreEvents, eventsList, selectEvent, stepType}) => {
+const ModalEventsList = ({eventsListModal, displayMoreEvents, eventsList, selectEvent, stepType}) => {
     console.log("eventsList", eventsList)
     return (
-        eventsMoreButton &&
+        eventsListModal &&
             <div className="modal-events">
                 <div className="modal-events-content">
                     <div className="modal-events-header">
@@ -23,7 +23,8 @@ const ModalEventsList = ({eventsMoreButton, displayMoreEvents, eventsList, selec
                                         selectEvent={selectEvent} 
                                         stepType={stepType} 
                                         key={index}
-                                    />
+                                        eventsListModal={eventsListModal}
+                                        />
                                 })
                         }
                         </div>
