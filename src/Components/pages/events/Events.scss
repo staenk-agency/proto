@@ -8,7 +8,6 @@
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        
     }
     .afternoon-container{
         grid-row-start: 2;
@@ -17,41 +16,30 @@
         flex-direction: column;
     }
     .moreButton{
-    border-radius: 25px;
-    width: 30%;
-    margin: auto;
-    border: none;
-    background: none;
-    // justify-self: center;
+        border-radius: 25px;
+        width: 30%;
+        margin: auto;
+        border: none;
+        background: none;
     
-    div{
-        text-align: center;
-        color:$greenTurquoise;
-        font-size:1.2em;
-        margin: 0 auto;
-    }
+        div{
+            text-align: center;
+            color:$greenTurquoise;
+            font-size:1.2em;
+            margin: 0 auto;
+        }
     }
     .moreButton:hover{
         cursor: pointer;
         background: $greyBackground;
     }
-    .button-month{
-
-    }
     .button-week{
-        // position: relative;
         margin: 0 auto;
-        // top: 90px;
-        // background: aliceblue;
 
         div{
             font-size:1.6em;
         }
     }
-    .button-day{
-
-    }
-
 }
 .month-cont{
     grid-row-start: 2;

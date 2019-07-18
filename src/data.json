@@ -15,6 +15,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -39,6 +45,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -63,6 +75,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -87,6 +105,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -111,6 +135,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -135,6 +165,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -159,6 +195,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -183,6 +225,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -207,6 +255,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -231,6 +285,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -255,6 +315,12 @@
             "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -279,6 +345,12 @@
             "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -303,6 +375,12 @@
             "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -327,6 +405,12 @@
             "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -351,6 +435,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -375,6 +465,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -399,6 +495,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -423,6 +525,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -447,6 +555,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -471,6 +585,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -495,6 +615,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -519,6 +645,12 @@
             "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -543,6 +675,12 @@
             "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -565,6 +703,12 @@
             "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -587,6 +731,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -609,6 +759,12 @@
             "picture": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-futurama-billy-west.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -631,6 +787,12 @@
             "picture": "https://vignette.wikia.nocookie.net/en.futurama/images/d/d4/Turanga_Leela.png/revision/latest?cb=20150218013044"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -653,6 +815,12 @@
             "picture": "https://arbordayblog.org/wp-content/uploads/2018/06/oak-tree-sunset-iStock-477164218-1080x608.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -674,6 +842,12 @@
             "picture": "https://arbordayblog.org/wp-content/uploads/2018/06/oak-tree-sunset-iStock-477164218-1080x608.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -695,6 +869,12 @@
             "picture": "http://fr.web.img6.acsta.net/newsv7/18/10/22/16/52/4454251.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -716,6 +896,12 @@
             "picture": "http://fr.web.img6.acsta.net/newsv7/18/10/22/16/52/4454251.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -737,6 +923,12 @@
             "picture": "http://fr.web.img6.acsta.net/newsv7/18/10/22/16/52/4454251.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -758,6 +950,12 @@
             "picture": "http://fr.web.img6.acsta.net/newsv7/18/10/22/16/52/4454251.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -779,6 +977,12 @@
             "picture": "http://fr.web.img6.acsta.net/newsv7/18/10/22/16/52/4454251.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -800,6 +1004,12 @@
             "picture": "http://fr.web.img6.acsta.net/newsv7/18/10/22/16/52/4454251.jpg"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -821,6 +1031,12 @@
             "picture": "https://www.digiforma.com/wp-content/uploads/2016/12/logo-digiforma-trans.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {
@@ -842,6 +1058,39 @@
             "picture": "https://www.digiforma.com/wp-content/uploads/2016/12/logo-digiforma-trans.png"
         },
         "socialNetworks": {
+            "network" : {
+                "facebook" : true,
+                "linkedin" : false,
+                "twitter" : false,
+                "instagram" : false
+            },
+            "url": "https://fr.linkedin.com/"
+        },
+        "status": {
+            "isValidated" : true,
+            "isInProcess" : false,
+            "isNotValidated": false
+        }
+    }, {
+        "date":{
+            "start": "20/07/19",
+            "startHour": "08h30"
+        },
+        "id": 37,
+        "title": "La réforme va-t-elle tuer les formateurs indépendants et petits organismes de formation ?",
+        "shortDescription": "Formation professionnelle",
+        "message": "La réforme de la formation professionnelle promulguée en septembre 2018 va inciter les CFIet petits organismes de formation à obtenir des certifications et à créer des parcours pédagogiques individualisés. Quelles sont les solutions permettant à ces acteurs de répondre à ces nouveaux enjeux ? Quels sont les dangers et opportunités de cette réforme pour les CFI et petits organismes de formation ? Pour répondre à ces questions, Digiformag a interrogé Martine Guerin, président de SYCFI",
+        "account": {
+            "name": "Digiforma",
+            "picture": "https://www.digiforma.com/wp-content/uploads/2016/12/logo-digiforma-trans.png"
+        },
+        "socialNetworks": {
+            "network" : {
+                "facebook" : false,
+                "linkedin" : true,
+                "twitter" : false,
+                "instagram" : false
+            },
             "url": "https://fr.linkedin.com/"
         },
         "status": {

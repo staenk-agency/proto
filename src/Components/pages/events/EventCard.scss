@@ -45,7 +45,9 @@
     background: $whiteSnow;
     margin: 0 8px;
     max-height: 100%;
+    height: 120px;
     min-height: 92px;
+    overflow: hidden;
 
     .eventAccountPic{
         border-radius: 25px;
@@ -55,6 +57,12 @@
     h3{
         font-size: 1em; 
         margin: 0;
+    }
+    p{
+        margin:0;
+        font-size: 0.9em;
+        text-align: justify;
+        font-weight: normal !important;
     }
     button{
         border: none;
@@ -74,6 +82,7 @@
 }
 .content:hover{
     background: $greyBackground;
+    cursor: pointer;
 }
 
 .isOpen-true{

@@ -24,7 +24,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                     <button className="btn previous year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-left"/></button>
                     <button className="btn previous month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-chevron-left"/></button>
                     {/* <p>Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('month').format('DD/MM/YY')}</p> */}
-                    <p> {displayNameFrench(currentStart.clone().format('M'), namesInFrench)} </p>
+                    <p> {displayNameFrench(currentStart.clone().format('M'), namesInFrench)} {currentStart.clone().format('YYYY')}</p>
                     <button className="btn next month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-chevron-right"/></button>
                     <button className="btn next year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-right"/></button>
                 </div>

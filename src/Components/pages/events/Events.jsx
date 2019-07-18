@@ -8,7 +8,6 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMore
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
     
     const displayComponent = (eventsHaflDay) => {
-        // console.log("eventsHaflDay", eventsHaflDay)
         return (
             <>
             { 
@@ -66,7 +65,6 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMore
             </>
         )
     }
-    // console.log("eventsList", eventsList)
     return (
             <div className={`events-container ${stepType}-cont`}>
                 <div className={`morning-container ${stepType}-mor`}>

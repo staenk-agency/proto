@@ -14,7 +14,7 @@
 .modal-events-content {
     padding: 0;
     margin: auto;
-    width: 430px;
+    width: 30%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.5s;
@@ -29,7 +29,7 @@
     .modal-events-header {
         display: flex;
         justify-content: space-between;
-        margin: 20px;
+        margin: 20px 20px 0 20px;
         color: $black;
         
         div{
@@ -55,6 +55,7 @@
         border-radius:  0 0 10px 10px;
         padding: 10px 20px;
     }
+    
 }
     /* Add Animation */
     @keyframes animatetop {
