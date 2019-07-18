@@ -4,11 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-image: linear-gradient(to bottom, #e5e4ea, #e2e1e7, #e0dfe5, #dddce2, #dbdae0);
-
+    background-image: $greypurpleBackground;
     h2{
         margin: 0 10px;
-        color : #95DDDA;
+        color : $greenTurquoise;
         padding: 10px;
     }
     ul{

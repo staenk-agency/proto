@@ -1,15 +1,12 @@
 import React from 'react';
 import './HorizontalNavBar.scss';
+import logo from '../../Pictures/Logo hor@2x.png'
 
 const HorizontalNavBar = () => {
         return (
             <div className="horizontalNavBar-container">
                 <div className="horizontalNavBar-elements">
-                    <h2>CheckMyPost</h2>
-                    <div className="horizontalNavBar-elements-profile">
-                        <i className="fas fa-user-circle profile"></i>
-                        <button className="profile">MON COMPTE</button>
-                    </div>
+                    <img src={logo} alt="Logo Check My Post"/>
                 </div>
             </div>
         )

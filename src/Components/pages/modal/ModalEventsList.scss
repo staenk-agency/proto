@@ -14,8 +14,7 @@
 .modal-events-content {
     padding: 0;
     margin: auto;
-    width: 500px;
-    height: 30%;
+    width: 430px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.5s;
@@ -23,27 +22,32 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background: $violetBackground;
-    color: $white;
+    background: $whiteSnow;
+    color: $black;
 
     /* Modal Header */
     .modal-events-header {
-        // border-radius: 10px 10px 0 0;
-        padding: 10px 20px;
-        display:flex;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+        color: $black;
+        
+        div{
+            border-radius: 25px;
+            background: $whiteSnow;
 
-        .close{
-            font-size: 1.4em;
-            padding: 10px 15px;
-        }
-
-        .close:hover{
-            cursor: pointer;
+            .close{
+                font-size: 1.2em;
+            }
+    
+            .close:hover{
+                cursor: pointer;
+            }
         }
 
         h2{
-            margin: auto;
-            font-size:1.1em;
+            margin: auto 0;
+            font-size: 1.2em;
         }
     }
     /* Modal Body */

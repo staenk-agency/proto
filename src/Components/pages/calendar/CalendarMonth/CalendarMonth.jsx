@@ -7,13 +7,15 @@ import {useInitCalendarState} from '../HooksCalendar.js'
 import {filterEventsByView, filterEventsByDay} from '../../events/EventsUtils.js'
 
 const displayNameFrench = (mDate, monthsName) => {
-    return monthsName[0].monthsName[mDate];
+    return monthsName[0].monthsName[mDate - 1];
 }
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, eventsListModal, displayMoreEvents, eventsList}) => {
+
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, eventsListModal, displayMoreEvents, eventsList, currentDate}) => {
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
-
+    // console.log("namesInFrench", namesInFrench[0].monthsName[currentStart.clone().format('M')])
+    // console.log("mDate", currentStart.clone().format('M'))
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">
@@ -21,7 +23,8 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                 <div className="all-btn">
                     <button className="btn previous year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-left"/></button>
                     <button className="btn previous month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-chevron-left"/></button>
-                    <p>Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('month').format('DD/MM/YY')}</p>
+                    {/* <p>Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('month').format('DD/MM/YY')}</p> */}
+                    <p> {displayNameFrench(currentStart.clone().format('M'), namesInFrench)} </p>
                     <button className="btn next month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-chevron-right"/></button>
                     <button className="btn next year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-right"/></button>
                 </div>
@@ -52,6 +55,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                                     eventsListModal={eventsListModal}
                                     displayMoreEvents={displayMoreEvents}
                                     eventsList={eventsList}
+                                    currentDate={currentDate}
                                 />
                             )
                         })

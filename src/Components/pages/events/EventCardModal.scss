@@ -1,0 +1,25 @@
+@import '../../variablesStyle.scss';
+
+.eventViewModal{
+    color: $white;
+    border-radius: 25px;
+    text-align: center;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    padding: 1px;
+    margin: 10px auto;
+
+    
+    .eventFormat{
+        margin: auto;
+        text-align: center;
+        padding: 2px;
+    }
+}
+
+.eventViewModal:hover{
+    cursor: pointer;
+    background: $border-grey;
+}

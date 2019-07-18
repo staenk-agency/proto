@@ -28,7 +28,7 @@
 }
 
 .eventView:hover{
-    background: rgb(88, 94, 93)
+    background: $darkGrayBackground;
 }
 .validated-true{
     background: $green;
@@ -44,7 +44,8 @@
     border: 0.2px solid grey;
     background: $whiteSnow;
     margin: 0 8px;
-    height:92px;
+    max-height: 100%;
+    min-height: 92px;
 
     .eventAccountPic{
         border-radius: 25px;
@@ -76,11 +77,11 @@
 }
 
 .isOpen-true{
-    background: $violet;
+    background: $purple;
     color: $white;
 }
 .events-content{
-    background: $violet;
+    background: $purple;
     color: $white;
 }
 .eventIcon{

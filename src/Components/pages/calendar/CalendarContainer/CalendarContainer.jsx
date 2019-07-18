@@ -128,6 +128,7 @@ export class CalendarContainer extends Component {
                 eventsListModal={this.state.eventsListModal}
                 displayMoreEvents={this.displayMoreEvents}
                 eventsList={this.state.eventsList}
+                currentDate={this.state.currentDate}
             />
         )
     }
@@ -156,6 +157,7 @@ export class CalendarContainer extends Component {
 
     render(){
         console.log("state : ", this.state)
+        console.log("currentDate", this.state.currentDate.format('DD/MM/YYYY'))
         return (
             <div className="grid-container">
                 <HorizontalNavBar />

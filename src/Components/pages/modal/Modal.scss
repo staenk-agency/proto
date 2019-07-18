@@ -14,12 +14,12 @@
         margin: 15% auto;
         padding: 0;
         width: 800px;
-        height: 45%;
+        height: 50%;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         animation-name: animatetop;
         animation-duration: 0.5s;
         border-radius: 15px;
-        background-image: $violetBackground;
+        background-image: $purpleBackground;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -107,7 +107,7 @@
             flex-direction: column;
             flex-wrap: wrap;
             margin: auto;
-            background-image: $violetBackground;
+            background-image: $purpleBackground;
             border-radius: 0 0 10px 10px;
             
             label{
@@ -117,7 +117,7 @@
                 textarea{
                 width: 100%;
                 outline: none;
-                font-family: 'Roboto',  'sans serif';
+                font-family: 'Lato',  'sans serif';
                 display: flex;
                 flex-direction: column;
                 }

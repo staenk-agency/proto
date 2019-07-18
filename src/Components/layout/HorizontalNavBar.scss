@@ -5,22 +5,12 @@
         display:flex;
         justify-content: space-around;
         flex-wrap: nowrap;
+        justify-content: flex-start;
 
-        .option{
-            margin: auto 0;
-        }
-        .horizontalNavBar-elements-profile{
-                margin: auto 0;
-                button{
-                    background-image: linear-gradient(to right, #8a7f97, #80778e, #766f85, #6c687d, #636074);
-                    border-radius: 25px;
-                    border: none;
-                    box-shadow: 3px 3px 15px #020202;
-                    padding: 6px;
-                    width: 115px;
-                    color: #f1f1f1;
-                    font-weight: bold;
-                }
+        img{
+            height: 55px;   
+            width: auto;
+            padding: 5px;
         }
 
     }
