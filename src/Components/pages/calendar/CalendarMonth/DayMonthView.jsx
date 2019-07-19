@@ -18,7 +18,7 @@ const DayMonthView = ({day, selectEvent, eventByDay, statusSelected, stepType, e
     const currentDateBackground = checkIfCurrentDate(day, currentDate)
     
     return (
-        <div className={'weekDay position' + dayOfWeek + `is-current-${currentDateBackground}`}>
+        <div className={`weekDay position${dayOfWeek} is-current-${checkIfCurrentDate(day, currentDate)}`}>
             <p className="day-display">{day.format("D")}</p>
             <Events 
                 key={'day' + day} 

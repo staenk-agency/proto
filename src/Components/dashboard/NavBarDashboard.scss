@@ -34,10 +34,10 @@
         }
         li:hover{
             cursor: pointer;
-            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+            background-image: $greenBackground;
         }
         li:target{
-            background-image: linear-gradient(to right, #7ba6d8, #74b6dd, #76c4de, #82d1dd, #95ddda);
+            background-image: $greenBackground;
         }
     }
 }

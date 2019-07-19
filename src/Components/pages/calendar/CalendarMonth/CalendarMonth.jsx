@@ -14,8 +14,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
-    // console.log("namesInFrench", namesInFrench[0].monthsName[currentStart.clone().format('M')])
-    // console.log("mDate", currentStart.clone().format('M'))
+    
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">
@@ -23,12 +22,10 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                 <div className="all-btn">
                     <button className="btn previous year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-left"/></button>
                     <button className="btn previous month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-chevron-left"/></button>
-                    {/* <p>Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('month').format('DD/MM/YY')}</p> */}
                     <p> {displayNameFrench(currentStart.clone().format('M'), namesInFrench)} {currentStart.clone().format('YYYY')}</p>
                     <button className="btn next month" onClick={() => nextStep('month', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-chevron-right"/></button>
                     <button className="btn next year" onClick={() => nextStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-right"/></button>
                 </div>
-                    {/* <p> {currentMoment.clone().format('dddd DD MMMM')}</p> */}
             </div>
                     <hr/>
                     <div className="grid-dayName">
