@@ -1,7 +1,6 @@
 @import '../../../variablesStyle.scss';
 
 .calendar-week-container{
-    height: 832px;
     margin: 0 20px;
     .weekDays{
         display: grid;
@@ -42,7 +41,7 @@
             background:rgba(192, 190, 190, 0.582);
         }
         .day-post{
-            height: 680px;
+            height: 670px;
             border: 1px dashed rgba(192, 190, 190, 0.582);
             margin: 2%;
             background: $whiteSnow; 

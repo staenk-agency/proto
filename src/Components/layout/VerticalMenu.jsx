@@ -54,11 +54,30 @@ const VerticalMenu = ({displayStatus}) => {
         <button className="add-btn"><i className="fas fa-plus"></i>AJOUTER UN COMPTE</button>
         <div className="verticalMenu-list-actions">
           <ul>
-              {/* <li><i className="fas fa-bell"></i>Notifications</li> */}
-              <li onClick={() => displayStatus('all')}><i className="fas fa-mail-bulk"></i>Tous les posts</li>
-              <li onClick={() => displayStatus('isValidated')}><i className="fas fa-check"></i>Post validés</li>
-              <li onClick={() => displayStatus('isInProcess')}><i className="far fa-clock"></i>En attente de validation</li>
-              <li onClick={() => displayStatus('isNotValidated')}><i className="fas fa-ban"></i>Posts non validés</li>
+              <li onClick={() => displayStatus('all')}>
+                <i className="fas fa-mail-bulk"></i>
+                <p>
+                  Tous les posts
+                </p>
+              </li>
+              <li onClick={() => displayStatus('isValidated')}>
+                <i className="fas fa-check"></i>
+                <p>
+                  Post validés
+                </p>
+              </li>
+              <li onClick={() => displayStatus('isInProcess')}>
+                <i className="far fa-clock"></i>
+                <p>
+                  En attente de validation
+                </p>
+              </li>
+              <li onClick={() => displayStatus('isNotValidated')}>
+                <i className="fas fa-ban"></i>
+                <p>
+                  Posts non validés
+                </p>
+              </li>
           </ul>
         
         </div>

@@ -91,7 +91,10 @@
                 border-bottom: 1px solid rgb(137, 137, 151);
                 width: 80%;
                 margin: 3% auto;
-                // margin: auto 0 auto auto;
+                display: flex;
+                align-content: center;
+                justify-content: flex-start;
+
                 .fa-bell{
                     color: $green;
                 }
@@ -109,12 +112,37 @@
                 }
                 i{
                     padding: 10px;
-                    margin-right: 10%;
+                    // margin-right: 10%;
+                }
+                p{
+                    margin: 0;
+                    align-self: center;
                 }
             }
             li:hover{
                 background-color: $purpleHover;
                 cursor: pointer;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1001px) {
+    h2{
+        font-size:0.9em;
+    }
+    .add-btn{
+        display: none;
+    }
+    .verticalMenu-list-actions{
+        ul{
+            li{
+                display: block;
+                p{
+                    display: none;
+                }
+                i{
+                    margin: auto;
+                }
             }
         }
     }

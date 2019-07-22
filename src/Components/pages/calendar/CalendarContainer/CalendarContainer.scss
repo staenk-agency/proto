@@ -32,3 +32,10 @@ hr{
     width: 95%;
     margin: 10px auto;
 }
+
+@media screen and (max-width: 1001px) {
+    .grid-container{
+        grid-template-columns: 0.25fr 4fr;
+        height: inherit;
+    }
+}

@@ -3,6 +3,7 @@ import './CalendarContainer.scss'
 import moment from 'moment'
 
 import VerticalMenu from '../../../layout/VerticalMenu'
+import VerticalMenuBurger from '../../../layout/VerticalMenuBurger'
 import HorizontalNavBar from '../../../layout/HorizontalNavBar'
 import CalendarMonth from '../CalendarMonth/CalendarMonth'
 import CalendarWeek from '../CalendarWeek/CalendarWeek'
@@ -33,6 +34,8 @@ export class CalendarContainer extends Component {
             comment: '',        // save the comment 
             eventsListModal: false,
             eventsList: [],
+            height: window.innerHeight,
+            width: window.innerWidth,
         }
     }
 
@@ -140,27 +143,35 @@ export class CalendarContainer extends Component {
         }
     }
 
-    // getSizePage = () => {
-    //     // let height = window.innerHeight
-    //     let width = window.innerWidth
-    //     // console.log("largeur", width)
-    //     // console.log("hauteur", height)
-    //     // let w = document.body.clientWidth;
-    //     // let h = document.body.clientHeight;
-    //     // console.log("page w", w)
-    //     // console.log("page h", h)
-    //     // this.setState({height : height})
-    // }
+    getSizePage = () => {
+        // let height = window.innerHeight
+        // let width = window.innerWidth
+        let w = document.body.clientWidth;
+        let h = document.body.clientHeight;
+        
+        this.setState({height : h, width: w})
+    }
     // componentDidMount(){
     //     this.getSizePage()
+    //     console.log('component did mount men !!!! ')
     // }
 
     render(){
         console.log("state : ", this.state)
-        console.log("currentDate", this.state.currentDate.format('DD/MM/YYYY'))
+        console.log("heigth : ", this.state.height)
+        console.log("width: ", this.state.width)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />
+                {/* {
+                    this.state.width > 1001 &&
+                    <VerticalMenu displayStatus={this.displayStatus}/>
+
+                }
+                {
+                    this.state.width <= 1001 &&
+                    <VerticalMenuBurger displayStatus={this.displayStatus}/>
+                } */}
                 <VerticalMenu displayStatus={this.displayStatus}/>
                 <div className="calendar-views">
                     <NavBarDashboard onChangeCalendarType={this.onChangeCalendarType} />
