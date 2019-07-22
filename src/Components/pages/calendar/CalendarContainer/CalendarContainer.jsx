@@ -3,7 +3,6 @@ import './CalendarContainer.scss'
 import moment from 'moment'
 
 import VerticalMenu from '../../../layout/VerticalMenu'
-import VerticalMenuBurger from '../../../layout/VerticalMenuBurger'
 import HorizontalNavBar from '../../../layout/HorizontalNavBar'
 import CalendarMonth from '../CalendarMonth/CalendarMonth'
 import CalendarWeek from '../CalendarWeek/CalendarWeek'
@@ -32,7 +31,7 @@ export class CalendarContainer extends Component {
             modalOpened: false,     // open or close the modal
             commentInput: false,    // display or hide the comment text area 
             comment: '',        // save the comment 
-            eventsListModal: false,
+            eventsListModalOpen: false,
             eventsList: [],
             height: window.innerHeight,
             width: window.innerWidth,
@@ -78,14 +77,14 @@ export class CalendarContainer extends Component {
 
     displayMoreEvents = (list) => {
         this.setState({
-            eventsListModal: !this.state.eventsListModal,
+            eventsListModalOpen: !this.state.eventsListModalOpen,
             eventsList: list
         })
     }
 
     selectEvent = (event) => {
         if(event){
-            this.setState({eventSelected: event, eventsListModal:false})
+            this.setState({eventSelected: event, eventsListModalOpen:false})
         }
         this.toggleModal()
     }
@@ -128,7 +127,7 @@ export class CalendarContainer extends Component {
                 stepType={this.state.stepType} 
                 allEventsfromContext={this.state.allEventsfromContext}
                 toggleModal={this.toggleModal}
-                eventsListModal={this.state.eventsListModal}
+                eventsListModalOpen={this.state.eventsListModalOpen}
                 displayMoreEvents={this.displayMoreEvents}
                 eventsList={this.state.eventsList}
                 currentDate={this.state.currentDate}
@@ -157,21 +156,12 @@ export class CalendarContainer extends Component {
     // }
 
     render(){
-        console.log("state : ", this.state)
-        console.log("heigth : ", this.state.height)
-        console.log("width: ", this.state.width)
+        // console.log("state : ", this.state)
+        // console.log("heigth : ", this.state.height)
+        // console.log("width: ", this.state.width)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />
-                {/* {
-                    this.state.width > 1001 &&
-                    <VerticalMenu displayStatus={this.displayStatus}/>
-
-                }
-                {
-                    this.state.width <= 1001 &&
-                    <VerticalMenuBurger displayStatus={this.displayStatus}/>
-                } */}
                 <VerticalMenu displayStatus={this.displayStatus}/>
                 <div className="calendar-views">
                     <NavBarDashboard onChangeCalendarType={this.onChangeCalendarType} />
@@ -191,7 +181,7 @@ export class CalendarContainer extends Component {
                     commentInput={this.state.commentInput}
                 />
                 <ModalEventsList
-                    eventsListModal={this.state.eventsListModal}
+                    eventsListModalOpen={this.state.eventsListModalOpen}
                     displayMoreEvents={this.displayMoreEvents}
                     eventsList={this.state.eventsList}
                     selectEvent={this.selectEvent}

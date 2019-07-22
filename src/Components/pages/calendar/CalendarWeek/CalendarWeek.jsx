@@ -18,7 +18,7 @@ const CalendarWeek = ({currentMoment, nextStep, previousStep, returnToCurrentDat
                     <button className="btn previous-week" onClick={() => previousStep('week', recomputeDays, 'd', 7, 'isoWeek')}>
                         <i className="fas fa-chevron-left"/>
                     </button>
-                    <p>Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('isoWeek').format('DD/MM/YY')}</p>
+                    <p className="content-nav">Du {currentStart.clone().format('DD/MM/YY')} au {currentStart.clone().endOf('isoWeek').format('DD/MM/YY')}</p>
                     <button className="btn next-week" onClick={() => nextStep('week', recomputeDays, 'd', 7, 'isoWeek')}>
                         <i className="fas fa-chevron-right"/>
                     </button>
