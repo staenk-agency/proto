@@ -30,8 +30,13 @@ describe('CalendarWeek', () => {
         expect(wrapper.find('.calendar-week-container').type()).toBe('div')
     })
     it('returns the week according to the currentWeek', () => {
-        const currentMoment=moment().utc()
         expect(wrapper.find('.content-nav').props().children[1]).toBe(currentMoment.format('DD/MM/YY'))
+        expect(wrapper.find('.content-nav').props().children[3]).toBe(currentMoment.clone().endOf('isoWeek').format('DD/MM/YY'))
+    })
+    it('returns the days according to the currentWeek', () => {
+        expect(wrapper.find(DayWeekView)).toHaveLength(7)
+        expect(wrapper.find(DayWeekView).first().prop('day').format('DD/MM/YY')).toBe(currentMoment.clone().format('DD/MM/YY'))
+        expect(wrapper.find(DayWeekView).last().prop('day').format('DD/MM/YY')).toBe(currentMoment.clone().endOf('isoWeek').format('DD/MM/YY'))
     })
     // it('has a button that returns the previous week', () => {
     //     expect(wrapper.find('.previous-week').type()).toBe('button')

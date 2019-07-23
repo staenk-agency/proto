@@ -4,7 +4,8 @@ import './Events.scss'
 import EventCard from './EventCard'
 import {filterEventsByHalf} from '../events/EventsUtils.js'
 
-const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMoreEvents, eventsList}) => {
+
+const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMoreEvents}) => {
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
     
     const displayComponent = (eventsHaflDay) => {
@@ -65,21 +66,20 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMore
             </>
         )
     }
-    return (
-            <div className={`events-container ${stepType}-cont`}>
-                <div className={`morning-container ${stepType}-mor`}>
-                    {
-                        displayComponent(eventMorning)
-                    }
-                </div>
-                <div className={`afternoon-container ${stepType}-aft`}>
-                    {
-                        displayComponent(eventAfternoon)
-                    }
-                </div>
-    </div>
-        
-    )
 
+    return (
+        <div className={`events-container ${stepType}-cont`}>
+            <div className={`morning-container ${stepType}-mor`}>
+                {
+                    displayComponent(eventMorning)
+                }
+            </div>
+            <div className={`afternoon-container ${stepType}-aft`}>
+                {
+                    displayComponent(eventAfternoon)
+                }
+            </div>
+        </div>
+    )
 }
 export default Events;

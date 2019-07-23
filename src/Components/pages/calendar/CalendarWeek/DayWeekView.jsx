@@ -1,5 +1,4 @@
 import React from 'react'
-// import EventsWeekView from '../../events/EventsWeek/EventsWeekView'
 import Events from '../../events/Events'
 
 import {filterByStatus} from '../../events/EventsUtils.js'

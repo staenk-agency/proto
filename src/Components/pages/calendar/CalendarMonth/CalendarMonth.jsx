@@ -10,7 +10,7 @@ const displayNameFrench = (mDate, monthsName) => {
     return monthsName[0].monthsName[mDate - 1];
 }
 
-const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, eventsListModal, displayMoreEvents, eventsList, currentDate}) => {
+const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDate, selectEvent, statusSelected, stepType, allEventsfromContext, displayMoreEvents}) => {
     const currentStart = currentMoment.clone().startOf('month')
     const [days, recomputeDays] = useInitCalendarState(currentStart.clone(), 'day', 'month')
     const eventsInCurrentMonth = filterEventsByView(currentStart, 'month', allEventsfromContext)
@@ -49,10 +49,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
                                     statusSelected={statusSelected} 
                                     eventByDay={filterEventsByDay(eventsInCurrentMonth, day)} 
                                     stepType={stepType}
-                                    eventsListModal={eventsListModal}
                                     displayMoreEvents={displayMoreEvents}
-                                    eventsList={eventsList}
-                                    currentDate={currentDate}
                                 />
                             )
                         })

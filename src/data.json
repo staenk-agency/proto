@@ -1019,7 +1019,7 @@
         }
     }, {
         "date":{
-            "start": "15/07/19",
+            "start": "23/07/19",
             "startHour": "10h30"
         },
         "id": 35,
@@ -1046,7 +1046,7 @@
         }
     }, {
         "date":{
-            "start": "17/07/19",
+            "start": "23/07/19",
             "startHour": "09h30"
         },
         "id": 36,
@@ -1073,8 +1073,8 @@
         }
     }, {
         "date":{
-            "start": "20/07/19",
-            "startHour": "08h30"
+            "start": "23/07/19",
+            "startHour": "15h30"
         },
         "id": 37,
         "title": "La réforme va-t-elle tuer les formateurs indépendants et petits organismes de formation ?",
