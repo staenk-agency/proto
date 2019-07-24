@@ -1,7 +1,7 @@
 import React from 'react';
 import './VerticalMenu.scss';
 
-const VerticalMenu = ({displayStatus}) => {
+const VerticalMenu = ({filterEventsStatus}) => {
   
   return (
     <div className="verticalMenu-container">
@@ -54,25 +54,25 @@ const VerticalMenu = ({displayStatus}) => {
         <button className="add-btn"><i className="fas fa-plus"></i>AJOUTER UN COMPTE</button>
         <div className="verticalMenu-list-actions">
           <ul>
-              <li onClick={() => displayStatus('all')}>
+              <li onClick={() => filterEventsStatus('all')}>
                 <i className="fas fa-mail-bulk"></i>
                 <p>
                   Tous les posts
                 </p>
               </li>
-              <li onClick={() => displayStatus('isValidated')}>
+              <li onClick={() => filterEventsStatus('isValidated')}>
                 <i className="fas fa-check"></i>
                 <p>
                   Post validés
                 </p>
               </li>
-              <li onClick={() => displayStatus('isInProcess')}>
+              <li onClick={() => filterEventsStatus('isInProcess')}>
                 <i className="far fa-clock"></i>
                 <p>
                   En attente de validation
                 </p>
               </li>
-              <li onClick={() => displayStatus('isNotValidated')}>
+              <li onClick={() => filterEventsStatus('isNotValidated')}>
                 <i className="fas fa-ban"></i>
                 <p>
                   Posts non validés

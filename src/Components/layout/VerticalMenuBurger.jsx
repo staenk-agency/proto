@@ -1,7 +1,7 @@
 import React from "react";
 import "./VerticalMenuBurger.scss";
 
-const VerticalMenu = ({ displayStatus }) => {
+const VerticalMenu = ({ filterEventsStatus }) => {
   return (
     <div className="verticalMenu-container">
       <div className="verticalMenu-title">
@@ -14,19 +14,19 @@ const VerticalMenu = ({ displayStatus }) => {
       </button>
       <div className="verticalMenu-list-actions">
         <ul>
-          <li onClick={() => displayStatus("all")}>
+          <li onClick={() => filterEventsStatus("all")}>
             <i className="fas fa-mail-bulk" />
             <p>Tous les posts</p>
           </li>
-          <li onClick={() => displayStatus("isValidated")}>
+          <li onClick={() => filterEventsStatus("isValidated")}>
             <i className="fas fa-check" />
             <p>Post validés</p>
           </li>
-          <li onClick={() => displayStatus("isInProcess")}>
+          <li onClick={() => filterEventsStatus("isInProcess")}>
             <i className="far fa-clock" />
             <p>En attente de validation</p>
           </li>
-          <li onClick={() => displayStatus("isNotValidated")}>
+          <li onClick={() => filterEventsStatus("isNotValidated")}>
             <i className="fas fa-ban" />
             <p>Posts non validés</p>
           </li>

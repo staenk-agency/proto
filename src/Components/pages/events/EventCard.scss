@@ -22,11 +22,6 @@
         padding: 2px;
     }
 }
-.eventView-week{
-    position: relative;
-    top: 11px;
-}
-
 .eventView:hover{
     background: $darkGrayBackground;
 }
@@ -110,4 +105,12 @@
 }
 .eventView:hover{
     cursor: pointer;
+}
+.eventView-week{
+    position: relative;
+    top: 11px;
+}
+.eventView-day{
+    width: 20%;
+    height: 20px;
 }

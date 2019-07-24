@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './CalendarContainer.scss'
+
 import moment from 'moment'
 
 import VerticalMenu from '../../../layout/VerticalMenu'
@@ -25,16 +26,14 @@ export class CalendarContainer extends Component {
             currentDate: currentMoment,     // display the currentDate with another color
             currentMoment: currentMoment,   // change the currentMoment during the navigation in the calendar
             allEventsfromContext: allEventsfromContext, // access to all the events 
-            stepType: 'month',      // changes when navigation between the different views of the calendar 
+            stepType: 'month',      // change when navigation between the different views of the calendar 
             eventSelected: null,    // display the selected event
-            statusSelected: 'all',  // changes when filter the display of events according to the status
+            statusSelected: 'all',  // change when filter the display of events according to the status
             modalOpened: false,     // open or close the more informations of events modal ("click on an event")
             commentInput: false,    // display or hide the comment text area 
             comment: '',        // save the comment in more informations modal
             eventsListModalOpen: false,     //open or close the eventList modal (with "..."")
             eventsList: [],     // received list of events to display in eventList modal
-            height: window.innerHeight,
-            width: window.innerWidth,
         }
     }
 
@@ -47,7 +46,7 @@ export class CalendarContainer extends Component {
     toggleCommentInput = () => {        // display or hide the text area for the comment in modal
         this.setState({commentInput: !this.state.commentInput})
     }
-    handleSubmit = (e, event) => {      // submit the comment and save it in the event
+    SubmitEventComment = (e, event) => {      // submit the comment and save it in the event
         e.preventDefault()
         event.comment = this.state.comment
         this.setState({comment : ''})
@@ -110,11 +109,11 @@ export class CalendarContainer extends Component {
         recomputeDays(moment().utc().startOf(startOf), stepArray, end)
     }
 
-    displayStatus = (status) => {
+    filterEventsStatus = (status) => {
         this.setState({statusSelected : status})
     }
 
-    displayCalendarView = (stepType) => {
+    displayCalendarView = (stepType) => {   //change calendar view according to stepType chosen
         const CalendarView = this.componentByType(stepType);
         return (
             <CalendarView
@@ -138,28 +137,11 @@ export class CalendarContainer extends Component {
             default : return CalendarDay;
         }
     }
-
-    getSizePage = () => {
-        // let height = window.innerHeight
-        // let width = window.innerWidth
-        let w = document.body.clientWidth;
-        let h = document.body.clientHeight;
-        
-        this.setState({height : h, width: w})
-    }
-    // componentDidMount(){
-    //     this.getSizePage()
-    //     console.log('component did mount men !!!! ')
-    // }
-
     render(){
-        // console.log("state : ", this.state)
-        // console.log("heigth : ", this.state.height)
-        // console.log("width: ", this.state.width)
         return (
             <div className="grid-container">
                 <HorizontalNavBar />
-                <VerticalMenu displayStatus={this.displayStatus}/>
+                <VerticalMenu filterEventsStatus={this.filterEventsStatus}/>
                 <div className="calendar-views">
                     <NavBarDashboard onChangeCalendarType={this.onChangeCalendarType} />
                     {
@@ -173,7 +155,7 @@ export class CalendarContainer extends Component {
                     toggleModal={this.toggleModal}
                     comment={this.state.comment}
                     handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
+                    SubmitEventComment={this.SubmitEventComment}
                     toggleCommentInput={this.toggleCommentInput}
                     commentInput={this.state.commentInput}
                 />

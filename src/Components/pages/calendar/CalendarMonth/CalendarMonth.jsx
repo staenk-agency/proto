@@ -18,7 +18,7 @@ const CalendarMonth = ({currentMoment, nextStep, previousStep, returnToCurrentDa
     return (
         <div className="calendar-month-container">
             <div className="calendar-nav">
-                <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}> <p>Aujourd'hui</p> <i className="fas fa-angle-double-right"/></button>
+                <button className="btn current-date" onClick={() => returnToCurrentDate(recomputeDays, 'd', 'month', 'month')}> <p>Aujourd'hui</p><i className="fas fa-angle-double-right"/></button>
                 <div className="all-btn">
                     <button className="btn previous year" onClick={() => previousStep('year', recomputeDays, 'd', 'month', 'month')}><i className="fas fa-angle-double-left"/></button>
                     <button className="btn previous month" onClick={() => previousStep('month', recomputeDays, 'd', 'month', 'month')}> <i className="fas fa-chevron-left"/></button>

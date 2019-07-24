@@ -1,7 +1,7 @@
 import React from 'react'
 import './Modal.scss'
 
-const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, handleSubmit, handleChange, toggleCommentInput, commentInput}) => {
+const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, SubmitEventComment, handleChange, toggleCommentInput, commentInput}) => {
     return (
         modalOpened &&
         <div className="modal">
@@ -45,7 +45,7 @@ const Modal = ({eventSelected, commentPost, modalOpened, toggleModal, comment, h
                     }
                     {
                         commentInput &&
-                        <form onSubmit={(e) => handleSubmit(e, eventSelected)}>
+                        <form onSubmit={(e) => SubmitEventComment(e, eventSelected)}>
                             <label>
                                 <p>Commentaire :</p>
                                 <textarea 

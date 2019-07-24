@@ -1,11 +1,66 @@
+@import '../../../variablesStyle.scss';
+
 .calendar-day-container{
+    margin: 0 20px;
     .calendar-day-button-and-date{
         display: flex;
         justify-items: center;
+        align-items: center;
+        div{
+            @include inputLeft();
+            @include inputRight();
+            @include calendarNavDiv();
+            width: 400px;
+            background: $whiteSnow;
+            padding: 2px;
+            margin: 10px;
+            border: none;
+            .previous-day{
+                @include inputLeft();
+            }
+            .next-day{
+                @include inputRight();
+            }
+            .btn{
+                @include calendarNavBtn();
+            }
+            .btn:hover{
+                background-image: $greenBackground;
+                cursor: pointer;
+            }
+            .btn:focus{
+                outline: none;
+            }
+            p{
+                margin: auto;
+                color: $greenTurquoise;
+                font-weight: bold;
+            }
+        }
+        .current-date{
+            @include inputBorder();
+            height: 42.16px;
+            background-image: $greenBackground;
+            color: $white;
+            font-weight: bold;
+            width: 150px;
+            margin: 0 20px;
+            display:flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .current-date:hover{
+            background: $lightGreenTurquoise;
+            cursor: pointer;
+        }
+        .current-date:focus{
+            outline: none;
+        }
     }
     .hour{
-        background: #f1f1f1;
+        background: $whiteSnow;
         padding: 10px;
+        margin:5px 0;
     }
     .hour:hover{
         background: rgb(139, 132, 132);

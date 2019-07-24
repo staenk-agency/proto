@@ -8,7 +8,13 @@ import {filterEventsByHalf} from '../events/EventsUtils.js'
 const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMoreEvents}) => {
     const [eventAfternoon, eventMorning] = filterEventsByHalf(eventsFilteredByStatus, day)
     
-    const displayComponent = (eventsHaflDay) => {
+    // the fontion below displays an EventCard if there is an event.
+    // eventsHalfDay represents a list of events, filter by half day (morning or afternoon)
+    // the different conditions controls the display in the screen :
+    // for calendar month view => max 1 event by half and button more events which opens modal
+    // for calendar week view => max 2 events by half and button more events which opens modal
+
+    const displayComponent = (eventsHaflDay) => {  
         return (
             <>
             { 
@@ -37,10 +43,10 @@ const Events = ({day, eventsFilteredByStatus, selectEvent, stepType, displayMore
                     />
                     <EventCard
                         eventByHalf={eventsHaflDay[1]} 
-                        index={0} 
+                        index={1} 
                         selectEvent={selectEvent} 
                         stepType={stepType} 
-                        key={0}
+                        key={1}
                     />
                     <div className={`moreButton button-${stepType}`} onClick={() => displayMoreEvents(eventsHaflDay)}>
                         <div>...</div> 

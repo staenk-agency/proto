@@ -1,6 +1,7 @@
 @import '../../../variablesStyle.scss';
 
 .calendar-month-container{
+    margin: 0 20px;
     .grid-dayName{
         display:grid;
         grid-template-columns: repeat(7, 1fr);
@@ -20,7 +21,6 @@
             grid-auto-rows: minmax(0,1fr);
             height: 670px;
             max-height: 670px;
-            margin: 0 20px;
             
         .weekDay:hover{
             background: rgb(213, 213, 216);
